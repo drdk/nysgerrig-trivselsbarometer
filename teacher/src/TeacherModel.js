@@ -19,13 +19,13 @@ export default class Model {
         this.database = firebase.database();
     }
 
-    createClassRoom(classCode, callback) {
+    createClassRoom(classCode, subject, callback) {
         this.database.ref('rooms/' + classCode).set({
-            timestamp: Date.now()
+            timestamp: Date.now(),
+            subject: subject
         });
 
-        var commentsRef = firebase.database().ref('rooms/' + classCode);
-        commentsRef.on('child_added', callback);
+        firebase.database().ref('rooms/' + classCode).on('child_added', callback);
     }
 
     getRandomInt(max) {

@@ -8,7 +8,7 @@ import Input, { InputLabel } from 'material-ui/Input';
 import { withStyles } from 'material-ui/styles';
 import Slide from 'material-ui/transitions/Slide';
 import PropTypes from 'prop-types';
-import Model from './Model.js';
+import TeacherModel from './TeacherModel.js';
 
 
 const styles = theme => ({
@@ -41,19 +41,22 @@ class CreatePage extends Component {
             classCode: undefined,
             subject: undefined,
             count: 0,
-            data: [],
+            data: []
         }
     }
 
     handleChildAdded(childData) {
-        this.state.data.push(childData.val());
-        this.setState({ count: this.state.count++ })
+        let val = childData.val();
+        if (typeof val === 'object') {
+            this.state.data.push(childData.val());
+            this.setState({ count: this.state.data.length })
+        }
     }
 
     handleCreateClick() {
-        let model = new Model();
+        let model = new TeacherModel();
         let classCode = model.getClassCode();
-        model.createClassRoom(classCode, (childData) => this.handleChildAdded(childData));
+        model.createClassRoom(classCode, this.state.subject, (childData) => this.handleChildAdded(childData));
         this.setState({ classCode: classCode });
     }
 
@@ -64,9 +67,8 @@ class CreatePage extends Component {
                 <FormControl fullWidth className={classes.control}>
                     <InputLabel htmlFor="subject">Emne:</InputLabel>
                     <Input
-                        id="subjectt"
+                        id="subject"
                         type="text"
-                        list="subjects"
                         value={this.state.subject}
                         placeholder="Eks: Hvordan har du det når du skal til dansk prøve ?"
                         onChange={(event) => this.setState({ subject: event.target.value })} />
