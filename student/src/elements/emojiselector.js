@@ -20,12 +20,12 @@ class EmojiSelector extends Component {
     this.css.appendChild(document.createTextNode(" \
     #{id} { border: solid 1px silver; display: inline-block; margin: 5px; padding: 5px; background-color: #fff; } \
     #{id} .overlay { position: fixed; z-index: 1; top: 0; right: 0; bottom: 0; left: 0; background-color: rgba(0, 0, 0, .8); } \
-    #{id} .childContainer { position: fixed; z-index: 2; top: 10%; right: 10%; bottom: 10%; left: 10%; overflow: auto; background-color: #fff; border: 1px solid silver; } \
-    #{id} .childContainer div { display: inline-block; width: 128px; height: 128px; } \
+    #{id} .childContainer { display: inline-block; position: fixed; z-index: 2; max-width: 90vw; max-height: 90vh; top: 50%; left: 50%; transform: translate(-50%, -50%); overflow: auto; background-color: #fff; border: 1px solid silver; display: flex; justify-content: space-evenly; flex-wrap: wrap; } \
+    #{id} .childContainer div { display: inline-block; width: 128px; height: 128px; margin: 5px; } \
     ".replace("{id}", this.id)));
   }
 
-  childSelected(data) {
+  childSelected(data) {    
     this.setState({
       open: false,
       selected: data
@@ -38,9 +38,12 @@ class EmojiSelector extends Component {
 
   componentWillMount() {
     this.injectCSS();
+
+    var selectedIndex = this.props.random ? Math.floor(Math.random() *  this.props.emojis.collection.length) : 0;
+
     this.setState({
       open: false,
-      selected: this.props.selected || this.props.emojis.collection[0]
+      selected: this.props.emojis.collection[selectedIndex]
     });
   }
 
@@ -51,14 +54,20 @@ class EmojiSelector extends Component {
     this.cleanupCSS();
   }
 
-  componentWillReceiveProps() {
-    this.setStateFromProps();
-  }
-
   open() {
+    if (this.props.clicksDisabled) {
+      return;
+    }
+    
     this.setState({
       open: true
-    })
+    });
+  }
+
+  close() {
+    this.setState({
+      open: false
+    });
   }
 
   render() {
@@ -68,7 +77,7 @@ class EmojiSelector extends Component {
       children = this.props.emojis.collection.map((emoji) => {
         return <Emoji key={emoji.name} selected={this.state.selected === emoji} data={emoji} clickHandler={this.childSelectedHandler} />
       });
-      childContainer = <div class="overlay"><div class="childContainer">{children}</div></div>;
+      childContainer = <div class="overlay" onClick={this.close.bind(this)}><div class="childContainer">{children}</div></div>;
     }
     
     return (
