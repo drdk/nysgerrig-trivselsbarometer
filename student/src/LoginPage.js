@@ -9,6 +9,10 @@ import { withStyles } from 'material-ui/styles';
 import Slide from 'material-ui/transitions/Slide';
 import PropTypes from 'prop-types';
 import StudentModel from './StudentModel.js';
+import EmojiSelector from './elements/emojiselector';
+import smileyemojis from './elements/smileyemojis.json';
+import animalemojis from './elements/animalemojis.json';
+import foodemojis from './elements/foodemojis.json';
 
 
 const styles = theme => ({
@@ -57,6 +61,9 @@ class LoginPage extends Component {
         const { classes } = this.props;
         return (
             <div className={classes.root}>
+                <EmojiSelector emojis={smileyemojis} />
+                <EmojiSelector emojis={animalemojis} />
+                <EmojiSelector emojis={foodemojis} />
                 <FormControl fullWidth className={classes.control}>
                     <InputLabel htmlFor="classcode">Klassekode:</InputLabel>
                     <Input
