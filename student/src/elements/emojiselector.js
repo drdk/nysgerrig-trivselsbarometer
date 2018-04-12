@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import "./emojiselector.css";
 
 var idSeed = 1;
 
