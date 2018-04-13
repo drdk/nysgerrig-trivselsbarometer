@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Button from 'material-ui/Button';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import Badge from 'material-ui/Badge';
-import { FormControl } from 'material-ui/Form';
-import Input, { InputLabel } from 'material-ui/Input';
-import { withStyles } from 'material-ui/styles';
+import {FormControl} from 'material-ui/Form';
+import Input, {InputLabel} from 'material-ui/Input';
+import {withStyles} from 'material-ui/styles';
 import Slide from 'material-ui/transitions/Slide';
 import PropTypes from 'prop-types';
 import StudentModel from './StudentModel.js';
@@ -13,7 +13,6 @@ import EmojiSelector from './elements/emojiselector';
 import smileyemojis from './elements/smileyemojis.json';
 import animalemojis from './elements/animalemojis.json';
 import foodemojis from './elements/foodemojis.json';
-
 
 const styles = theme => ({
     root: {
@@ -30,7 +29,8 @@ const styles = theme => ({
     },
     badge: {
         margin: '10px'
-    }
+    },
+    emojiButton: {}
 });
 
 /* CreatePage.propTypes = {
@@ -49,7 +49,7 @@ class LoginPage extends Component {
 
     handleLogin(loginData) {
         let val = loginData.val();
-        this.setState({ subject: val.subject });        
+        this.setState({subject: val.subject});
     }
 
     handleCreateClick() {
@@ -58,12 +58,12 @@ class LoginPage extends Component {
     }
 
     render() {
-        const { classes } = this.props;
+        const {classes} = this.props;
         return (
             <div className={classes.root}>
-                <EmojiSelector emojis={smileyemojis} />
-                <EmojiSelector emojis={animalemojis} />
-                <EmojiSelector emojis={foodemojis} />
+                <EmojiSelector emojis={smileyemojis} preload={true}/>
+                <EmojiSelector emojis={animalemojis} preload={true}/>
+                <EmojiSelector emojis={foodemojis} preload={true}/>
                 <FormControl fullWidth className={classes.control}>
                     <InputLabel htmlFor="classcode">Klassekode:</InputLabel>
                     <Input
@@ -71,23 +71,29 @@ class LoginPage extends Component {
                         type="text"
                         value={this.state.classcode}
                         placeholder="Skriv klassekode som du har fået af din lærer"
-                        onChange={(event) => this.setState({ classCode: event.target.value })} />
+                        onChange={(event) => this.setState({classCode: event.target.value})}/>
                 </FormControl>
-                <Button className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.handleCreateClick()}>Start</Button>
+                <Button
+                    className={"alignRight " + classes.control}
+                    variant="raised"
+                    color="primary"
+                    onClick={() => this.handleCreateClick()}>Start</Button>
                 <FormControl fullWidth className={classes.control}>
-                    <Slide direction="up" in={this.state.subject !== undefined} mountOnEnter unmountOnExit>
+                    <Slide
+                        direction="up"
+                        in={this.state.subject !== undefined}
+                        mountOnEnter
+                        unmountOnExit>
                         <Paper className={classes.paper} elevation={4}>
                             <Typography variant="headline" component="h3">
                                 {this.state.subject}
-                             </Typography>                           
+                            </Typography>
                         </Paper>
                     </Slide>
-                </FormControl>                
+                </FormControl>
             </div>
         );
     }
 }
 
-
 export default withStyles(styles)(LoginPage);
-
