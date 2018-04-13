@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import logo from './ic_child_care_white_24px.svg';
 import './App.css';
 import CreatePage from './CreatePage';
+import Store from './Store';
+import { observer } from 'mobx-react';
 
 class App extends Component {
   render() {
@@ -10,7 +12,7 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Trivselsbarometer</h1>
-          Oprettelse
+          Oprettelse {Store.myData}
         </header>
         <CreatePage />
       </div>
@@ -18,4 +20,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default observer(App);
