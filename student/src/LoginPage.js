@@ -53,17 +53,29 @@ class LoginPage extends Component {
     }
 
     handleCreateClick() {
-        let model = new StudentModel();
-        let subject = model.login(this.state.classCode, (loginData) => this.handleLogin(loginData));
+        let classCode = this.emoji1Name + this.emoji2Name + this.emoji3Name;
+        new StudentModel().login(classCode, (loginData) => this.handleLogin(loginData));
+    }
+
+    emoji1Changed(data) {
+        this.emoji1Name = data.name;
+    }
+
+    emoji2Changed(data) {
+        this.emoji2Name = data.name;
+    }
+
+    emoji3Changed(data) {
+        this.emoji3Name = data.name;
     }
 
     render() {
         const {classes} = this.props;
         return (
             <div className={classes.root}>
-                <EmojiSelector emojis={smileyemojis} preload={true}/>
-                <EmojiSelector emojis={animalemojis} preload={true}/>
-                <EmojiSelector emojis={foodemojis} preload={true}/>
+                <EmojiSelector onChange={this.emoji1Changed.bind(this)} emojis={smileyemojis} preload={true}/>
+                <EmojiSelector onChange={this.emoji2Changed.bind(this)} emojis={animalemojis} preload={true}/>
+                <EmojiSelector onChange={this.emoji3Changed.bind(this)} emojis={foodemojis} preload={true}/>
                 <FormControl fullWidth className={classes.control}>
                     <InputLabel htmlFor="classcode">Klassekode:</InputLabel>
                     <Input

@@ -33,8 +33,8 @@ export default class Model {
     }
 
     getClassCode() {
-        let words = ['hest', 'ko', 'ged', 'giraf', 'løve', 'kat', 'gris', 'hund', 'får', 'tiger'];
-        let coulors = ['grøn', 'rød', 'gul', 'hvid', 'orange', 'lilla', 'sort', 'blå', 'brun', 'rosa'];
-        return words[this.getRandomInt(words.length)] + this.getRandomInt(100) + coulors[this.getRandomInt(coulors.length)];
+        let words = ['heste', 'køer', 'geder', 'girafer', 'løver', 'katte', 'grise', 'hunde', 'får', 'tigere'];
+        let colors = ['grønne', 'røde', 'gule', 'hvide', 'orange', 'lilla', 'sorte', 'blå', 'brune', 'rosa'];
+        return  (this.getRandomInt(99) + 1) + ' ' + colors[this.getRandomInt(colors.length)] + ' ' + words[this.getRandomInt(words.length)];
     }
 }

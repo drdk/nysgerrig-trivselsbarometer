@@ -9,6 +9,10 @@ import { withStyles } from 'material-ui/styles';
 import Slide from 'material-ui/transitions/Slide';
 import PropTypes from 'prop-types';
 import TeacherModel from './TeacherModel.js';
+import EmojiSelector from './elements/emojiselector';
+import smileyemojis from './elements/smileyemojis.json';
+import animalemojis from './elements/animalemojis.json';
+import foodemojis from './elements/foodemojis.json';
 
 
 const styles = theme => ({
@@ -54,10 +58,33 @@ class CreatePage extends Component {
     }
 
     handleCreateClick() {
-        let model = new TeacherModel();
-        let classCode = model.getClassCode();
-        model.createClassRoom(classCode, this.state.subject, (childData) => this.handleChildAdded(childData));
-        this.setState({ classCode: classCode });
+        this.setState({
+            classCode: "",
+            emojiTimestamp: Date.now()
+        });
+    }
+
+    classCodeChanged() {
+        if (this.emoji1Name && this.emoji2Name && this.emoji3Name) {
+            let classCode = this.emoji1Name + this.emoji2Name + this.emoji3Name;
+            this.setState({ classCode: classCode });
+            new TeacherModel().createClassRoom(classCode, this.state.subject, (childData) => this.handleChildAdded(childData));
+        }
+    }
+
+    emoji1Changed(data) {
+        this.emoji1Name = data.name;
+        this.classCodeChanged();
+    }
+
+    emoji2Changed(data) {
+        this.emoji2Name = data.name;
+        this.classCodeChanged();
+    }
+
+    emoji3Changed(data) {
+        this.emoji3Name = data.name;
+        this.classCodeChanged();
     }
 
     render() {
@@ -84,7 +111,9 @@ class CreatePage extends Component {
                             <Typography component="p">
                                 Deltagerne kan gå til dr.dk/trivselsbarometer og bruge klassekoden :
                             </Typography>
-                            <Typography color="primary">{this.state.classCode}</Typography>
+                            <EmojiSelector timestamp={this.state.emojiTimestamp} onChange={this.emoji1Changed.bind(this)} emojis={smileyemojis} random={true} clickDisabled={true} />
+                            <EmojiSelector timestamp={this.state.emojiTimestamp} onChange={this.emoji2Changed.bind(this)} emojis={animalemojis} random={true} clickDisabled={true} />
+                            <EmojiSelector timestamp={this.state.emojiTimestamp} onChange={this.emoji3Changed.bind(this)} emojis={foodemojis} random={true} clickDisabled={true} />
                             <Typography component="p">
                                 Antal der har svaret:
                             </Typography>

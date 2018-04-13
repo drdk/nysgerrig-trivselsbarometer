@@ -41,6 +41,12 @@ class EmojiSelector extends Component {
     this.css.parentNode.removeChild(this.css);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.timestamp && this.props.timestamp !== nextProps.timestamp) {
+      this.select();
+    }
+  }
+
   componentWillMount() {
     this.injectCSS();
     this.select();
