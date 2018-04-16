@@ -15,6 +15,7 @@ import animalemojis from '../assets/animalemojis.json';
 import foodemojis from '../assets/foodemojis.json';
 import Store from '../Store';
 import { observer } from 'mobx-react';
+import { ListItemAvatar } from 'material-ui';
 
 const styles = theme => ({
     root: {
@@ -51,13 +52,15 @@ class LoginPage extends Component {
 
     handleLogin(loginData) {
         let val = loginData.val();
-        this.setState({subject: val.subject});
+        if (val.subject) {
+            this.setState({subject: val.subject});
+            Store.screen = "condition";
+        }
     }
 
     handleCreateClick() {
         let classCode = this.emoji1Name + this.emoji2Name + this.emoji3Name;
         new StudentModel().login(classCode, (loginData) => this.handleLogin(loginData));
-        Store.screen = "state";
     }
 
     emoji1Changed(data) {
