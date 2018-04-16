@@ -57,7 +57,7 @@ class LoginPage extends Component {
     handleCreateClick() {
         let classCode = this.emoji1Name + this.emoji2Name + this.emoji3Name;
         new StudentModel().login(classCode, (loginData) => this.handleLogin(loginData));
-        Store.myData = "Data fra login knap";
+        Store.screen = "state";
     }
 
     emoji1Changed(data) {

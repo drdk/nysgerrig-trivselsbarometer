@@ -3,8 +3,9 @@ import { extendObservable } from 'mobx';
 class MyStore {
     constructor() {
         extendObservable(this, {
-            myData: 'hi'
-        });
+            screen: 'login',
+            myDate: 'defaultData'
+        }); 
     }
 }
 
