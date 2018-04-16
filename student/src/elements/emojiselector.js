@@ -133,9 +133,7 @@ class Emoji extends Component {
 
   render() {
     return (
-      <div onClick={this.onClick.bind(this)}>
-        <img alt={this.props.data.name} src={this.generateSource()} />
-      </div>
+        <img alt={this.props.data.name} src={this.generateSource()} onClick={this.onClick.bind(this)} />
     );
   }
 }

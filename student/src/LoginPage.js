@@ -78,15 +78,19 @@ class LoginPage extends Component {
             <div className={classes.root}>
             
                 <FormControl fullWidth>
-                    <EmojiSelector onChange={this.emoji1Changed.bind(this)} emojis={smileyemojis} preload={true}/>
-                    <EmojiSelector onChange={this.emoji2Changed.bind(this)} emojis={animalemojis} preload={true}/>
-                    <EmojiSelector onChange={this.emoji3Changed.bind(this)} emojis={foodemojis} preload={true}/>
+                    <div>
+                        <EmojiSelector onChange={this.emoji1Changed.bind(this)} emojis={smileyemojis} preload={true}/>
+                        <EmojiSelector onChange={this.emoji2Changed.bind(this)} emojis={animalemojis} preload={true}/>
+                        <EmojiSelector onChange={this.emoji3Changed.bind(this)} emojis={foodemojis} preload={true}/>
+                    </div>
+                    <div>
+                        <Button
+                            className={"alignRight " + classes.control}
+                            variant="raised"
+                            color="primary"
+                            onClick={() => this.handleCreateClick()}>Start</Button>
+                    </div>
                 </FormControl>
-                <Button
-                    className={"alignRight " + classes.control}
-                    variant="raised"
-                    color="primary"
-                    onClick={() => this.handleCreateClick()}>Start</Button>
                 <FormControl fullWidth className={classes.control}>
                     <Slide
                         direction="up"
