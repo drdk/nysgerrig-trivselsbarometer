@@ -6,8 +6,7 @@ class Header extends Component {
         return (
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
-                <h1 className="App-title">Trivselsbarometer</h1>
-                Deltagelse
+                <h1 className="App-title">Trivselsbarometer [Lærer]</h1>
     </header>);
     }
 }
