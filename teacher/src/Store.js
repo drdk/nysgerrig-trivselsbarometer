@@ -3,6 +3,7 @@ import { extendObservable } from 'mobx';
 class MyStore {
     constructor() {
         extendObservable(this, {
+            screen: 'create',
             myData: 'hi'
         });
     }
