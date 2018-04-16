@@ -50,20 +50,20 @@ const styles = theme => ({
  */
 class StressLevel extends Component {
 
-    setStress(level) {
+
+    setStress1() {
         Store.screen = "feelings"
+        Store.stress = 1;
     }
 
-    emoji1Changed(data) {
-        this.emoji1Name = data.name;
+    setStress2() {
+        Store.screen = "feelings"
+        Store.stress = 2;
     }
 
-    emoji2Changed(data) {
-        this.emoji2Name = data.name;
-    }
-
-    emoji3Changed(data) {
-        this.emoji3Name = data.name;
+    setStress3() {
+        Store.screen = "feelings"
+        Store.stress = 3;
     }
 
     render() {
@@ -71,19 +71,19 @@ class StressLevel extends Component {
         return (
             <div className={classes.root}>
                 <FormControl fullWidth className={classes.control}>
-                    <Paper className={[classes.paper, classes.stressLevel1].join(' ')} elevation={4} level={1} onClick={this.setStress.bind(this)}>
+                    <Paper className={[classes.paper, classes.stressLevel3].join(' ')} elevation={4} onClick={this.setStress1.bind(this)}>
                         <Typography variant="headline" component="h3">
-                            Mega stress
+                            Ingen stress
                         </Typography>
                     </Paper>
-                    <Paper className={[classes.paper, classes.stressLevel2].join(' ')} elevation={4} level={2} onClick={this.setStress.bind(this)}>
+                    <Paper className={[classes.paper, classes.stressLevel2].join(' ')} elevation={4} onClick={this.setStress2.bind(this)}>
                         <Typography variant="headline" component="h3">
                             Lidt stress
                         </Typography>
                     </Paper>                    
-                    <Paper className={[classes.paper, classes.stressLevel3].join(' ')} elevation={4} level={3} onClick={this.setStress.bind(this)}>
+                    <Paper className={[classes.paper, classes.stressLevel1].join(' ')} elevation={4} onClick={this.setStress3.bind(this)}>
                         <Typography variant="headline" component="h3">
-                            Ingen stress
+                            Mega stress
                         </Typography>
                     </Paper>
                 </FormControl>

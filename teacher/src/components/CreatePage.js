@@ -8,11 +8,11 @@ import Input, { InputLabel } from 'material-ui/Input';
 import { withStyles } from 'material-ui/styles';
 import Slide from 'material-ui/transitions/Slide';
 import PropTypes from 'prop-types';
-import TeacherModel from './TeacherModel.js';
+import TeacherModel from '../TeacherModel.js';
 import { EmojiSelector}  from 'common';
-import smileyemojis from './assets/smileyemojis.json';
-import animalemojis from './assets/animalemojis.json';
-import foodemojis from './assets/foodemojis.json';
+import smileyemojis from '../assets/smileyemojis.json';
+import animalemojis from '../assets/animalemojis.json';
+import foodemojis from '../assets/foodemojis.json';
 
 
 const styles = theme => ({
