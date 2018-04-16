@@ -10,7 +10,8 @@
     "mobx-react": "^5.0.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "common": "C:\\git\\nysgerrig-trivselsbarometer\\common"
   },
   "scripts": {
     "start": "react-scripts start",
