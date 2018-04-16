@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import logo from './ic_child_care_white_24px.svg';
 import './App.css';
-import LoginPage from './LoginPage';
-import Header from './Header';
+import Header from './components/Header';
+import LoginPage from './components/LoginPage';
 import Store from './Store';
 import { observer } from 'mobx-react';
 
