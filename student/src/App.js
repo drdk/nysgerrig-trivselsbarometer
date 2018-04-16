@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header';
 import LoginPage from './components/LoginPage';
+import Condition from './components/Condition';
+import Feelings from './components/Feelings';
+import Finish from './components/Finish';
 import Store from './Store';
 import { observer } from 'mobx-react';
 
@@ -15,17 +18,19 @@ class App extends Component {
           <LoginPage />
         </div>
       );
-    } else if (Store.screen === "state") {
+    } else if (Store.screen === "condition") {
       return (
         <div>
           <Header />
+          <Condition />
         </div>
       );
     }
-    else if (Store.screen === "emotions") {
+    else if (Store.screen === "feelings") {
       return (
         <div>
           <Header />
+          <Feelings />
         </div>
       );
     }
@@ -33,6 +38,7 @@ class App extends Component {
       return (
         <div>
           <Header />
+          <Finish />
         </div>
       );
     }

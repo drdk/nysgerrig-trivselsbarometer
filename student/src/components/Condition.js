@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-class Feelings extends Component {
+class Condition extends Component {
     render() {
         return (<div></div>);
     }
 }
 
-export default Feelings;
+export default Condition;
