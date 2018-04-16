@@ -19,7 +19,6 @@ class App extends Component {
       return (
         <div>
           <Header />
-          <LoginPage />
         </div>
       );
     }
@@ -27,7 +26,6 @@ class App extends Component {
       return (
         <div>
           <Header />
-          <LoginPage />
         </div>
       );
     }
@@ -35,7 +33,6 @@ class App extends Component {
       return (
         <div>
           <Header />
-          <LoginPage />
         </div>
       );
     }
