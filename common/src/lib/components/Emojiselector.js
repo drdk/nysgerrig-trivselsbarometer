@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Emoji from './Emoji';
 
 var idSeed = 1;
 
@@ -106,34 +107,6 @@ class EmojiSelector extends Component {
         {childContainer}
         {preLoader}
       </div>
-    );
-  }
-}
-
-class Emoji extends Component {
-  constructor() {
-    super();
-
-    this.clickHandler = this.onClick.bind(this);
-  }
-
-  generateSource() {
-    return "https://www.dr.dk/tjenester/nysgerrig/assets/NotoColorEmoji/" + this.props.data.file;
-  }
-
-  onClick() {
-    this.props.clickHandler(this.props.data);
-  }
-
-  componentWillMount() {
-    this.background = {
-      backgroundImage: "url('https://www.dr.dk/tjenester/nysgerrig/assets/NotoColorEmoji/" + this.props.data.file + "')"
-    };
-  }
-
-  render() {
-    return (
-        <img alt={this.props.data.name} src={this.generateSource()} onClick={this.onClick.bind(this)} />
     );
   }
 }

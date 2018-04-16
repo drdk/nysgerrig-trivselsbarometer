@@ -126,6 +126,4 @@ class CreatePage extends Component {
     }
 }
 
-
 export default withStyles(styles)(CreatePage);
-

@@ -1,4 +1,5 @@
 import firebase from "firebase";
+import Store from './Store';
 
 export default class StudentModel {
 
@@ -20,17 +21,23 @@ export default class StudentModel {
     }
 
     login(classCode, callback) {
-        this.database.ref('rooms/' + classCode).once('value').then(callback);
+        var innerCallback = (loginData) => {
+            Store.classCode = classCode;
+            callback(loginData);
+        };
 
-        this.addStateAndFealings(classCode);
+        this.database.ref('rooms/' + classCode).once('value').then(innerCallback);        
     }
 
     addStateAndFealings(classCode) {
         let studentAnswer = {
             state: 'afslappet',
-            fealings: ['sommerfugle i maven', 'glad']
+            feelings: ['sommerfugle i maven', 'glad']
         };
         this.database.ref('rooms/' + classCode).push(studentAnswer);
     }
 
+    submitStateAndFeelings(answer) {
+
+    }
 }

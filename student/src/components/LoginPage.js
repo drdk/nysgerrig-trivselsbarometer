@@ -9,7 +9,7 @@ import {withStyles} from 'material-ui/styles';
 import Slide from 'material-ui/transitions/Slide';
 import PropTypes from 'prop-types';
 import StudentModel from '../StudentModel.js';
-import { EmojiSelector}  from 'common';
+import { EmojiSelector, Emoji }  from 'common';
 import smileyemojis from '../assets/smileyemojis.json';
 import animalemojis from '../assets/animalemojis.json';
 import foodemojis from '../assets/foodemojis.json';
