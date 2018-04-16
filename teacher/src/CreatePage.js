@@ -10,9 +10,9 @@ import Slide from 'material-ui/transitions/Slide';
 import PropTypes from 'prop-types';
 import TeacherModel from './TeacherModel.js';
 import { EmojiSelector}  from 'common';
-import smileyemojis from './elements/smileyemojis.json';
-import animalemojis from './elements/animalemojis.json';
-import foodemojis from './elements/foodemojis.json';
+import smileyemojis from './assets/smileyemojis.json';
+import animalemojis from './assets/animalemojis.json';
+import foodemojis from './assets/foodemojis.json';
 
 
 const styles = theme => ({

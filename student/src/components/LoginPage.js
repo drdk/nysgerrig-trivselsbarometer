@@ -8,12 +8,12 @@ import Input, {InputLabel} from 'material-ui/Input';
 import {withStyles} from 'material-ui/styles';
 import Slide from 'material-ui/transitions/Slide';
 import PropTypes from 'prop-types';
-import StudentModel from './StudentModel.js';
-import { EmojiSelector}  from './common';
-import smileyemojis from './elements/smileyemojis.json';
-import animalemojis from './elements/animalemojis.json';
-import foodemojis from './elements/foodemojis.json';
-import Store from './Store';
+import StudentModel from '../StudentModel.js';
+import { EmojiSelector}  from 'common';
+import smileyemojis from '../assets/smileyemojis.json';
+import animalemojis from '../assets/animalemojis.json';
+import foodemojis from '../assets/foodemojis.json';
+import Store from '../Store';
 import { observer } from 'mobx-react';
 
 const styles = theme => ({
@@ -57,7 +57,7 @@ class LoginPage extends Component {
     handleCreateClick() {
         let classCode = this.emoji1Name + this.emoji2Name + this.emoji3Name;
         new StudentModel().login(classCode, (loginData) => this.handleLogin(loginData));
-        Store.myData = "Data fra login knap";
+        Store.screen = "state";
     }
 
     emoji1Changed(data) {
@@ -76,23 +76,21 @@ class LoginPage extends Component {
         const {classes} = this.props;
         return (
             <div className={classes.root}>
-                <EmojiSelector onChange={this.emoji1Changed.bind(this)} emojis={smileyemojis} preload={true}/>
-                <EmojiSelector onChange={this.emoji2Changed.bind(this)} emojis={animalemojis} preload={true}/>
-                <EmojiSelector onChange={this.emoji3Changed.bind(this)} emojis={foodemojis} preload={true}/>
-                <FormControl fullWidth className={classes.control}>
-                    <InputLabel htmlFor="classcode">Klassekode:</InputLabel>
-                    <Input
-                        id="classcode"
-                        type="text"
-                        value={this.state.classcode}
-                        placeholder="Skriv klassekode som du har fået af din lærer"
-                        onChange={(event) => this.setState({classCode: event.target.value})}/>
+            
+                <FormControl fullWidth>
+                    <div>
+                        <EmojiSelector onChange={this.emoji1Changed.bind(this)} emojis={smileyemojis} preload={true}/>
+                        <EmojiSelector onChange={this.emoji2Changed.bind(this)} emojis={animalemojis} preload={true}/>
+                        <EmojiSelector onChange={this.emoji3Changed.bind(this)} emojis={foodemojis} preload={true}/>
+                    </div>
+                    <div>
+                        <Button
+                            className={"alignRight " + classes.control}
+                            variant="raised"
+                            color="primary"
+                            onClick={() => this.handleCreateClick()}>Start</Button>
+                    </div>
                 </FormControl>
-                <Button
-                    className={"alignRight " + classes.control}
-                    variant="raised"
-                    color="primary"
-                    onClick={() => this.handleCreateClick()}>Start</Button>
                 <FormControl fullWidth className={classes.control}>
                     <Slide
                         direction="up"
