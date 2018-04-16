@@ -75,6 +75,14 @@ class LoginPage extends Component {
         this.emoji3Name = data.name;
     }
 
+    componentWillMount() {
+        let params = (new URL(document.location)).searchParams;
+        let classCode = params.get("classcode");
+        if (classCode && classCode.length > 0) {
+            new StudentModel().login(classCode, (loginData) => this.handleLogin(loginData));
+        }
+    }
+
     render() {
         const {classes} = this.props;
         return (
