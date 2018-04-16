@@ -73,17 +73,11 @@ class LoginPage extends Component {
         const {classes} = this.props;
         return (
             <div className={classes.root}>
-                <EmojiSelector onChange={this.emoji1Changed.bind(this)} emojis={smileyemojis} preload={true}/>
-                <EmojiSelector onChange={this.emoji2Changed.bind(this)} emojis={animalemojis} preload={true}/>
-                <EmojiSelector onChange={this.emoji3Changed.bind(this)} emojis={foodemojis} preload={true}/>
-                <FormControl fullWidth className={classes.control}>
-                    <InputLabel htmlFor="classcode">Klassekode:</InputLabel>
-                    <Input
-                        id="classcode"
-                        type="text"
-                        value={this.state.classcode}
-                        placeholder="Skriv klassekode som du har fået af din lærer"
-                        onChange={(event) => this.setState({classCode: event.target.value})}/>
+            
+                <FormControl fullWidth>
+                    <EmojiSelector onChange={this.emoji1Changed.bind(this)} emojis={smileyemojis} preload={true}/>
+                    <EmojiSelector onChange={this.emoji2Changed.bind(this)} emojis={animalemojis} preload={true}/>
+                    <EmojiSelector onChange={this.emoji3Changed.bind(this)} emojis={foodemojis} preload={true}/>
                 </FormControl>
                 <Button
                     className={"alignRight " + classes.control}
