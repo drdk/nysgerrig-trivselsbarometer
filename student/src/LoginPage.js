@@ -13,6 +13,8 @@ import EmojiSelector from './elements/emojiselector';
 import smileyemojis from './elements/smileyemojis.json';
 import animalemojis from './elements/animalemojis.json';
 import foodemojis from './elements/foodemojis.json';
+import Store from './Store';
+import { observer } from 'mobx-react';
 
 const styles = theme => ({
     root: {
@@ -55,6 +57,7 @@ class LoginPage extends Component {
     handleCreateClick() {
         let classCode = this.emoji1Name + this.emoji2Name + this.emoji3Name;
         new StudentModel().login(classCode, (loginData) => this.handleLogin(loginData));
+        Store.myData = "Data fra login knap";
     }
 
     emoji1Changed(data) {
@@ -102,4 +105,4 @@ class LoginPage extends Component {
     }
 }
 
-export default withStyles(styles)(LoginPage);
+export default observer( withStyles(styles)(LoginPage) );
