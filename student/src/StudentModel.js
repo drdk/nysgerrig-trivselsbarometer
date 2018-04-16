@@ -29,15 +29,24 @@ export default class StudentModel {
         this.database.ref('rooms/' + classCode).once('value').then(innerCallback);        
     }
 
-    addStateAndFealings(classCode) {
+    // addStateAndFealings(classCode) {
+    //     let studentAnswer = {
+    //         state: 'afslappet',
+    //         feelings: ['sommerfugle i maven', 'glad']
+    //     };
+    //     this.database.ref('rooms/' + classCode).push(studentAnswer);
+    // }
+
+    submitStateAndFeelings(answer) {
+        // let studentAnswer = {
+        //     state: Store.condition,
+        //     feelings: Store.feelings
+        // };
         let studentAnswer = {
             state: 'afslappet',
             feelings: ['sommerfugle i maven', 'glad']
         };
-        this.database.ref('rooms/' + classCode).push(studentAnswer);
-    }
-
-    submitStateAndFeelings(answer) {
+        this.database.ref('rooms/' + Store.classCode).push(studentAnswer);
 
     }
 }

@@ -53,17 +53,17 @@ class StressLevel extends Component {
 
     setStress1() {
         Store.screen = "feelings"
-        Store.stress = 1;
+        Store.condition = 1;
     }
 
     setStress2() {
         Store.screen = "feelings"
-        Store.stress = 2;
+        Store.condition = 2;
     }
 
     setStress3() {
         Store.screen = "feelings"
-        Store.stress = 3;
+        Store.condition = 3;
     }
 
     render() {

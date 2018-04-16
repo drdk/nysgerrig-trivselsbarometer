@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Emoji }  from 'common';
 import './Feelings.css';
+import { observer } from 'mobx-react';
+import Store from '../Store';
 
 class Feelings extends Component {
 
@@ -143,11 +145,12 @@ class Feelings extends Component {
         console.log('====================================');
         console.log(this.state.selected);
         console.log('====================================');
+        Store.feelings = this.state.selected;
     }
 
     render() {
         let feelings = this.getFeelings().map((feeling) => {
-            return <Emoji key={feeling.name} className={(this.state.selected.indexOf(feeling.name) > -1) ? "selected" : null} data={feeling} clickHandler={this.clickHandler} />
+            return <Emoji key={feeling.name} className={(this.state.selected.indexOf(feeling.name) > -1) ? "selected" : ""} data={feeling} clickHandler={this.clickHandler} />
         });
         return (
         <div>
@@ -157,4 +160,4 @@ class Feelings extends Component {
     }
 }
 
-export default Feelings;
+export default observer( Feelings );
