@@ -32,20 +32,45 @@ const styles = theme => ({
 });
 
 class ConditionResults extends Component {
+    constructor(){
+      super();
+    }
     goToFeelings() {
         Store.screen = "feelingsResults";
     }
     calculateRender(condition){
-      var items = Store.data;
-      var thisCondition = 0;
-      for (var i = 0; i < items.length; i++) {
-        if(items[i].condition === condition)
-        thisCondition++;
-      };
-      var proportion = Math.floor(63 * (thisCondition / items.length))+12;
+      console.log(this.state)
       return {
-          width: proportion+"%"
+          width: this.state.conditions[condition].proportion+"%"
       };
+    }
+    componentWillMount(){
+      var items = Store.data;
+      var conditions = {
+        "Okay":0,
+        "Presset":0,
+        "Afslappet":0
+      };
+      for (var i = 0; i < items.length; i++) {
+        if(!conditions.hasOwnProperty(items[i].condition))
+          conditions[items[i].condition]= 1;
+        else 
+          conditions[items[i].condition]++;
+      };
+      for(var condition in conditions){
+        var numberOfConditions = Object.keys(conditions).length;
+        var totalVotes = items.length;
+        var conditionVotes = conditions[condition];
+
+        var proportion = (conditionVotes === 0) ? 12 : (( ( 99-(numberOfConditions*12) ) / totalVotes ) * conditionVotes )+12
+        
+        conditions[condition] = {
+          proportion: proportion,
+          count: conditions[condition]
+        };
+      }
+      this.setState({conditions: conditions})
+
     }
     render() {
         const { classes } = this.props;
