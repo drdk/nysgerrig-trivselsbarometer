@@ -3,18 +3,10 @@ import Button from 'material-ui/Button';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import {FormControl} from 'material-ui/Form';
-import Badge from 'material-ui/Badge';
 import {withStyles} from 'material-ui/styles';
-import Slide from 'material-ui/transitions/Slide';
-import { EmojiSelector}  from 'common';
-import smileyemojis from '../assets/smileyemojis.json';
-import animalemojis from '../assets/animalemojis.json';
-import foodemojis from '../assets/foodemojis.json';
 import Store from '../Store';
 import { observer } from 'mobx-react';
 
-
-var availWidth = 99;
 const styles = theme => ({
     root: {
         display: 'flex',
@@ -32,7 +24,6 @@ const styles = theme => ({
         paddingTop: 16,
         paddingBottom: 16,
         width: "12%",
-        paddingBottom: '25%',
         marginRight:"0.33%"
     },
     badge: {
@@ -44,14 +35,14 @@ class ConditionResults extends Component {
     goToFeelings() {
         Store.screen = "feelingsResults";
     }
-    calculateRender(feeling){
+    calculateRender(condition){
       var items = Store.data;
-      var thisFeeling = 0;
+      var thisCondition = 0;
       for (var i = 0; i < items.length; i++) {
-        if(items[i].condition == feeling)
-          thisFeeling++;
+        if(items[i].condition === condition)
+        thisCondition++;
       };
-      var proportion = Math.floor(63 * (thisFeeling / items.length))+12;
+      var proportion = Math.floor(63 * (thisCondition / items.length))+12;
       return {
           width: proportion+"%"
       };

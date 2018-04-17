@@ -1,4 +1,4 @@
-.diagramBody { display: table; height: 600px; width: 100%; margin-bottom: 50px; }
+.diagramBody { display: table; height: 600px; width: 100%; margin: 20px 0 20px 0; }
 .diagramBody > div { display: table-row; }
 .diagramBody > div > div { display: table-cell; vertical-align: bottom; padding: 0 10px 0 10px; }
 .bar { display: inline-block; background-color: silver; width: 100%; position: relative; }

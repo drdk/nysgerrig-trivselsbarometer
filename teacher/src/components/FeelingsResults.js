@@ -4,7 +4,6 @@ import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import {FormControl} from 'material-ui/Form';
 import {withStyles} from 'material-ui/styles';
-import Slide from 'material-ui/transitions/Slide';
 import Store from '../Store';
 import { observer } from 'mobx-react';
 import './FeelingsResults.css';
@@ -49,7 +48,16 @@ class FeelingsResults extends Component {
         for (var feeling in feelings) {
             feelingsArray.push(feelings[feeling]);
         }
-        feelingsArray.sort((a, b) => b.count - a.count);
+        feelingsArray.sort((a, b) => {
+            if (a.count < b.count) {
+                return 1;
+            }
+            else if (a.count > b.count) {
+                return -1;
+            }
+
+            return 0;
+        });
         var refScale = feelingsArray[0].count;
 
         for (let i = 0; i < feelingsArray.length; i++) {
@@ -64,7 +72,7 @@ class FeelingsResults extends Component {
                 return (
                     <div key={feeling.name}>
                         <div data-count={feeling.count} data-name={feeling.name} className="bar" style={{height: feeling.scale + "%" }}>
-                            <img src={"https://www.dr.dk/tjenester/nysgerrig/assets/NotoColorEmoji/" + feeling.file} />                            
+                            <img alt={feeling.name} src={"https://www.dr.dk/tjenester/nysgerrig/assets/NotoColorEmoji/" + feeling.file} />                            
                         </div>
                     </div>
                 )
