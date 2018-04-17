@@ -97,7 +97,13 @@ class Feelings extends Component {
     }
 
     getFeelingIndex(feeling) {
-        return Store.feelings.indexOf(feeling.name);
+        for (let i = 0; i < Store.feelings.length; i++) {
+            if (array[i].name === feeling.name) {
+                return i;
+            }           
+        }
+        
+        return -1;
     }
 
     getClassName(feeling) {
@@ -111,7 +117,7 @@ class Feelings extends Component {
             Store.feelings.splice(index, 1);
         }
         else {
-            Store.feelings.push(feeling.name);
+            Store.feelings.push(feeling);
         }
         
         this.forceUpdate();
