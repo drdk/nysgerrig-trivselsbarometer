@@ -51,19 +51,19 @@ class CreatePage extends Component {
         },
         {
             feelings:["emoji_u1f610"],
+            state:"Okay"
+        },
+        {
+            feelings:["emoji_u1f610"],
+            state:"Okay"
+        },
+        {
+            feelings:["emoji_u1f610"],
             state:"Presset"
         },
         {
-            feelings:["emoji_u1f610"],
-            state:"Okay"
-        },
-        {
-            feelings:["emoji_u1f610"],
-            state:"Okay"
-        },
-        {
             feelings:["emoji_u1f614"],
-            state:"Okay"
+            state:"Presset"
         },
         {
             feelings:["emoji_u1f614"],

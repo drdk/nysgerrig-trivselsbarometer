@@ -80,17 +80,11 @@ class FeelingsResults extends Component {
         let diagram = this.createDiagram();
         return (<div>
             <FormControl fullWidth className={classes.control}>
-                <Slide
-                    direction="up"
-                    in={Store.subject !== undefined}
-                    mountOnEnter
-                    unmountOnExit>
-                    <Paper className={classes.paper} elevation={4}>
-                        <Typography variant="headline" component="h3">
-                            {Store.subject}
-                        </Typography>
-                    </Paper>
-                </Slide>
+                <Paper className={classes.paper} elevation={4}>
+                    <Typography variant="headline" component="h3">
+                        {Store.subject}
+                    </Typography>
+                </Paper>
             </FormControl>
             {diagram}
             <Button className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.goToFeelings()}>Se resultat for tilstande</Button>
