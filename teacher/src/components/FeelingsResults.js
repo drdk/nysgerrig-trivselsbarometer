@@ -7,6 +7,7 @@ import {withStyles} from 'material-ui/styles';
 import Slide from 'material-ui/transitions/Slide';
 import Store from '../Store';
 import { observer } from 'mobx-react';
+import './FeelingsResults.css';
 
 const styles = theme => ({
     root: {
@@ -31,8 +32,52 @@ class FeelingsResults extends Component {
         Store.screen = "conditionResults";
     }
 
+    createDiagram() {
+        var feelings = {},
+        feelingsArray = [];
+
+        for (let i = 0; i < Store.data.length; i++) {
+            const answer = Store.data[i];
+
+            for (let j = 0; j < answer.feelings.length; j++) {
+                const feeling = answer.feelings[j];
+                feelings[feeling.name] = feelings[feeling.name] || { name: feeling.name, file: feeling.file, count: 0 };
+                feelings[feeling.name].count++;
+            }
+        }
+
+        for (var feeling in feelings) {
+            feelingsArray.push(feelings[feeling]);
+        }
+
+        feelingsArray.sort((a, b) => b.count >= a.count);
+
+        var refScale = feelingsArray[0].count;
+
+        for (let i = 0; i < feelingsArray.length; i++) {
+            const feeling = feelingsArray[i];            
+            feeling.scale = (feeling.count / refScale) * 100;
+        }
+
+        return (
+        <div className="diagramBody">
+            <div>
+            {feelingsArray.map((feeling) => {
+                return (
+                    <div key={feeling.name}>
+                        <div data-count={feeling.count} data-name={feeling.name} className="bar" style={{height: feeling.scale + "%" }}>
+                            <img src={"https://www.dr.dk/tjenester/nysgerrig/assets/NotoColorEmoji/" + feeling.file} />                            
+                        </div>
+                    </div>
+                )
+            })}
+            </div>            
+        </div>);
+    }
+
     render() {
         const { classes } = this.props;
+        let diagram = this.createDiagram();
         return (<div>
             <FormControl fullWidth className={classes.control}>
                 <Slide
@@ -47,6 +92,7 @@ class FeelingsResults extends Component {
                     </Paper>
                 </Slide>
             </FormControl>
+            {diagram}
             <Button className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.goToFeelings()}>Se resultat for tilstande</Button>
         </div>);
     }

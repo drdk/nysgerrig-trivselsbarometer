@@ -1,0 +1,11 @@
+.diagramBody { display: table; height: 600px; width: 100%; margin-bottom: 50px; }
+.diagramBody > div { display: table-row; }
+.diagramBody > div > div { display: table-cell; vertical-align: bottom; padding: 0 10px 0 10px; }
+.bar { display: inline-block; background-color: silver; width: 100%; position: relative; }
+.bar::before {
+    content: attr(data-name); position: absolute; bottom: 10px; left: 50%; text-align: center; transform: translate(-50%, -50%);
+}
+.bar::after {
+    content: attr(data-count); position: absolute; bottom: -30px; left: 50%; text-align: center;
+}
+.floatBreak { clear: both; }
