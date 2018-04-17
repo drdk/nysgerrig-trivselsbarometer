@@ -7,7 +7,6 @@ import { FormControl } from 'material-ui/Form';
 import Input, { InputLabel } from 'material-ui/Input';
 import { withStyles } from 'material-ui/styles';
 import Slide from 'material-ui/transitions/Slide';
-import PropTypes from 'prop-types';
 import TeacherModel from '../TeacherModel.js';
 import { EmojiSelector}  from 'common';
 import smileyemojis from '../assets/smileyemojis.json';
@@ -35,71 +34,73 @@ const styles = theme => ({
     }
 });
 
-/* CreatePage.propTypes = {
-    classes: PropTypes.object.isRequired
-};
- */
 class CreatePage extends Component {
 
     constructor() {
         super();
+
+        /* Temp data */
+        
         var data = [{
-                feelings:["emoji_u1f601"],
-                state:"Afslappet"
-            },
-            {
-                feelings:["emoji_u1f601"],
-                state:"Presset"
-            },
-            {
-                feelings:["emoji_u1f610"],
-                state:"Presset"
-            },
-            {
-                feelings:["emoji_u1f610"],
-                state:"Okay"
-            },
-            {
-                feelings:["emoji_u1f610"],
-                state:"Okay"
-            },
-            {
-                feelings:["emoji_u1f614"],
-                state:"Okay"
-            },
-            {
-                feelings:["emoji_u1f614"],
-                state:"Afslappet"
-            },
-            {
-                feelings:["emoji_u1f614"],
-                state:"Afslappet"
-            },
-            {
-                feelings:["emoji_u1f614"],
-                state:"Presset"
-            }];
-            Store.data = data;
+            feelings:["emoji_u1f601"],
+            state:"Afslappet"
+        },
+        {
+            feelings:["emoji_u1f601"],
+            state:"Presset"
+        },
+        {
+            feelings:["emoji_u1f610"],
+            state:"Presset"
+        },
+        {
+            feelings:["emoji_u1f610"],
+            state:"Okay"
+        },
+        {
+            feelings:["emoji_u1f610"],
+            state:"Okay"
+        },
+        {
+            feelings:["emoji_u1f614"],
+            state:"Okay"
+        },
+        {
+            feelings:["emoji_u1f614"],
+            state:"Afslappet"
+        },
+        {
+            feelings:["emoji_u1f614"],
+            state:"Afslappet"
+        },
+        {
+            feelings:["emoji_u1f614"],
+            state:"Presset"
+        }];
+
         this.state = {
-            classCode: undefined,
-            subject: undefined,
-            count: 0,
-            data: data
+            emojiTimestamp: Date.now()
         }
+        
+        Store.data = data || [];
+        Store.subject = undefined;
+        Store.classCode = undefined;
     }
 
     handleChildAdded(childData) {
         let val = childData.val();
         if (typeof val === 'object') {
-            this.state.data.push(childData.val());
-            console.log(this.state.data)
-            this.setState({ count: this.state.data.length })
+            Store.data.push(childData.val());
         }
     }
 
     handleCreateClick() {
+        if (!Store.subject || Store.subject.length === 0) {
+            return;
+        }
+
+        Store.classCode = "";
         this.setState({
-            classCode: "",
             emojiTimestamp: Date.now()
         });
     }
@@ -107,8 +108,8 @@ class CreatePage extends Component {
     classCodeChanged() {
         if (this.emoji1Name && this.emoji2Name && this.emoji3Name) {
             let classCode = this.emoji1Name + this.emoji2Name + this.emoji3Name;
-            this.setState({ classCode: classCode });
-            new TeacherModel().createClassRoom(classCode, this.state.subject, (childData) => this.handleChildAdded(childData));
+            Store.classCode = classCode;
+            new TeacherModel().createClassRoom(classCode, Store.subject, (childData) => this.handleChildAdded(childData));
         }
     }
 
@@ -127,8 +128,14 @@ class CreatePage extends Component {
         this.classCodeChanged();
     }
 
+    continue() {
+        Store.screen = "conditionResults";
+    }
+
     render() {
         const { classes } = this.props;
+        let continueButton = (Store.data.length > 0) ? (<Button className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.continue()}>Fortsæt</Button>) : null;
+
         return (
             <div className={classes.root}>
                 <FormControl fullWidth className={classes.control}>
@@ -136,13 +143,13 @@ class CreatePage extends Component {
                     <Input
                         id="subject"
                         type="text"
-                        value={this.state.subject}
+                        value={Store.subject}
                         placeholder="Eks: Hvordan har du det når du skal til dansk prøve ?"
-                        onChange={(event) => this.setState({ subject: event.target.value })} />
+                        onChange={(event) => { Store.subject = event.target.value; }} />
                 </FormControl>
                 <Button className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.handleCreateClick()}>Opret</Button>
                 <FormControl fullWidth className={classes.control}>
-                    <Slide direction="up" in={this.state.classCode !== undefined} mountOnEnter unmountOnExit>
+                    <Slide direction="up" in={Store.classCode !== undefined} mountOnEnter unmountOnExit>
 
                         <Paper className={classes.paper} elevation={4}>
                             <Typography variant="headline" component="h3">
@@ -157,7 +164,9 @@ class CreatePage extends Component {
                             <Typography component="p">
                                 Antal der har svaret:
                             </Typography>
-                            <Badge className={classes.badge} badgeContent={this.state.count} color="primary"></Badge>
+                            <Badge className={classes.badge} badgeContent={Store.data.length} color="primary"><b></b></Badge>
+                            <br />
+                            {continueButton}
                         </Paper>
                     </Slide>
                 </FormControl>
