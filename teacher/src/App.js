@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './ic_child_care_white_24px.svg';
 import './App.css';
 import Header from './components/Header';
 import CreatePage from './components/CreatePage';

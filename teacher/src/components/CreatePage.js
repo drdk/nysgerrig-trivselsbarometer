@@ -79,11 +79,11 @@ class CreatePage extends Component {
         }];
 
         this.state = {
-            emojiTimestamp: Date.now()
+            emojiTimestamp: Date.now(),
+            subject: ""
         }
         
         Store.data = data || [];
-        Store.subject = undefined;
         Store.classCode = undefined;
     }
 
@@ -95,10 +95,11 @@ class CreatePage extends Component {
     }
 
     handleCreateClick() {
-        if (!Store.subject || Store.subject.length === 0) {
+        if (!this.state.subject || this.state.subject.length === 0) {
             return;
         }
 
+        Store.subject = this.state.subject;
         Store.classCode = "";
         this.setState({
             emojiTimestamp: Date.now()
@@ -143,9 +144,9 @@ class CreatePage extends Component {
                     <Input
                         id="subject"
                         type="text"
-                        value={Store.subject}
+                        value={this.state.subject}
                         placeholder="Eks: Hvordan har du det når du skal til dansk prøve ?"
-                        onChange={(event) => { Store.subject = event.target.value; }} />
+                        onChange={(event) => { this.setState({ subject: event.target.value }); }} />
                 </FormControl>
                 <Button className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.handleCreateClick()}>Opret</Button>
                 <FormControl fullWidth className={classes.control}>
