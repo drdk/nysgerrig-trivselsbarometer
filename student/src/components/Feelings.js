@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from 'material-ui/Button';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import {FormControl} from 'material-ui/Form';
@@ -46,112 +47,51 @@ class Feelings extends Component {
     constructor() {
         super();
 
-        this.clickHandler = this.selectHandler.bind(this);
-
         Store.feelings = Store.feelings || [];
     }
 
     getFeelings() {
         return [        
             {
-                "name": "emoji_u1f600",
+                "name": "Glad",
                 "file": "emoji_u1f600.svg"
             },
             {
-                "name": "emoji_u1f601",
-                "file": "emoji_u1f601.svg"
-            },
-            {
-                "name": "emoji_u1f602",
-                "file": "emoji_u1f602.svg"
-            },
-            {
-                "name": "emoji_u1f603",
-                "file": "emoji_u1f603.svg"
-            },
-            {
-                "name": "emoji_u1f604",
-                "file": "emoji_u1f604.svg"
-            },
-            {
-                "name": "emoji_u1f605",
-                "file": "emoji_u1f605.svg"
-            },
-            {
-                "name": "emoji_u1f606",
-                "file": "emoji_u1f606.svg"
-            },
-            {
-                "name": "emoji_u1f607",
-                "file": "emoji_u1f607.svg"
-            },
-            {
-                "name": "emoji_u1f608",
-                "file": "emoji_u1f608.svg"
-            },
-            {
-                "name": "emoji_u1f609",
-                "file": "emoji_u1f609.svg"
-            },
-            {
-                "name": "emoji_u1f60a",
-                "file": "emoji_u1f60a.svg"
-            },
-            {
-                "name": "emoji_u1f60b",
-                "file": "emoji_u1f60b.svg"
-            },
-            {
-                "name": "emoji_u1f60c",
-                "file": "emoji_u1f60c.svg"
-            },
-            {
-                "name": "emoji_u1f60d",
-                "file": "emoji_u1f60d.svg"
-            },
-            {
-                "name": "emoji_u1f60e",
-                "file": "emoji_u1f60e.svg"
-            },
-            {
-                "name": "emoji_u1f60f",
+                "name": "Optimistisk",
                 "file": "emoji_u1f60f.svg"
             },
             {
-                "name": "emoji_u1f610",
-                "file": "emoji_u1f610.svg"
+                "name": "Forelsket",
+                "file": "emoji_u1f60d.svg"
             },
             {
-                "name": "emoji_u1f611",
-                "file": "emoji_u1f611.svg"
+                "name": "Priviligeret",
+                "file": "emoji_u1f60e.svg"
             },
             {
-                "name": "emoji_u1f612",
-                "file": "emoji_u1f612.svg"
+                "name": "Afslappet",
+                "file": "emoji_u1f60c.svg"
+            },
+
+            {
+                "name": "Træt",
+                "file": "emoji_u1f634.svg"
             },
             {
-                "name": "emoji_u1f613",
-                "file": "emoji_u1f613.svg"
+                "name": "Frustreret",
+                "file": "emoji_u1f635.svg"
             },
             {
-                "name": "emoji_u1f614",
-                "file": "emoji_u1f614.svg"
+                "name": "Skidt tilpas",
+                "file": "emoji_u1f628.svg"
             },
             {
-                "name": "emoji_u1f615",
-                "file": "emoji_u1f615.svg"
+                "name": "Bekymret",
+                "file": "emoji_u1f633.svg"
             },
             {
-                "name": "emoji_u1f616",
-                "file": "emoji_u1f616.svg"
-            },
-            {
-                "name": "emoji_u1f617",
-                "file": "emoji_u1f617.svg"
-            },
-            {
-                "name": "emoji_u1f618",
-                "file": "emoji_u1f618.svg"
+                "name": "Utålmodig",
+                "file": "emoji_u1f644.svg"
             }
         ];
     }
@@ -186,7 +126,15 @@ class Feelings extends Component {
     render() {
         const {classes} = this.props;
         let feelings = this.getFeelings().map((feeling) => {
-            return <Emoji key={feeling.name} className={this.getClassName(feeling)} data={feeling} clickHandler={this.clickHandler} />
+            return (
+                <div key={feeling.name} >
+                    <div className={this.getClassName(feeling)} onClick={this.selectHandler.bind(this, feeling)}>
+                        <Emoji name={feeling.name} data={feeling} />
+                        <br />
+                        <label htmlFor={feeling.name}>{feeling.name}</label>
+                    </div>
+                </div>
+            )
         });
         return (
         <div>
@@ -203,8 +151,19 @@ class Feelings extends Component {
                     </Paper>
                 </Slide>
             </FormControl>
-            {feelings}
-            <button onClick={this.continue.bind(this)}>Fortsæt</button>
+            <div className="feelings">
+                <div className="positive">
+                    {feelings.slice(0, 5)}
+                </div>
+                <div className="negative">
+                    {feelings.slice(5)}
+                </div>
+            </div>
+            <Button
+                className={"alignRight " + classes.control}
+                variant="raised"
+                color="primary"
+                onClick={this.continue.bind(this)}>Fortsæt</Button>
         </div>);
     }
 }

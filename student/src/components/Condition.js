@@ -65,17 +65,17 @@ class Condition extends Component {
                 <FormControl fullWidth className={classes.control}>
                     <Paper className={[classes.paper, classes.conditionRelaxed].join(' ')} elevation={4} onClick={this.setCondition.bind(this, "Afslappet")}>
                         <Typography variant="headline" component="h3">
-                            Ingen stress
+                            Afslappet
                         </Typography>
                     </Paper>
                     <Paper className={[classes.paper, classes.conditionOK].join(' ')} elevation={4} onClick={this.setCondition.bind(this, "OK")}>
                         <Typography variant="headline" component="h3">
-                            Lidt stress
+                            OK
                         </Typography>
                     </Paper>                    
                     <Paper className={[classes.paper, classes.conditionStressed].join(' ')} elevation={4} onClick={this.setCondition.bind(this, "Belastet")}>
                         <Typography variant="headline" component="h3">
-                            Mega stress
+                            Belastet
                         </Typography>
                     </Paper>
                 </FormControl>
