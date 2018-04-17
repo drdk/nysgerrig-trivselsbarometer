@@ -49,9 +49,7 @@ class FeelingsResults extends Component {
         for (var feeling in feelings) {
             feelingsArray.push(feelings[feeling]);
         }
-
-        feelingsArray.sort((a, b) => b.count >= a.count);
-
+        feelingsArray.sort((a, b) => b.count - a.count);
         var refScale = feelingsArray[0].count;
 
         for (let i = 0; i < feelingsArray.length; i++) {

@@ -48,7 +48,7 @@ class ConditionResults extends Component {
       var items = Store.data;
       var thisFeeling = 0;
       for (var i = 0; i < items.length; i++) {
-        if(items[i].state == feeling)
+        if(items[i].condition == feeling)
           thisFeeling++;
       };
       var proportion = Math.floor(63 * (thisFeeling / items.length))+12;

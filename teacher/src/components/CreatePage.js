@@ -40,51 +40,148 @@ class CreatePage extends Component {
         super();
 
         /* Temp data */
-        
-        var data = [{
-            feelings:["emoji_u1f601"],
-            state:"Afslappet"
+var data = [{
+            feelings:[{
+                "name": "Bekymret",
+                "file": "emoji_u1f633.svg"
+            }],
+            condition:"Afslappet"
         },
         {
-            feelings:["emoji_u1f601"],
-            state:"Presset"
+            feelings:[{
+                "name": "Glad",
+                "file": "emoji_u1f600.svg"
+            }],
+            condition:"Presset"
         },
         {
-            feelings:["emoji_u1f610"],
-            state:"Okay"
+            feelings:[{
+                "name": "Frustreret",
+                "file": "emoji_u1f635.svg"
+            }],
+            condition:"Okay"
         },
         {
-            feelings:["emoji_u1f610"],
-            state:"Okay"
+            feelings:[{
+                "name": "Frustreret",
+                "file": "emoji_u1f635.svg"
+            }],
+            condition:"Okay"
         },
         {
-            feelings:["emoji_u1f610"],
-            state:"Presset"
+            feelings:[{
+                "name": "Glad",
+                "file": "emoji_u1f600.svg"
+            }],
+            condition:"Okay"
         },
         {
-            feelings:["emoji_u1f614"],
-            state:"Presset"
+            feelings:[{
+                "name": "Utålmodig",
+                "file": "emoji_u1f644.svg"
+            }],
+            condition:"Afslappet"
         },
         {
-            feelings:["emoji_u1f614"],
-            state:"Afslappet"
+            feelings:[{
+                "name": "Skidt tilpas",
+                "file": "emoji_u1f628.svg"
+            }],
+            condition:"Afslappet"
         },
         {
-            feelings:["emoji_u1f614"],
-            state:"Afslappet"
+            feelings:[{
+                "name": "Glad",
+                "file": "emoji_u1f600.svg"
+            }],
+            condition:"Presset"
         },
         {
-            feelings:["emoji_u1f614"],
-            state:"Presset"
+            feelings:[{
+                "name": "Optimistisk",
+                "file": "emoji_u1f60f.svg"
+            }],
+            condition:"Presset"
+        },
+        {
+            feelings:[{
+                "name": "Optimistisk2",
+                "file": "emoji_u1f60f.svg"
+            }],
+            condition:"Presset"
+        },
+        {
+            feelings:[{
+                "name": "Optimistisk3",
+                "file": "emoji_u1f60f.svg"
+            }],
+            condition:"Presset"
+        },
+        {
+            feelings:[{
+                "name": "Optimistisk8",
+                "file": "emoji_u1f60f.svg"
+            }],
+            condition:"Presset"
+        },{
+            feelings:[{
+                "name": "Optimistisk2",
+                "file": "emoji_u1f60f.svg"
+            }],
+            condition:"Presset"
+        },
+        {
+            feelings:[{
+                "name": "Optimistisk3",
+                "file": "emoji_u1f60f.svg"
+            }],
+            condition:"Presset"
+        },
+        {
+            feelings:[{
+                "name": "Optimistisk7",
+                "file": "emoji_u1f60f.svg"
+            }],
+            condition:"Presset"
+        },
+        {
+            feelings:[{
+                "name": "Optimistisk7777",
+                "file": "emoji_u1f60f.svg"
+            }],
+            condition:"Presset"
+        },{
+            feelings:[{
+                "name": "Optimistisk7777",
+                "file": "emoji_u1f60f.svg"
+            }],
+            condition:"Presset"
+        },
+        {
+            feelings:[{
+                "name": "Optimistisk7777",
+                "file": "emoji_u1f60f.svg"
+            }],
+            condition:"Presset"
+        },
+        {
+            feelings:[{
+                "name": "Optimistisk7777",
+                "file": "emoji_u1f60f.svg"
+            }],
+            condition:"Presset"
         }];
 
         this.state = {
             emojiTimestamp: Date.now(),
-            subject: ""
+            subject: "Gummiænder"
         }
         
         Store.data = data || [];
         Store.classCode = undefined;
+        setTimeout(() => {
+            this.handleCreateClick();            
+        }, 100);
     }
 
     handleChildAdded(childData) {
