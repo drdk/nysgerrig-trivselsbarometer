@@ -98,7 +98,7 @@ class Feelings extends Component {
 
     getFeelingIndex(feeling) {
         for (let i = 0; i < Store.feelings.length; i++) {
-            if (array[i].name === feeling.name) {
+            if (Store.feelings[i].name === feeling.name) {
                 return i;
             }           
         }
