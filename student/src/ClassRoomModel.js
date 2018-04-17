@@ -1,7 +1,7 @@
 import firebase from "firebase";
 import Store from './Store';
 
-export default class StudentModel {
+export default class ClassRoomModel {
 
     constructor() {
         if (firebase.apps.length) {
@@ -29,24 +29,12 @@ export default class StudentModel {
         this.database.ref('rooms/' + classCode).once('value').then(innerCallback);        
     }
 
-    // addStateAndFealings(classCode) {
-    //     let studentAnswer = {
-    //         state: 'afslappet',
-    //         feelings: ['sommerfugle i maven', 'glad']
-    //     };
-    //     this.database.ref('rooms/' + classCode).push(studentAnswer);
-    // }
-
-    submitStateAndFeelings(answer) {
-        // let studentAnswer = {
-        //     state: Store.condition,
-        //     feelings: Store.feelings
-        // };
-        let studentAnswer = {
-            state: 'afslappet',
-            feelings: ['sommerfugle i maven', 'glad']
+    submitAnswer() {
+        let answer = {
+            state: Store.condition,
+            feelings: Store.feelings
         };
-        this.database.ref('rooms/' + Store.classCode).push(studentAnswer);
-
+        
+        this.database.ref('rooms/' + Store.classCode).push(answer);
     }
 }

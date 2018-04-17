@@ -1,21 +1,17 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Button from 'material-ui/Button';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
-import Badge from 'material-ui/Badge';
-import {FormControl} from 'material-ui/Form';
-import Input, {InputLabel} from 'material-ui/Input';
-import {withStyles} from 'material-ui/styles';
+import { FormControl } from 'material-ui/Form';
+import { withStyles } from 'material-ui/styles';
 import Slide from 'material-ui/transitions/Slide';
-import PropTypes from 'prop-types';
-import StudentModel from '../StudentModel.js';
-import { EmojiSelector, Emoji }  from 'common';
+import ClassRoomModel from '../ClassRoomModel.js';
+import { EmojiSelector }  from 'common';
 import smileyemojis from '../assets/smileyemojis.json';
 import animalemojis from '../assets/animalemojis.json';
 import foodemojis from '../assets/foodemojis.json';
 import Store from '../Store';
 import { observer } from 'mobx-react';
-import { ListItemAvatar } from 'material-ui';
 
 const styles = theme => ({
     root: {
@@ -32,35 +28,28 @@ const styles = theme => ({
     },
     badge: {
         margin: '10px'
-    },
-    emojiButton: {}
+    }
 });
 
-/* CreatePage.propTypes = {
-    classes: PropTypes.object.isRequired
-};
- */
 class LoginPage extends Component {
-
-    constructor() {
-        super();
-        this.state = {
-            classCode: undefined,
-            subject: undefined
-        }
-    }
 
     handleLogin(loginData) {
         let val = loginData.val();
         if (val.subject) {
             this.setState({subject: val.subject});
-            Store.screen = "condition";
+            Store.subject = val.subject;
+            Store.screen = "condition";            
         }
+    }
+
+    tryLogin(classCode) {
+        Store.classRoom = Store.classRoom || new ClassRoomModel();
+        Store.classRoom.login(classCode, (loginData) => this.handleLogin(loginData));
     }
 
     handleCreateClick() {
         let classCode = this.emoji1Name + this.emoji2Name + this.emoji3Name;
-        new StudentModel().login(classCode, (loginData) => this.handleLogin(loginData));
+        this.tryLogin(classCode);
     }
 
     emoji1Changed(data) {
@@ -79,7 +68,7 @@ class LoginPage extends Component {
         let params = (new URL(document.location)).searchParams;
         let classCode = params.get("classcode");
         if (classCode && classCode.length > 0) {
-            new StudentModel().login(classCode, (loginData) => this.handleLogin(loginData));
+            this.tryLogin(classCode);
         }
     }
 
@@ -105,12 +94,12 @@ class LoginPage extends Component {
                 <FormControl fullWidth className={classes.control}>
                     <Slide
                         direction="up"
-                        in={this.state.subject !== undefined}
+                        in={Store.subject !== undefined}
                         mountOnEnter
                         unmountOnExit>
                         <Paper className={classes.paper} elevation={4}>
                             <Typography variant="headline" component="h3">
-                                {this.state.subject}
+                                {Store.subject}
                             </Typography>
                         </Paper>
                     </Slide>
