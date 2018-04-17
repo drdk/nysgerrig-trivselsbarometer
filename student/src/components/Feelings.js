@@ -1,8 +1,45 @@
 import React, { Component } from 'react';
+import Paper from 'material-ui/Paper';
+import Typography from 'material-ui/Typography';
+import {FormControl} from 'material-ui/Form';
+import {withStyles} from 'material-ui/styles';
+import Slide from 'material-ui/transitions/Slide';
 import { Emoji }  from 'common';
 import './Feelings.css';
 import { observer } from 'mobx-react';
 import Store from '../Store';
+
+const styles = theme => ({
+    root: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        margin: '20px'
+    },
+    control: {
+        marginTop: '20px'
+    },
+    paper: {
+        paddingTop: 16,
+        paddingBottom: 16,
+        margin: "10px 0",
+        cursor: "pointer"
+    },
+    badge: {
+        margin: '10px'
+    },
+    emojiButton: {},
+    stressLevel1: {
+        background: "red",
+        color: "white"
+    },
+    stressLevel2: {
+        background: "yellow"
+    },
+    stressLevel3: {
+        background: "green",
+        color:"white"
+    },
+});
 
 class Feelings extends Component {
 
@@ -11,9 +48,7 @@ class Feelings extends Component {
 
         this.clickHandler = this.selectHandler.bind(this);
 
-        this.state = {
-            selected: []
-        };
+        Store.feelings = Store.feelings || [];
     }
 
     getFeelings() {
@@ -121,43 +156,57 @@ class Feelings extends Component {
         ];
     }
 
-    selectHandler(feeling) {
-        var selected = this.state.selected,
-        index = selected.indexOf(feeling.name);
-
-        if (index > -1) {
-            selected.splice(index, 1);
-        }
-        else {
-            selected.push(feeling.name);
-        }
-
-        this.setState({
-            selected: selected
-        });
-    };
-
-    getSelectedState(feeling) {
-        return (this.selected.indexOf(feeling) > -1) ? "selected" : null;
+    getFeelingIndex(feeling) {
+        return Store.feelings.indexOf(feeling.name);
     }
 
+    getClassName(feeling) {
+        return this.getFeelingIndex(feeling) > -1 ? "selected" : null;
+    }
+
+    selectHandler(feeling) {
+        var index = this.getFeelingIndex(feeling);
+
+        if (index > -1) {
+            Store.feelings.splice(index, 1);
+        }
+        else {
+            Store.feelings.push(feeling.name);
+        }
+        
+        this.forceUpdate();
+    };
+
     continue() {
-        console.log('====================================');
-        console.log(this.state.selected);
-        console.log('====================================');
-        Store.feelings = this.state.selected;
+        if (Store.feelings.length > 0) {
+            Store.screen = "finish";
+        }
     }
 
     render() {
+        const {classes} = this.props;
         let feelings = this.getFeelings().map((feeling) => {
-            return <Emoji key={feeling.name} className={(this.state.selected.indexOf(feeling.name) > -1) ? "selected" : ""} data={feeling} clickHandler={this.clickHandler} />
+            return <Emoji key={feeling.name} className={this.getClassName(feeling)} data={feeling} clickHandler={this.clickHandler} />
         });
         return (
         <div>
+            <FormControl fullWidth className={classes.control}>
+                <Slide
+                    direction="up"
+                    in={Store.subject !== undefined}
+                    mountOnEnter
+                    unmountOnExit>
+                    <Paper className={classes.paper} elevation={4}>
+                        <Typography variant="headline" component="h3">
+                            {Store.subject}
+                        </Typography>
+                    </Paper>
+                </Slide>
+            </FormControl>
             {feelings}
             <button onClick={this.continue.bind(this)}>Fortsæt</button>
         </div>);
     }
 }
 
-export default observer( Feelings );
+export default observer( withStyles(styles)(Feelings) );
