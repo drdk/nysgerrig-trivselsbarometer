@@ -15,6 +15,7 @@ class App extends Component {
       return (
         <div>
           <Header />
+          <CreatePage />
         </div>
       );
     } else if (Store.screen === "conditionResults") {
@@ -39,7 +40,6 @@ class App extends Component {
     return (
       <div className="App">
        {this.screenSelector()}
-        <CreatePage />
       </div>
     );
   }
