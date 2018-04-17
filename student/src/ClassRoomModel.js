@@ -31,7 +31,7 @@ export default class ClassRoomModel {
 
     submitAnswer() {
         let answer = {
-            state: Store.condition,
+            condition: Store.condition,
             feelings: Store.feelings
         };
         
