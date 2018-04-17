@@ -13,8 +13,10 @@ import { EmojiSelector}  from 'common';
 import smileyemojis from '../assets/smileyemojis.json';
 import animalemojis from '../assets/animalemojis.json';
 import foodemojis from '../assets/foodemojis.json';
+import Store from '../Store';
+import { observer } from 'mobx-react';
 
-
+window.theStore = Store;
 const styles = theme => ({
     root: {
         display: 'flex',
@@ -41,11 +43,48 @@ class CreatePage extends Component {
 
     constructor() {
         super();
+        var data = [{
+                feelings:["emoji_u1f601"],
+                state:"Afslappet"
+            },
+            {
+                feelings:["emoji_u1f601"],
+                state:"Presset"
+            },
+            {
+                feelings:["emoji_u1f610"],
+                state:"Presset"
+            },
+            {
+                feelings:["emoji_u1f610"],
+                state:"Okay"
+            },
+            {
+                feelings:["emoji_u1f610"],
+                state:"Okay"
+            },
+            {
+                feelings:["emoji_u1f614"],
+                state:"Okay"
+            },
+            {
+                feelings:["emoji_u1f614"],
+                state:"Afslappet"
+            },
+            {
+                feelings:["emoji_u1f614"],
+                state:"Afslappet"
+            },
+            {
+                feelings:["emoji_u1f614"],
+                state:"Presset"
+            }];
+            Store.data = data;
         this.state = {
             classCode: undefined,
             subject: undefined,
             count: 0,
-            data: []
+            data: data
         }
     }
 
@@ -53,6 +92,7 @@ class CreatePage extends Component {
         let val = childData.val();
         if (typeof val === 'object') {
             this.state.data.push(childData.val());
+            console.log(this.state.data)
             this.setState({ count: this.state.data.length })
         }
     }
@@ -126,4 +166,4 @@ class CreatePage extends Component {
     }
 }
 
-export default withStyles(styles)(CreatePage);
+export default observer(withStyles(styles)(CreatePage));

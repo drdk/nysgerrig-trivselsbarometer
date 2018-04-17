@@ -1,3 +1,4 @@
 /common/node_modules/
 /common/build/
 common/package-lock.json
+.DS_Store
