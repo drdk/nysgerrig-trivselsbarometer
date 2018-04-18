@@ -32,75 +32,69 @@ const styles = theme => ({
 });
 
 class ConditionResults extends Component {
-    constructor(){
-      super();
+    getConditions() {
+        return [
+            "Afslappet",
+            "OK",
+            "Belastet"
+        ];
     }
     goToFeelings() {
         Store.screen = "feelingsResults";
     }
     calculateRender(condition){
-      console.log(this.state)
       return {
           width: this.state.conditions[condition].proportion+"%"
       };
     }
     componentWillMount(){
-      var items = Store.data;
-      var conditions = {
-        "Okay":0,
-        "Presset":0,
-        "Afslappet":0
-      };
-      for (var i = 0; i < items.length; i++) {
-        if(!conditions.hasOwnProperty(items[i].condition))
-          conditions[items[i].condition]= 1;
-        else 
-          conditions[items[i].condition]++;
-      };
-      for(var condition in conditions){
-        var numberOfConditions = Object.keys(conditions).length;
-        var totalVotes = items.length;
-        var conditionVotes = conditions[condition];
+      var answers = Store.data,
+      totalAnswers = answers.length,
+      conditions = JSON.parse('{"' + this.getConditions().join('": 0, "') + '": 0}'),
+      numberOfConditions = Object.keys(conditions).length,
+      totalWidth = 99,
+      minWidth = 12,
+      proportionalWidthPart = ((totalWidth - (numberOfConditions * minWidth)) / totalAnswers);
 
-        var proportion = (conditionVotes === 0) ? 12 : (( ( 99-(numberOfConditions*12) ) / totalVotes ) * conditionVotes )+12
+      for (var i = 0; i < answers.length; i++) {
+          conditions[answers[i].condition]++;
+      }
+
+      for (var condition in conditions) {
+        var conditionVotes = conditions[condition],
+        proportion = (proportionalWidthPart * conditionVotes) + minWidth;
         
         conditions[condition] = {
           proportion: proportion,
           count: conditions[condition]
         };
       }
-      this.setState({conditions: conditions})
 
+      this.setState({conditions: conditions});
     }
     render() {
         const { classes } = this.props;
-        return (<div>
-            <FormControl fullWidth className={classes.control}>
-              <Paper className={classes.top} elevation={4}>
-                  <Typography variant="headline" component="h3">
-                      {Store.subject}
-                  </Typography>
-              </Paper>
-            </FormControl>
-           <div className={classes.root}>
-              <Paper className={classes.conditionCard} style={this.calculateRender("Afslappet")} elevation={4}>
-                  <Typography variant="headline" component="h3">
-                      Afslappet
-                   </Typography>
-              </Paper>
-              <Paper className={classes.conditionCard} style={this.calculateRender("Okay")} elevation={4}>
-                  <Typography variant="headline" component="h3">
-                      Okay
-                   </Typography>
-              </Paper>
-              <Paper className={classes.conditionCard} style={this.calculateRender("Presset")} elevation={4}>
-                  <Typography variant="headline" component="h3">
-                      Presset
-                   </Typography>
-              </Paper>
+        return (
+            <div>
+                <FormControl fullWidth className={classes.control}>
+                    <Paper className={classes.top} elevation={4}>
+                        <Typography variant="headline" component="h3">
+                            {Store.subject}
+                        </Typography>
+                    </Paper>
+                </FormControl>
+                <div className={classes.root}>
+                    {this.getConditions().map((condition) => {
+                        return <Paper key={condition} className={classes.conditionCard} style={this.calculateRender(condition)} elevation={4}>
+                            <Typography variant="headline" component="h3">
+                                {condition}
+                            </Typography>
+                        </Paper>               
+                    })}
+                </div>
+                <Button className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.goToFeelings()}>Se resultat for følelser</Button>
             </div>
-            <Button className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.goToFeelings()}>Se resultat for følelser</Button>
-        </div>);
+        );
     }
 }
 
