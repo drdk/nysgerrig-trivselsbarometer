@@ -9,6 +9,7 @@ import { Emoji }  from 'common';
 import './Feelings.css';
 import { observer } from 'mobx-react';
 import Store from '../Store';
+import { CommonData }  from 'common';
 
 const styles = theme => ({
     root: {
@@ -50,52 +51,6 @@ class Feelings extends Component {
         Store.feelings = Store.feelings || [];
     }
 
-    getFeelings() {
-        return [        
-            {
-                "name": "Glad",
-                "file": "emoji_u1f600.svg"
-            },
-            {
-                "name": "Optimistisk",
-                "file": "emoji_u1f60f.svg"
-            },
-            {
-                "name": "Forelsket",
-                "file": "emoji_u1f60d.svg"
-            },
-            {
-                "name": "Priviligeret",
-                "file": "emoji_u1f60e.svg"
-            },
-            {
-                "name": "Afslappet",
-                "file": "emoji_u1f60c.svg"
-            },
-
-            {
-                "name": "Træt",
-                "file": "emoji_u1f634.svg"
-            },
-            {
-                "name": "Frustreret",
-                "file": "emoji_u1f635.svg"
-            },
-            {
-                "name": "Skidt tilpas",
-                "file": "emoji_u1f628.svg"
-            },
-            {
-                "name": "Bekymret",
-                "file": "emoji_u1f633.svg"
-            },
-            {
-                "name": "Utålmodig",
-                "file": "emoji_u1f644.svg"
-            }
-        ];
-    }
-
     getFeelingIndex(feeling) {
         for (let i = 0; i < Store.feelings.length; i++) {
             if (Store.feelings[i].name === feeling.name) {
@@ -131,7 +86,7 @@ class Feelings extends Component {
 
     render() {
         const {classes} = this.props;
-        let feelings = this.getFeelings().map((feeling) => {
+        let feelings = CommonData.getFeelings().map((feeling) => {
             return (
                 <div key={feeling.name} >
                     <div className={this.getClassName(feeling)} onClick={this.selectHandler.bind(this, feeling)}>

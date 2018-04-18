@@ -6,6 +6,7 @@ import { withStyles } from 'material-ui/styles';
 import Slide from 'material-ui/transitions/Slide';
 import Store from '../Store';
 import { observer } from 'mobx-react';
+import { CommonData }  from 'common';
 
 const styles = theme => ({
     root: {
@@ -63,21 +64,14 @@ class Condition extends Component {
                     </Slide>
                 </FormControl>
                 <FormControl fullWidth className={classes.control}>
-                    <Paper className={[classes.paper, classes.conditionRelaxed].join(' ')} elevation={4} onClick={this.setCondition.bind(this, "Afslappet")}>
-                        <Typography variant="headline" component="h3">
-                            Afslappet
-                        </Typography>
-                    </Paper>
-                    <Paper className={[classes.paper, classes.conditionOK].join(' ')} elevation={4} onClick={this.setCondition.bind(this, "OK")}>
-                        <Typography variant="headline" component="h3">
-                            OK
-                        </Typography>
-                    </Paper>                    
-                    <Paper className={[classes.paper, classes.conditionStressed].join(' ')} elevation={4} onClick={this.setCondition.bind(this, "Belastet")}>
-                        <Typography variant="headline" component="h3">
-                            Belastet
-                        </Typography>
-                    </Paper>
+                    {CommonData.getConditions().map((condition) => {
+                        return (
+                        <Paper className={[classes.paper, classes.conditionRelaxed].join(' ')} style={{backgroundColor: condition.color}} elevation={4} onClick={this.setCondition.bind(this, condition.name)}>
+                            <Typography variant="headline" component="h3">
+                                {condition.name}
+                            </Typography>
+                        </Paper>)
+                    })}
                 </FormControl>
             </div>
         );

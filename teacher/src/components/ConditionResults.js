@@ -6,6 +6,7 @@ import {FormControl} from 'material-ui/Form';
 import {withStyles} from 'material-ui/styles';
 import Store from '../Store';
 import { observer } from 'mobx-react';
+import { CommonData }  from 'common';
 
 const styles = theme => ({
     root: {
@@ -32,42 +33,43 @@ const styles = theme => ({
 });
 
 class ConditionResults extends Component {
-    getConditions() {
-        return [
-            "Afslappet",
-            "OK",
-            "Belastet"
-        ];
-    }
+
     goToFeelings() {
         Store.screen = "feelingsResults";
     }
     calculateRender(condition){
       return {
-          width: this.state.conditions[condition].proportion+"%"
+          width: condition.proportion + "%",
+          backgroundColor: condition.color
       };
+    }
+    indexOfCondition(conditions, conditionName) {
+        for (var i = 0; i < conditions.length; i++) {
+            if (conditions[i].name === conditionName) {
+                return i;
+            }
+        }
+
+        return -1;
     }
     componentWillMount(){
       var answers = Store.data,
       totalAnswers = answers.length,
-      conditions = JSON.parse('{"' + this.getConditions().join('": 0, "') + '": 0}'),
-      numberOfConditions = Object.keys(conditions).length,
+      conditions = CommonData.getConditions(),
+      numberOfConditions = conditions.length,
       totalWidth = 99,
       minWidth = 12,
-      proportionalWidthPart = ((totalWidth - (numberOfConditions * minWidth)) / totalAnswers);
+      proportionalWidthPart = ((totalWidth - (numberOfConditions * minWidth)) / totalAnswers),
+      i;
 
-      for (var i = 0; i < answers.length; i++) {
-          conditions[answers[i].condition]++;
+      for (i = 0; i < answers.length; i++) {
+          var condition = conditions[this.indexOfCondition(conditions, answers[i].condition)];
+          condition.count = (condition.count || 0) + 1;
       }
 
-      for (var condition in conditions) {
-        var conditionVotes = conditions[condition],
-        proportion = (proportionalWidthPart * conditionVotes) + minWidth;
-        
-        conditions[condition] = {
-          proportion: proportion,
-          count: conditions[condition]
-        };
+      for (i = 0; i < conditions.length; i++) {
+          conditions[i].count = conditions[i].count || 0;
+          conditions[i].proportion = (proportionalWidthPart * conditions[i].count) + minWidth;
       }
 
       this.setState({conditions: conditions});
@@ -84,10 +86,10 @@ class ConditionResults extends Component {
                     </Paper>
                 </FormControl>
                 <div className={classes.root}>
-                    {this.getConditions().map((condition) => {
-                        return <Paper key={condition} className={classes.conditionCard} style={this.calculateRender(condition)} elevation={4}>
+                    {this.state.conditions.map((condition) => {
+                        return <Paper key={condition.name} className={classes.conditionCard} style={this.calculateRender(condition)} elevation={4}>
                             <Typography variant="headline" component="h3">
-                                {condition}
+                                {condition.name}
                             </Typography>
                         </Paper>               
                     })}
