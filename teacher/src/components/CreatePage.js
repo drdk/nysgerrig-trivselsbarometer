@@ -39,155 +39,20 @@ class CreatePage extends Component {
     constructor() {
         super();
 
-        /* Temp data */
-var data = [{
-            feelings:[{
-                "name": "Bekymret",
-                "file": "emoji_u1f633.svg"
-            }],
-            condition:"Afslappet"
-        },
-        {
-            feelings:[{
-                "name": "Glad",
-                "file": "emoji_u1f600.svg"
-            }],
-            condition:"Presset"
-        },
-        {
-            feelings:[{
-                "name": "Frustreret",
-                "file": "emoji_u1f635.svg"
-            }],
-            condition:"Okay"
-        },
-        {
-            feelings:[{
-                "name": "Frustreret",
-                "file": "emoji_u1f635.svg"
-            }],
-            condition:"Okay"
-        },
-        {
-            feelings:[{
-                "name": "Glad",
-                "file": "emoji_u1f600.svg"
-            }],
-            condition:"Okay"
-        },
-        {
-            feelings:[{
-                "name": "Utålmodig",
-                "file": "emoji_u1f644.svg"
-            }],
-            condition:"Afslappet"
-        },
-        {
-            feelings:[{
-                "name": "Skidt tilpas",
-                "file": "emoji_u1f628.svg"
-            }],
-            condition:"Afslappet"
-        },
-        {
-            feelings:[{
-                "name": "Glad",
-                "file": "emoji_u1f600.svg"
-            }],
-            condition:"Presset"
-        },
-        {
-            feelings:[{
-                "name": "Optimistisk",
-                "file": "emoji_u1f60f.svg"
-            }],
-            condition:"Presset"
-        },
-        {
-            feelings:[{
-                "name": "Optimistisk2",
-                "file": "emoji_u1f60f.svg"
-            }],
-            condition:"Presset"
-        },
-        {
-            feelings:[{
-                "name": "Optimistisk3",
-                "file": "emoji_u1f60f.svg"
-            }],
-            condition:"Presset"
-        },
-        {
-            feelings:[{
-                "name": "Optimistisk8",
-                "file": "emoji_u1f60f.svg"
-            }],
-            condition:"Presset"
-        },{
-            feelings:[{
-                "name": "Optimistisk2",
-                "file": "emoji_u1f60f.svg"
-            }],
-            condition:"Presset"
-        },
-        {
-            feelings:[{
-                "name": "Optimistisk3",
-                "file": "emoji_u1f60f.svg"
-            }],
-            condition:"Presset"
-        },
-        {
-            feelings:[{
-                "name": "Optimistisk7",
-                "file": "emoji_u1f60f.svg"
-            }],
-            condition:"Presset"
-        },
-        {
-            feelings:[{
-                "name": "Optimistisk7777",
-                "file": "emoji_u1f60f.svg"
-            }],
-            condition:"Presset"
-        },{
-            feelings:[{
-                "name": "Optimistisk7777",
-                "file": "emoji_u1f60f.svg"
-            }],
-            condition:"Presset"
-        },
-        {
-            feelings:[{
-                "name": "Optimistisk7777",
-                "file": "emoji_u1f60f.svg"
-            }],
-            condition:"Presset"
-        },
-        {
-            feelings:[{
-                "name": "Optimistisk7777",
-                "file": "emoji_u1f60f.svg"
-            }],
-            condition:"Presset"
-        }];
-
         this.state = {
             emojiTimestamp: Date.now(),
-            subject: "Gummiænder"
+            subject: ""
         }
         
-        Store.data = data || [];
+        Store.data = Store.data || [];
         Store.classCode = undefined;
-        setTimeout(() => {
-            this.handleCreateClick();            
-        }, 100);
     }
 
     handleChildAdded(childData) {
         let val = childData.val();
         if (typeof val === 'object') {
             Store.data.push(childData.val());
+            this.forceUpdate();
         }
     }
 
