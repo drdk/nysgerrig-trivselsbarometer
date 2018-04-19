@@ -88,7 +88,7 @@ class Feelings extends Component {
         const {classes} = this.props;
         let feelings = CommonData.getFeelings().map((feeling) => {
             return (
-                <div key={feeling.name} >
+                <div key={feeling.name} style={{backgroundColor: feeling.color}} >
                     <div className={this.getClassName(feeling)} onClick={this.selectHandler.bind(this, feeling)}>
                         <Emoji name={feeling.name} data={feeling} />
                         <br />
