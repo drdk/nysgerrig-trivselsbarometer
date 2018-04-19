@@ -24,7 +24,8 @@ class EmojiSelector extends Component {
     #{id} .overlay { position: fixed; z-index: 1; top: 0; right: 0; bottom: 0; left: 0; background-color: rgba(0, 0, 0, .8); } \
     #{id} .childContainer { display: inline-block; position: fixed; z-index: 2; max-width: 90vw; max-height: 90vh; top: 50%; left: 50%; transform: translate(-50%, -50%); overflow: auto; background-color: #fff; border: 1px solid silver; display: flex; justify-content: space-evenly; flex-wrap: wrap; } \
     #{id} .childContainer div { display: inline-block; width: 128px; height: 128px; margin: 5px; } \
-    ".replace("{id}", this.id)));
+    #{id} img { width: 128px; height: 128px; } \
+    ".replace(/{id}/mg, this.id)));
   }
 
   childSelected(data) {    

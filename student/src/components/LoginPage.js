@@ -7,11 +7,9 @@ import { withStyles } from 'material-ui/styles';
 import Slide from 'material-ui/transitions/Slide';
 import ClassRoomModel from '../ClassRoomModel.js';
 import { EmojiSelector }  from 'common';
-import smileyemojis from '../assets/smileyemojis.json';
-import animalemojis from '../assets/animalemojis.json';
-import foodemojis from '../assets/foodemojis.json';
 import Store from '../Store';
 import { observer } from 'mobx-react';
+import { CommonData }  from 'common';
 
 const styles = theme => ({
     root: {
@@ -79,9 +77,9 @@ class LoginPage extends Component {
             
                 <FormControl fullWidth>
                     <div>
-                        <EmojiSelector onChange={this.emoji1Changed.bind(this)} emojis={smileyemojis} preload={true}/>
-                        <EmojiSelector onChange={this.emoji2Changed.bind(this)} emojis={animalemojis} preload={true}/>
-                        <EmojiSelector onChange={this.emoji3Changed.bind(this)} emojis={foodemojis} preload={true}/>
+                        <EmojiSelector onChange={this.emoji1Changed.bind(this)} emojis={CommonData.getFruitEmojis()} preload={true}/>
+                        <EmojiSelector onChange={this.emoji2Changed.bind(this)} emojis={CommonData.getAnimalEmojis()} preload={true}/>
+                        <EmojiSelector onChange={this.emoji3Changed.bind(this)} emojis={CommonData.getVehicleEmojis()} preload={true}/>
                     </div>
                     <div>
                         <Button

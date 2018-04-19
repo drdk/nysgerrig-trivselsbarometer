@@ -9,11 +9,9 @@ import { withStyles } from 'material-ui/styles';
 import Slide from 'material-ui/transitions/Slide';
 import TeacherModel from '../TeacherModel.js';
 import { EmojiSelector}  from 'common';
-import smileyemojis from '../assets/smileyemojis.json';
-import animalemojis from '../assets/animalemojis.json';
-import foodemojis from '../assets/foodemojis.json';
 import Store from '../Store';
 import { observer } from 'mobx-react';
+import { CommonData }  from 'common';
 
 window.theStore = Store;
 const styles = theme => ({
@@ -121,9 +119,9 @@ class CreatePage extends Component {
                             <Typography component="p">
                                 Deltagerne kan gå til dr.dk/trivselsbarometer og bruge klassekoden :
                             </Typography>
-                            <EmojiSelector timestamp={this.state.emojiTimestamp} onChange={this.emoji1Changed.bind(this)} emojis={smileyemojis} random={true} clickDisabled={true} />
-                            <EmojiSelector timestamp={this.state.emojiTimestamp} onChange={this.emoji2Changed.bind(this)} emojis={animalemojis} random={true} clickDisabled={true} />
-                            <EmojiSelector timestamp={this.state.emojiTimestamp} onChange={this.emoji3Changed.bind(this)} emojis={foodemojis} random={true} clickDisabled={true} />
+                            <EmojiSelector timestamp={this.state.emojiTimestamp} onChange={this.emoji1Changed.bind(this)} emojis={CommonData.getFruitEmojis()} random={true} clickDisabled={true} />
+                            <EmojiSelector timestamp={this.state.emojiTimestamp} onChange={this.emoji2Changed.bind(this)} emojis={CommonData.getAnimalEmojis()} random={true} clickDisabled={true} />
+                            <EmojiSelector timestamp={this.state.emojiTimestamp} onChange={this.emoji3Changed.bind(this)} emojis={CommonData.getVehicleEmojis()} random={true} clickDisabled={true} />                            
                             <Typography component="p">
                                 Antal der har svaret:
                             </Typography>
