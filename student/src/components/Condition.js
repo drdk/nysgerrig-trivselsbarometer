@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from 'material-ui/Button';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import { FormControl } from 'material-ui/Form';
@@ -6,7 +7,7 @@ import { withStyles } from 'material-ui/styles';
 import Slide from 'material-ui/transitions/Slide';
 import Store from '../Store';
 import { observer } from 'mobx-react';
-import { CommonData }  from 'common';
+import { CommonData } from 'common';
 
 const styles = theme => ({
     root: {
@@ -28,7 +29,7 @@ const styles = theme => ({
     },
     conditionRelaxed: {
         background: "green",
-        color:"white"
+        color: "white"
     },
     conditionOK: {
         background: "yellow"
@@ -36,46 +37,60 @@ const styles = theme => ({
     conditionStressed: {
         background: "red",
         color: "white"
+    },
+    subjectText: {
+        fontSize: "20px"
+    },
+    selected: {
+        fontSize: "30px",
+        outline: "10px dotted green"
     }
 });
 
-class Condition extends Component {
 
-    setCondition(condition) {
-        Store.condition = condition;
+
+class Condition extends Component {
+    continue() {
+        if (!Store.condition) {
+            return;
+        }
         Store.screen = "feelings";
     }
 
+    setCondition(condition) {
+        Store.condition = condition;
+        this.forceUpdate();
+    }
+
     render() {
-        const {classes} = this.props;
+        const { classes } = this.props;
         return (
             <div className={classes.root}>
                 <FormControl fullWidth className={classes.control}>
-                    <Slide
-                        direction="up"
-                        in={Store.subject !== undefined}
-                        mountOnEnter
-                        unmountOnExit>
-                        <Paper className={classes.paper} elevation={4}>
-                            <Typography variant="headline" component="h3">
-                                {Store.subject}
-                            </Typography>
-                        </Paper>
-                    </Slide>
+                    Emne
+                <div className={classes.subjectText}>{Store.subject}</div >
                 </FormControl>
                 <FormControl fullWidth className={classes.control}>
                     {CommonData.getConditions().map((condition) => {
+                        var selected = Store.condition === condition.name ? classes.selected : null;
                         return (
-                        <Paper className={[classes.paper, classes.conditionRelaxed].join(' ')} style={{backgroundColor: condition.color}} elevation={4} onClick={this.setCondition.bind(this, condition.name)}>
-                            <Typography variant="headline" component="h3">
-                                {condition.name}
-                            </Typography>
-                        </Paper>)
+                            <Paper key={condition.name} className={[classes.paper, classes.conditionRelaxed,  selected ].join(' ')} style={{ backgroundColor: condition.color }} elevation={4} onClick={this.setCondition.bind(this, condition.name)}>
+                                <Typography variant="headline" component="h3">
+                                    {condition.name}
+                                </Typography>
+                            </Paper>)
                     })}
                 </FormControl>
+                <Button
+                className={"alignRight " + classes.control}
+                variant="raised"
+                color="primary"
+                onClick={this.continue.bind(this)}>Fortsæt
+                </Button>
             </div>
+            
         );
     }
 }
 
-export default observer( withStyles(styles)(Condition) );
+export default observer(withStyles(styles)(Condition));
