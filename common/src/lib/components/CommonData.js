@@ -21,44 +21,54 @@ class CommonData extends React.Component {
         return [        
             {
                 "name": "Glad",
-                "file": "emoji_u1f600.svg"
+                "file": "emoji_u1f600.svg",
+                "color": "green"
             },
             {
                 "name": "Optimistisk",
-                "file": "emoji_u1f60f.svg"
+                "file": "emoji_u1f60f.svg",
+                "color": "green"
             },
             {
                 "name": "Forelsket",
-                "file": "emoji_u1f60d.svg"
+                "file": "emoji_u1f60d.svg",
+                "color": "green"
             },
             {
                 "name": "Priviligeret",
-                "file": "emoji_u1f60e.svg"
+                "file": "emoji_u1f60e.svg",
+                "color": "green"
             },
             {
                 "name": "Afslappet",
-                "file": "emoji_u1f60c.svg"
+                "file": "emoji_u1f60c.svg",
+                "color": "green"
             },
 
             {
                 "name": "Træt",
-                "file": "emoji_u1f634.svg"
+                "file": "emoji_u1f634.svg",
+                "color": "red"
             },
             {
                 "name": "Frustreret",
-                "file": "emoji_u1f635.svg"
+                "file": "emoji_u1f635.svg",
+                "color": "red"
             },
             {
                 "name": "Skidt tilpas",
-                "file": "emoji_u1f628.svg"
+                "file": "emoji_u1f628.svg",
+                "color": "red"
             },
             {
                 "name": "Bekymret",
-                "file": "emoji_u1f633.svg"
+                "file": "emoji_u1f633.svg",
+                "color": "red"
             },
             {
                 "name": "Utålmodig",
-                "file": "emoji_u1f644.svg"
+                "file": "emoji_u1f644.svg",
+                "color": "red"
             }
         ];
     }
@@ -196,9 +206,6 @@ class CommonData extends React.Component {
             }, {
                 "name": "emoji_u1f6eb",
                 "file": "emoji_u1f6eb.png"
-            }, {
-                "name": "emoji_u1f6f3",
-                "file": "emoji_u1f6f3.png"
             }, {
                 "name": "emoji_u1f6f4",
                 "file": "emoji_u1f6f4.png"

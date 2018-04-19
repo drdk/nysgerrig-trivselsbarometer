@@ -40,7 +40,7 @@ class FeelingsResults extends Component {
 
             for (let j = 0; j < answer.feelings.length; j++) {
                 const feeling = answer.feelings[j];
-                feelings[feeling.name] = feelings[feeling.name] || { name: feeling.name, file: feeling.file, count: 0 };
+                feelings[feeling.name] = feelings[feeling.name] || { name: feeling.name, file: feeling.file, color: feeling.color, count: 0 };
                 feelings[feeling.name].count++;
             }
         }
@@ -71,7 +71,7 @@ class FeelingsResults extends Component {
             {feelingsArray.map((feeling) => {
                 return (
                     <div key={feeling.name}>
-                        <div data-count={feeling.count} data-name={feeling.name} className="bar" style={{height: feeling.scale + "%" }}>
+                        <div data-count={feeling.count} data-name={feeling.name} className="bar" style={{height: feeling.scale + "%", backgroundColor: feeling.color }}>
                             <img alt={feeling.name} src={"https://www.dr.dk/tjenester/nysgerrig/assets/NotoColorEmoji/" + feeling.file} />                            
                         </div>
                     </div>
