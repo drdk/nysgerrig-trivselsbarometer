@@ -17,15 +17,18 @@ class EmojiSelector extends Component {
 
     this.css = head.appendChild(document.createElement("style"));
     this.css.setAttribute("type", "text/css");
-    var customStyle = (this.props.hasOwnProperty("style") ? this.props.style : "");
     this.css.appendChild(document.createTextNode(" \
-    #{id} { display: inline-block; margin: 5px; padding: 5px; background-color: #fff; {customStyle}} \
+    #{id} { display: inline-block; margin: 5px; padding: 5px; background-color: #fff;} \
     #{id} .preload { position: fixed; z-index: 0; top: -1px; right: -1px; width: 1px; height: 1px; overflow: hidden; } \
     #{id} .overlay { position: fixed; z-index: 1; top: 0; right: 0; bottom: 0; left: 0; background-color: rgba(0, 0, 0, .8); } \
     #{id} .childContainer { display: inline-block; position: fixed; z-index: 2; max-width: 90vw; max-height: 90vh; top: 50%; left: 50%; transform: translate(-50%, -50%); overflow: auto; background-color: #fff; border: 1px solid silver; display: flex; justify-content: space-evenly; flex-wrap: wrap; } \
     #{id} .childContainer div { display: inline-block; width: 128px; height: 128px; margin: 5px; } \
+<<<<<<< Updated upstream
     #{id} img { width: 128px; height: 128px; } \
     ".replace(/{id}/mg, this.id).replace("{customStyle}", customStyle)));
+=======
+    ".replace("{id}", this.id)));
+>>>>>>> Stashed changes
   }
 
   childSelected(data) {    
@@ -103,7 +106,7 @@ class EmojiSelector extends Component {
     }
     
     return (
-      <div id={this.id}>
+      <div id={this.id} class={(this.props.hasOwnProperty("class") ? this.props.class : "")}>
       <Emoji data={this.state.selected} clickHandler={this.open.bind(this)} />
         {childContainer}
         {preLoader}
