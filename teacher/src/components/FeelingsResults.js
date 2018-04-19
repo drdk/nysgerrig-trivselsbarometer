@@ -71,7 +71,7 @@ class FeelingsResults extends Component {
             {feelingsArray.map((feeling) => {
                 return (
                     <div key={feeling.name}>
-                        <div data-count={feeling.count} data-name={feeling.name} className="bar" style={{height: feeling.scale + "%" }}>
+                        <div data-count={feeling.count} data-name={feeling.name} className="bar" style={{height: feeling.scale + "%", backgroundColor: feeling.color }}>
                             <img alt={feeling.name} src={"https://www.dr.dk/tjenester/nysgerrig/assets/NotoColorEmoji/" + feeling.file} />                            
                         </div>
                     </div>
