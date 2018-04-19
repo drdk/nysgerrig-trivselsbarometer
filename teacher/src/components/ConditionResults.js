@@ -12,7 +12,8 @@ const styles = theme => ({
     root: {
         display: 'flex',
         flexWrap: 'wrap',
-        margin: '20px'
+        margin: '20px',
+        height:'25vw'
     },
     control: {
         marginTop: '20px'
@@ -87,9 +88,13 @@ class ConditionResults extends Component {
                 </FormControl>
                 <div className={classes.root}>
                     {this.state.conditions.map((condition) => {
+                        var percentage = (condition.count/Store.data.length)*100;
                         return <Paper key={condition.name} className={classes.conditionCard} style={this.calculateRender(condition)} elevation={4}>
                             <Typography variant="headline" component="h3">
                                 {condition.name}
+                            </Typography>
+                            <Typography variant="body" component="h5">
+                                {condition.count} stemte {(percentage % 1 === 0) ? percentage : percentage.toFixed(2)}%
                             </Typography>
                         </Paper>               
                     })}
