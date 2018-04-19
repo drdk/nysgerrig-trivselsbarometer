@@ -19,6 +19,14 @@ export default class Model {
         this.database = firebase.database();
     }
 
+    checkForClassRoom(classCode, callback){
+        this.database.ref('rooms/' + classCode).once('value').then((response)=>{
+            var val = response.val();
+            var exist = val.subject ? true : false;
+            callback(exist);
+        });  
+    }
+
     createClassRoom(classCode, subject, callback) {
         this.database.ref('rooms/' + classCode).set({
             timestamp: Date.now(),

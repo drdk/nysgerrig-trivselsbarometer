@@ -8,10 +8,10 @@ import Input, { InputLabel } from 'material-ui/Input';
 import { withStyles } from 'material-ui/styles';
 import Slide from 'material-ui/transitions/Slide';
 import TeacherModel from '../TeacherModel.js';
-import { EmojiSelector}  from 'common';
+import { EmojiSelector } from 'common';
 import Store from '../Store';
 import { observer } from 'mobx-react';
-import { CommonData }  from 'common';
+import { CommonData } from 'common';
 
 window.theStore = Store;
 const styles = theme => ({
@@ -41,7 +41,7 @@ class CreatePage extends Component {
             emojiTimestamp: Date.now(),
             subject: ""
         }
-        
+
         Store.data = Store.data || [];
         Store.classCode = undefined;
     }
@@ -61,6 +61,12 @@ class CreatePage extends Component {
 
         Store.subject = this.state.subject;
         Store.classCode = "";
+        this.resetEmojis();
+    }
+
+    resetEmojis() {
+        this.emoji1Name = this.emoji2Name = this.emoji3Name = null;
+
         this.setState({
             emojiTimestamp: Date.now()
         });
@@ -70,7 +76,14 @@ class CreatePage extends Component {
         if (this.emoji1Name && this.emoji2Name && this.emoji3Name) {
             let classCode = this.emoji1Name + this.emoji2Name + this.emoji3Name;
             Store.classCode = classCode;
-            new TeacherModel().createClassRoom(classCode, Store.subject, (childData) => this.handleChildAdded(childData));
+            var teacherModel = new TeacherModel();
+            teacherModel.checkForClassRoom(classCode, (exist) => {
+                if (exist) {
+                    this.resetEmojis();
+                } else {
+                    new TeacherModel().createClassRoom(classCode, Store.subject, (childData) => this.handleChildAdded(childData));
+                }
+            });
         }
     }
 
@@ -121,7 +134,7 @@ class CreatePage extends Component {
                             </Typography>
                             <EmojiSelector timestamp={this.state.emojiTimestamp} onChange={this.emoji1Changed.bind(this)} emojis={CommonData.getFruitEmojis()} random={true} clickDisabled={true} />
                             <EmojiSelector timestamp={this.state.emojiTimestamp} onChange={this.emoji2Changed.bind(this)} emojis={CommonData.getAnimalEmojis()} random={true} clickDisabled={true} />
-                            <EmojiSelector timestamp={this.state.emojiTimestamp} onChange={this.emoji3Changed.bind(this)} emojis={CommonData.getVehicleEmojis()} random={true} clickDisabled={true} />                            
+                            <EmojiSelector timestamp={this.state.emojiTimestamp} onChange={this.emoji3Changed.bind(this)} emojis={CommonData.getVehicleEmojis()} random={true} clickDisabled={true} />
                             <Typography component="p">
                                 Antal der har svaret:
                             </Typography>
