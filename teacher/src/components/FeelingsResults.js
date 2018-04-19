@@ -40,7 +40,7 @@ class FeelingsResults extends Component {
 
             for (let j = 0; j < answer.feelings.length; j++) {
                 const feeling = answer.feelings[j];
-                feelings[feeling.name] = feelings[feeling.name] || { name: feeling.name, file: feeling.file, count: 0 };
+                feelings[feeling.name] = feelings[feeling.name] || { name: feeling.name, file: feeling.file, color: feeling.color, count: 0 };
                 feelings[feeling.name].count++;
             }
         }
