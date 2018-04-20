@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import Button from 'material-ui/Button';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
-import {FormControl} from 'material-ui/Form';
-import {withStyles} from 'material-ui/styles';
+import { FormControl } from 'material-ui/Form';
+import { withStyles } from 'material-ui/styles';
 import Slide from 'material-ui/transitions/Slide';
-import { Emoji }  from 'common';
+import { Emoji } from 'common';
 import './Feelings.css';
 import { observer } from 'mobx-react';
 import Store from '../Store';
-import { CommonData }  from 'common';
+import { CommonData } from 'common';
 
 const styles = theme => ({
     root: {
@@ -39,8 +39,16 @@ const styles = theme => ({
     },
     stressLevel3: {
         background: "green",
-        color:"white"
+        color: "white"
     },
+    subjectHeaderText: {
+        fontSize: "12px",
+        color: "grey",
+        paddingBottom: "7px"
+    },
+    subjectText: {
+        fontSize: "20px"
+    }
 });
 
 class Feelings extends Component {
@@ -55,9 +63,9 @@ class Feelings extends Component {
         for (let i = 0; i < Store.feelings.length; i++) {
             if (Store.feelings[i].name === feeling.name) {
                 return i;
-            }           
+            }
         }
-        
+
         return -1;
     }
 
@@ -74,7 +82,7 @@ class Feelings extends Component {
         else {
             Store.feelings.push(feeling);
         }
-        
+
         this.forceUpdate();
     };
 
@@ -85,10 +93,10 @@ class Feelings extends Component {
     }
 
     render() {
-        const {classes} = this.props;
+        const { classes } = this.props;
         let feelings = CommonData.getFeelings().map((feeling) => {
             return (
-                <div key={feeling.name} style={{backgroundColor: feeling.color}} >
+                <div key={feeling.name} style={{ backgroundColor: feeling.color }} >
                     <div className={this.getClassName(feeling)} onClick={this.selectHandler.bind(this, feeling)}>
                         <Emoji name={feeling.name} data={feeling} />
                         <br />
@@ -98,35 +106,26 @@ class Feelings extends Component {
             )
         });
         return (
-        <div>
-            <FormControl fullWidth className={classes.control}>
-                <Slide
-                    direction="up"
-                    in={Store.subject !== undefined}
-                    mountOnEnter
-                    unmountOnExit>
-                    <Paper className={classes.paper} elevation={4}>
-                        <Typography variant="headline" component="h3">
-                            {Store.subject}
-                        </Typography>
-                    </Paper>
-                </Slide>
-            </FormControl>
-            <div className="feelings">
-                <div className="positive">
-                    {feelings.slice(0, 5)}
+            <div>
+                <FormControl fullWidth className={classes.control}>
+                    <div className={classes.subjectHeaderText}>Emne</div>
+                    <div className={classes.subjectText}>{Store.subject}</div >
+                </FormControl>
+                <div className="feelings">
+                    <div className="positive">
+                        {feelings.slice(0, 5)}
+                    </div>
+                    <div className="negative">
+                        {feelings.slice(5)}
+                    </div>
                 </div>
-                <div className="negative">
-                    {feelings.slice(5)}
-                </div>
-            </div>
-            <Button
-                className={"alignRight " + classes.control}
-                variant="raised"
-                color="primary"
-                onClick={this.continue.bind(this)}>Fortsæt</Button>
-        </div>);
+                <Button
+                    className={"alignRight " + classes.control}
+                    variant="raised"
+                    color="primary"
+                    onClick={this.continue.bind(this)}>Fortsæt</Button>
+            </div>);
     }
 }
 
-export default observer( withStyles(styles)(Feelings) );
+export default observer(withStyles(styles)(Feelings));

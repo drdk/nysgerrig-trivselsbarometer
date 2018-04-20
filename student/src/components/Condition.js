@@ -4,7 +4,6 @@ import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import { FormControl } from 'material-ui/Form';
 import { withStyles } from 'material-ui/styles';
-import Slide from 'material-ui/transitions/Slide';
 import Store from '../Store';
 import { observer } from 'mobx-react';
 import { CommonData } from 'common';
@@ -38,6 +37,11 @@ const styles = theme => ({
         background: "red",
         color: "white"
     },
+    subjectHeaderText: {
+        fontSize: "12px",
+        color: "grey",
+        paddingBottom: "7px"
+    },
     subjectText: {
         fontSize: "20px"
     },
@@ -65,9 +69,10 @@ class Condition extends Component {
     render() {
         const { classes } = this.props;
         return (
+            <div>
             <div className={classes.root}>
                 <FormControl fullWidth className={classes.control}>
-                    Emne
+                    <div className={classes.subjectHeaderText}>Emne</div>
                 <div className={classes.subjectText}>{Store.subject}</div >
                 </FormControl>
                 <FormControl fullWidth className={classes.control}>
@@ -81,14 +86,15 @@ class Condition extends Component {
                             </Paper>)
                     })}
                 </FormControl>
-                <Button
+                
+            </div>
+            <Button
                 className={"alignRight " + classes.control}
                 variant="raised"
                 color="primary"
                 onClick={this.continue.bind(this)}>Fortsæt
                 </Button>
             </div>
-            
         );
     }
 }
