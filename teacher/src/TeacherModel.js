@@ -22,7 +22,16 @@ export default class Model {
     checkForClassRoom(classCode, callback){
         this.database.ref('rooms/' + classCode).once('value').then((response)=>{
             var val = response.val();
-            var exist = val && val.subject ? true : false;
+            var exist = val && val.subject ? true : false;            
+
+            if (exist) {
+                var ms24Hrs = 24 * 60 * 60 * 1000;
+                if (val.timestamp < Date.now() - ms24Hrs) { // Older than 24 hours
+                    this.database.ref('rooms/' + classCode).remove();
+                    exist = false;
+                }
+            }            
+
             callback(exist);
         });  
     }
