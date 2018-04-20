@@ -13,7 +13,7 @@ const styles = theme => ({
         display: 'flex',
         flexWrap: 'wrap',
         margin: '20px',
-        height:'25vw'
+        height:'calc(100vh - 400px)'
     },
     control: {
         marginTop: '20px'
