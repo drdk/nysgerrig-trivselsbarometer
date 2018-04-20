@@ -18,7 +18,11 @@ class EmojiSelector extends Component {
     this.css = head.appendChild(document.createElement("style"));
     this.css.setAttribute("type", "text/css");
     this.css.appendChild(document.createTextNode(" \
-    #{id} { display: inline-block; margin: 5px; padding: 5px; background-color: #fff;} \
+    #{id} { display: inline-block; margin: 5px; padding: 5px; background-color: #fff; } \
+    #{id}.clickAble { box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.25); position: relative; } \
+    #{id}.clickAble:hover { box-shadow: 0px 0px 2px 0px rgba(0,0,0,1); } \
+    #{id}.clickAble::after { content:\"\"; position: absolute; right: 10px; bottom: 10px; border-top: solid 20px rgba(0, 0, 0, .5); border-right: solid 15px transparent; border-left: solid 15px transparent; } \
+    #{id}.clickAble:hover::after { border-top: solid 20px rgba(0, 0, 0, 1); } \
     #{id} .preload { position: fixed; z-index: 0; top: -1px; right: -1px; width: 1px; height: 1px; overflow: hidden; } \
     #{id} .overlay { position: fixed; z-index: 1; top: 0; right: 0; bottom: 0; left: 0; background-color: rgba(0, 0, 0, .8); } \
     #{id} .childContainer { display: inline-block; position: fixed; z-index: 2; max-width: 90vw; max-height: 90vh; top: 50%; left: 50%; transform: translate(-50%, -50%); overflow: auto; background-color: #fff; border: 1px solid silver; display: flex; justify-content: space-evenly; flex-wrap: wrap; } \
@@ -102,7 +106,7 @@ class EmojiSelector extends Component {
     }
     
     return (
-      <div id={this.id} class={(this.props.hasOwnProperty("class") ? this.props.class : "")}>
+      <div id={this.id} className={this.props.clickDisabled ? null : "clickAble " + (this.props.hasOwnProperty("className") ? this.props.className : "")}>
       <Emoji data={this.state.selected} clickHandler={this.open.bind(this)} />
         {childContainer}
         {preLoader}
