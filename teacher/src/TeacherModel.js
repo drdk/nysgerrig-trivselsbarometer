@@ -22,7 +22,7 @@ export default class Model {
     checkForClassRoom(classCode, callback){
         this.database.ref('rooms/' + classCode).once('value').then((response)=>{
             var val = response.val();
-            var exist = val.subject ? true : false;
+            var exist = val && val.subject ? true : false;
             callback(exist);
         });  
     }

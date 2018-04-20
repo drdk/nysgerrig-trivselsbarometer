@@ -76,12 +76,12 @@ class CreatePage extends Component {
         if (this.emoji1Name && this.emoji2Name && this.emoji3Name) {
             let classCode = this.emoji1Name + this.emoji2Name + this.emoji3Name;
             Store.classCode = classCode;
-            var teacherModel = new TeacherModel();
-            teacherModel.checkForClassRoom(classCode, (exist) => {
+            Store.teacherModel = Store.teacherModel || new TeacherModel();
+            Store.teacherModel.checkForClassRoom(classCode, (exist) => {
                 if (exist) {
                     this.resetEmojis();
                 } else {
-                    new TeacherModel().createClassRoom(classCode, Store.subject, (childData) => this.handleChildAdded(childData));
+                    Store.teacherModel.createClassRoom(classCode, Store.subject, (childData) => this.handleChildAdded(childData));
                 }
             });
         }
