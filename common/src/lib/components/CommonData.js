@@ -140,9 +140,6 @@ class CommonData extends React.Component {
                 }, {
                     "name": "emoji_u1f989",
                     "file": "emoji_u1f989.png"
-                }, {
-                    "name": "emoji_u1f997",
-                    "file": "emoji_u1f997.png"
                 }
             ]
         }

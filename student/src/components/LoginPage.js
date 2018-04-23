@@ -77,6 +77,10 @@ class LoginPage extends Component {
             
                 <FormControl fullWidth>
                     <div>
+                        <Typography variant="headline" component="h3">
+                            For at deltage i trivselsmålingen, skal du blot vælge de tre symboler som udgør klassekoden:
+                            <br /><br />
+                        </Typography>
                         <EmojiSelector onChange={this.emoji1Changed.bind(this)} emojis={CommonData.getFruitEmojis()} preload={true}/>
                         <EmojiSelector onChange={this.emoji2Changed.bind(this)} emojis={CommonData.getAnimalEmojis()} preload={true}/>
                         <EmojiSelector onChange={this.emoji3Changed.bind(this)} emojis={CommonData.getVehicleEmojis()} preload={true}/>

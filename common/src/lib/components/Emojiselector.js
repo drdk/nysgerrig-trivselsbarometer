@@ -22,15 +22,15 @@ class EmojiSelector extends Component {
     #{id}.clickAble { box-shadow: 1px 1px 6px 1px rgba(0,0,0,0.4); position: relative; margin-bottom: 25px; } \
     #{id}.clickAble:hover { box-shadow: 1px 1px 6px 1px rgba(0,0,0,1); } \
     #{id}.clickAble:hover:active { box-shadow: 1px 1px 6px 1px #3342a3; } \
-    #{id}.clickAble::after { content:\"\"; position: absolute; margin-right: -10px; right: 50%; bottom: -26px; border-top: solid 20px rgba(0, 0, 0, .5); border-right: solid 15px transparent; border-left: solid 15px transparent; } \
+    #{id}.clickAble::after { content:\"\"; position: absolute; left: 0; bottom: 0px; border-top: solid 20px rgba(0, 0, 0, .5); border-right: solid 69px transparent; border-left: solid 69px transparent; } \
     #{id}.clickAble:hover::after { border-top: solid 20px rgba(0, 0, 0, 1); } \
     #{id}.clickAble:hover:active::after { border-top: solid 20px #3342A3; } \
     #{id} .preload { position: fixed; z-index: 0; top: -1px; right: -1px; width: 1px; height: 1px; overflow: hidden; } \
     #{id} .overlay { position: fixed; z-index: 1; top: 0; right: 0; bottom: 0; left: 0; background-color: rgba(0, 0, 0, .8); } \
-    #{id} .childContainer { display: inline-block; position: fixed; z-index: 2; max-width: 90vw; max-height: 90vh; top: 50%; left: 50%; transform: translate(-50%, -50%); overflow-y: scroll; -webkit-overflow-scrolling: touch; background-color: #fff; border: 1px solid silver; display: flex; justify-content: space-evenly; flex-wrap: wrap; } \
+    #{id} .childContainer { display: inline-block; position: fixed; z-index: 2; width:414px; max-height: 90vh; top: 50%; left: 50%; transform: translate(-50%, -50%); overflow-y: scroll; -webkit-overflow-scrolling: touch; background-color: #fff; border: 1px solid silver; display: flex; justify-content: space-evenly; flex-wrap: wrap; } \
     #{id} .childContainer div { display: inline-block; width: 128px; height: 128px; margin: 5px; } \
     #{id} img { width: 128px; height: 128px; } \
-    @media screen and (max-width: 450px) { #{id} .childContainer div { display: inline-block; width: 64px; height: 64px; margin: 5px; } #{id} img { width: 64px; height: 64px; } }\
+    @media screen and (max-width: 450px) { #{id} .childContainer { width:222px; } #{id} .childContainer div { display: inline-block; width: 64px; height: 64px; margin: 5px; } #{id} img { width: 64px; height: 64px; } #{id}.clickAble::after { border-right: solid 37px transparent; border-left: solid 37px transparent; } }\
     ".replace(/{id}/mg, this.id)));
   }
 

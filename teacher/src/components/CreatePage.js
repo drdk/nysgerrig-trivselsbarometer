@@ -112,6 +112,10 @@ class CreatePage extends Component {
 
         return (
             <div className={classes.root}>
+                <Typography variant="headline" component="h3">
+                    For at starte en trivselsmåling, skal du blot indtaste en emne-overskrift, og trykke opret:
+                    <br /><br />
+                </Typography>
                 <FormControl fullWidth className={classes.control}>
                     <InputLabel htmlFor="subject">Emne:</InputLabel>
                     <Input
