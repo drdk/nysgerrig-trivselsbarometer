@@ -6,7 +6,11 @@ import ConditionResults from './components/ConditionResults';
 import FeelingsResults from './components/FeelingsResults';
 import Store from './Store';
 import { observer } from 'mobx-react';
+import { Tracking }  from 'common';
 
+let track = new Tracking();
+
+track.pageView();
 class App extends Component {
 
   screenSelector() {

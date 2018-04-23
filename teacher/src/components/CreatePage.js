@@ -11,8 +11,9 @@ import TeacherModel from '../TeacherModel.js';
 import { EmojiSelector } from 'common';
 import Store from '../Store';
 import { observer } from 'mobx-react';
-import { CommonData } from 'common';
+import { CommonData, Tracking } from 'common';
 
+let track = new Tracking();
 window.theStore = Store;
 const styles = theme => ({
     root: {
@@ -58,10 +59,11 @@ class CreatePage extends Component {
         if (!this.state.subject || this.state.subject.length === 0) {
             return;
         }
-
+        track.send("createNewRoom");
         Store.subject = this.state.subject;
         Store.classCode = "";
         this.resetEmojis();
+
     }
 
     resetEmojis() {
@@ -103,6 +105,7 @@ class CreatePage extends Component {
     }
 
     continue() {
+        track.send("showResults");
         Store.screen = "conditionResults";
     }
 

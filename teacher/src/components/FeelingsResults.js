@@ -6,7 +6,10 @@ import {FormControl} from 'material-ui/Form';
 import {withStyles} from 'material-ui/styles';
 import Store from '../Store';
 import { observer } from 'mobx-react';
+import { Tracking } from 'common';
 import './FeelingsResults.css';
+
+let track = new Tracking();
 
 const styles = theme => ({
     root: {
@@ -28,6 +31,7 @@ const styles = theme => ({
 
 class FeelingsResults extends Component {
     goToFeelings() {
+        track.send("showCondition");
         Store.screen = "conditionResults";
     }
 
