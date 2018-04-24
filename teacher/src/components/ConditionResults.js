@@ -83,11 +83,11 @@ class ConditionResults extends Component {
         return (
             <div>
                 <FormControl fullWidth className={classes.control}>
-                    <Paper className={classes.top} elevation={4}>
+                    <div className={classes.top} elevation={4}>
                         <Typography variant="headline" component="h3">
                             {Store.subject}
                         </Typography>
-                    </Paper>
+                    </div>
                 </FormControl>
                 <div className={classes.root}>
                     {this.state.conditions.map((condition) => {

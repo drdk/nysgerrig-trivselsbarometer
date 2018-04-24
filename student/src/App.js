@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header';
-import LoginPage from './components/LoginPage';
+import Login from './components/Login';
 import Condition from './components/Condition';
 import Feelings from './components/Feelings';
 import Finish from './components/Finish';
@@ -15,7 +15,7 @@ class App extends Component {
       return (
         <div>
           <Header />
-          <LoginPage />
+          <Login />
         </div>
       );
     } else if (Store.screen === "condition") {
