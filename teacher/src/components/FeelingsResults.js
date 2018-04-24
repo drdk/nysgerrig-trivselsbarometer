@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Button from 'material-ui/Button';
-import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import {FormControl} from 'material-ui/Form';
 import {withStyles} from 'material-ui/styles';
@@ -23,9 +22,6 @@ const styles = theme => ({
     paper: {
         paddingTop: 16,
         paddingBottom: 16
-    },
-    badge: {
-        margin: '10px'
     }
 });
 
