@@ -14,3 +14,15 @@ https://firebase.google.com/
 
 https://www.dr.dk/skole/trivselsbarometer/client/
 https://www.dr.dk/skole/trivselsbarometer/adminpanel/
+
+
+#Deeplinking teacher
+http://localhost:3000/?screen=conditionResults
+http://localhost:3000/?screen=feelingsResults
+
+#Deeplinking student
+http://localhost:3000/?classcode=emoji_u1f954emoji_u1f416emoji_u1f6f4
+http://localhost:3000/?screen=condition
+http://localhost:3000/?screen=feelings
+
+http://localhost:3000/?classcode=emoji_u1f954emoji_u1f416emoji_u1f6f4&screen=feelings

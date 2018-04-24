@@ -10,6 +10,14 @@ import { observer } from 'mobx-react';
 
 class App extends Component {
 
+  componentWillMount() {
+    let params = (new URL(document.location)).searchParams;
+    let screen = params.get("screen");
+    if (screen && screen.length > 0) {
+      Store.screen = screen.toLowerCase();
+    }
+  }
+
   screenSelector() {
     if (Store.screen === "login") {
       return (
@@ -45,6 +53,7 @@ class App extends Component {
   }
 
   render() {
+    
     return (
       <div className="App">
         {this.screenSelector()}
