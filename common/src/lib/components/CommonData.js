@@ -23,13 +23,13 @@ class CommonData extends React.Component {
 
         return [
             {
-                "name": "Afslappet",
+                "name": this.getLocalized("conditionRelaxed"),
                 "color": "green"
             }, {
-                "name": "OK",
+                "name": this.getLocalized("conditionOK"),
                 "color": "yellow"
             }, {
-                "name": "Belastet",
+                "name": this.getLocalized("conditionStressed"),
                 "color": "red"
             }
         ];
@@ -38,53 +38,53 @@ class CommonData extends React.Component {
     static getFeelings() {
         return [        
             {
-                "name": "Glad",
+                "name": this.getLocalized("feelingHappy"),
                 "file": "emoji_u1f600.svg",
                 "color": "green"
             },
             {
-                "name": "Optimistisk",
+                "name": this.getLocalized("feelingOptimistic"),
                 "file": "emoji_u1f60f.svg",
                 "color": "green"
             },
             {
-                "name": "Forelsket",
+                "name": this.getLocalized("feelingInLove"),
                 "file": "emoji_u1f60d.svg",
                 "color": "green"
             },
             {
-                "name": "Priviligeret",
+                "name": this.getLocalized("feelingPriviliged"),
                 "file": "emoji_u1f60e.svg",
                 "color": "green"
             },
             {
-                "name": "Afslappet",
+                "name": this.getLocalized("feelingRelaxed"),
                 "file": "emoji_u1f60c.svg",
                 "color": "green"
             },
 
             {
-                "name": "Træt",
+                "name": this.getLocalized("feelingTired"),
                 "file": "emoji_u1f634.svg",
                 "color": "red"
             },
             {
-                "name": "Frustreret",
+                "name": this.getLocalized("feelingFrustrated"),
                 "file": "emoji_u1f635.svg",
                 "color": "red"
             },
             {
-                "name": "Skidt tilpas",
+                "name": this.getLocalized("feelingUnWell"),
                 "file": "emoji_u1f628.svg",
                 "color": "red"
             },
             {
-                "name": "Bekymret",
+                "name": this.getLocalized("feelingWorried"),
                 "file": "emoji_u1f633.svg",
                 "color": "red"
             },
             {
-                "name": "Utålmodig",
+                "name": this.getLocalized("feelingImpatient"),
                 "file": "emoji_u1f644.svg",
                 "color": "red"
             }

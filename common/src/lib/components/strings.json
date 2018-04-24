@@ -1,5 +1,20 @@
 {
     "da-dk": {
+
+        "conditionRelaxed": "Afslappet",
+        "conditionOK": "OK",
+        "conditionStressed": "Belastet",
+
+        "feelingHappy": "Glad",
+        "feelingOptimistic": "Optimistisk",
+        "feelingInLove": "Forelsket",
+        "feelingPriviliged": "Priviligeret",
+        "feelingRelaxed": "Afslappet",
+        "feelingTired": "Træt",
+        "feelingFrustrated": "Frustreret",
+        "feelingUnWell": "Skidt tilpas",
+        "feelingWorried": "Bekymret",
+        "feelingImpatient": "Utålmodig",
         
         "headerTeacher": "Trivselsbarometer [Lærer]",
         "createPageExplainer": "For at starte en trivselsmåling, skal du blot indtaste en emne-overskrift, og trykke opret:",
