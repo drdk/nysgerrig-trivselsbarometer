@@ -6,11 +6,8 @@ import ConditionResults from './components/ConditionResults';
 import FeelingsResults from './components/FeelingsResults';
 import Store from './Store';
 import { observer } from 'mobx-react';
-<<<<<<< HEAD
 import { CommonData } from 'common';
-=======
 import { Tracking }  from 'common';
->>>>>>> 564ee94b877f67c96b61ac2c70863da633256600
 
 let track = new Tracking();
 
