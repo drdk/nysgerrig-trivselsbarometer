@@ -1,8 +1,26 @@
-import React from 'react';  
+import React from 'react';
+import LocalizedStrings from './strings.json';
 
-class CommonData extends React.Component {
+class CommonData extends React.Component {   
 
-    static getConditions() {
+    static getLocalized(key, lang) {        
+        lang = lang || "da-dk";
+
+        for (const langName in LocalizedStrings) {
+            if (langName.toLowerCase() === lang.toLowerCase()) {
+                for (const keyName in LocalizedStrings[langName]) {
+                    if (keyName.toLowerCase() === key.toLowerCase()) {
+                        return LocalizedStrings[langName][keyName];
+                    }
+                }                
+            }
+        }
+        
+        return "{No such key}";
+    }
+
+    static getConditions(lang) {
+
         return [
             {
                 "name": "Afslappet",

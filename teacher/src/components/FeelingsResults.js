@@ -5,7 +5,7 @@ import {FormControl} from 'material-ui/Form';
 import {withStyles} from 'material-ui/styles';
 import Store from '../Store';
 import { observer } from 'mobx-react';
-import { Tracking } from 'common';
+import { CommonData, Tracking } from 'common';
 import './FeelingsResults.css';
 
 let track = new Tracking();
@@ -93,7 +93,7 @@ class FeelingsResults extends Component {
                 </div>
             </FormControl>
             {diagram}
-            <Button className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.goToFeelings()}>Se resultat for tilstande</Button>
+            <Button className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.goToFeelings()}>{CommonData.getLocalized('seeConditionResults')}</Button>
         </div>);
     }
 }

@@ -1,0 +1,16 @@
+{
+    "da-dk": {
+        
+        "headerTeacher": "Trivselsbarometer [Lærer]",
+        "createPageExplainer": "For at starte en trivselsmåling, skal du blot indtaste en emne-overskrift, og trykke opret:",
+        "labelSubject": "Emne:",
+        "subjectWatermarkText": "Eks: Hvordan har du det når du skal til dansk prøve?",
+        "yourClassRoomIsReady": "Dit klasserum er nu klar",
+        "participationExplainer": "Deltagerne kan gå til dr.dk/trivselsbarometer og bruge klassekoden:",
+        "numberOfReplies": "Antal der har svaret:",
+        "seeConditionResults": "Se resultat for følelser",
+        "seeFeelingResults": "Se resultat for tilstande",
+
+        "headerStudent": "Trivselsbarometer [Elev]"
+    }
+}
