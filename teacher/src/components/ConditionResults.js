@@ -6,8 +6,10 @@ import {FormControl} from 'material-ui/Form';
 import {withStyles} from 'material-ui/styles';
 import Store from '../Store';
 import { observer } from 'mobx-react';
-import { CommonData }  from 'common';
+import { CommonData, Tracking }  from 'common';
 
+
+let track = new Tracking();
 const styles = theme => ({
     root: {
         display: 'flex',
@@ -36,6 +38,7 @@ const styles = theme => ({
 class ConditionResults extends Component {
 
     goToFeelings() {
+        track.send("showFeelings");
         Store.screen = "feelingsResults";
     }
     calculateRender(condition){
@@ -80,11 +83,11 @@ class ConditionResults extends Component {
         return (
             <div>
                 <FormControl fullWidth className={classes.control}>
-                    <Paper className={classes.top} elevation={4}>
+                    <div className={classes.top} elevation={4}>
                         <Typography variant="headline" component="h3">
                             {Store.subject}
                         </Typography>
-                    </Paper>
+                    </div>
                 </FormControl>
                 <div className={classes.root}>
                     {this.state.conditions.map((condition) => {

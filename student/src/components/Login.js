@@ -29,7 +29,7 @@ const styles = theme => ({
     }
 });
 
-class LoginPage extends Component {
+class Login extends Component {
 
     handleLogin(loginData) {
         let val = loginData.val();
@@ -111,4 +111,4 @@ class LoginPage extends Component {
     }
 }
 
-export default observer( withStyles(styles)(LoginPage) );
+export default observer( withStyles(styles)(Login) );

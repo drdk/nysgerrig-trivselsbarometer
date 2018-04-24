@@ -6,7 +6,10 @@ import {FormControl} from 'material-ui/Form';
 import {withStyles} from 'material-ui/styles';
 import Store from '../Store';
 import { observer } from 'mobx-react';
+import { Tracking } from 'common';
 import './FeelingsResults.css';
+
+let track = new Tracking();
 
 const styles = theme => ({
     root: {
@@ -28,6 +31,7 @@ const styles = theme => ({
 
 class FeelingsResults extends Component {
     goToFeelings() {
+        track.send("showCondition");
         Store.screen = "conditionResults";
     }
 
@@ -86,11 +90,11 @@ class FeelingsResults extends Component {
         let diagram = this.createDiagram();
         return (<div>
             <FormControl fullWidth className={classes.control}>
-                <Paper className={classes.paper} elevation={4}>
+                <div className={classes.paper} elevation={4}>
                     <Typography variant="headline" component="h3">
                         {Store.subject}
                     </Typography>
-                </Paper>
+                </div>
             </FormControl>
             {diagram}
             <Button className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.goToFeelings()}>Se resultat for tilstande</Button>

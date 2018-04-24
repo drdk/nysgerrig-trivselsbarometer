@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Button from 'material-ui/Button';
-import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import { FormControl } from 'material-ui/Form';
 import { withStyles } from 'material-ui/styles';
@@ -79,11 +78,12 @@ class Condition extends Component {
                     {CommonData.getConditions().map((condition) => {
                         var selected = Store.condition === condition.name ? classes.selected : null;
                         return (
-                            <Paper key={condition.name} className={[classes.paper, classes.conditionRelaxed,  selected ].join(' ')} style={{ backgroundColor: condition.color }} elevation={4} onClick={this.setCondition.bind(this, condition.name)}>
+                            <Button key={condition.name} variant="raised" className={[classes.paper, classes.conditionRelaxed,  selected ].join(' ')} 
+                            style={{ backgroundColor: condition.color }} elevation={4} onClick={this.setCondition.bind(this, condition.name)}>
                                 <Typography variant="headline" component="h3">
                                     {condition.name}
                                 </Typography>
-                            </Paper>)
+                            </Button>)
                     })}
                 </FormControl>
                 
