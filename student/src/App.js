@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import CssBaseline from 'material-ui/CssBaseline';
+import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles'
 import './App.css';
 import Header from './components/Header';
 import Login from './components/Login';
@@ -7,6 +9,23 @@ import Feelings from './components/Feelings';
 import Finish from './components/Finish';
 import Store from './Store';
 import { observer } from 'mobx-react';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      light: '#b2ebf2',
+      main: '#e5ffff',
+      dark: '#81b9bf',
+      contrastText: 'black',
+    },
+    secondary: {
+      light: '#e1bee7',
+      main: '#fff1ff',
+      dark: '#af8eb5',
+      contrastText: '#fff',
+    },
+  },
+});
 
 class App extends Component {
 
@@ -53,11 +72,16 @@ class App extends Component {
   }
 
   render() {
-    
+
     return (
-      <div className="App">
-        {this.screenSelector()}
-      </div>
+
+      <MuiThemeProvider theme={theme}>
+        <div className="App">
+          {this.screenSelector()}
+        </div>
+      </MuiThemeProvider>
+
+
     );
   }
 }

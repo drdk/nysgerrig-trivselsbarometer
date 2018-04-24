@@ -6,13 +6,13 @@ class CommonData extends React.Component {
         return [
             {
                 "name": "Afslappet",
-                "color": "green"
+                "color": "#81C784"
             }, {
                 "name": "OK",
-                "color": "yellow"
+                "color": "#FFD54F"
             }, {
                 "name": "Belastet",
-                "color": "red"
+                "color": "#E57373"
             }
         ];
     }
@@ -22,53 +22,53 @@ class CommonData extends React.Component {
             {
                 "name": "Glad",
                 "file": "emoji_u1f600.svg",
-                "color": "green"
+                "color": "#81C784"
             },
             {
                 "name": "Optimistisk",
                 "file": "emoji_u1f60f.svg",
-                "color": "green"
+                "color": "#81C784"
             },
             {
                 "name": "Forelsket",
                 "file": "emoji_u1f60d.svg",
-                "color": "green"
+                "color": "#81C784"
             },
             {
                 "name": "Priviligeret",
                 "file": "emoji_u1f60e.svg",
-                "color": "green"
+                "color": "#81C784"
             },
             {
                 "name": "Afslappet",
                 "file": "emoji_u1f60c.svg",
-                "color": "green"
+                "color": "#81C784"
             },
 
             {
                 "name": "Træt",
                 "file": "emoji_u1f634.svg",
-                "color": "red"
+                "color": "#E57373"
             },
             {
                 "name": "Frustreret",
                 "file": "emoji_u1f635.svg",
-                "color": "red"
+                "color": "#E57373"
             },
             {
                 "name": "Skidt tilpas",
                 "file": "emoji_u1f628.svg",
-                "color": "red"
+                "color": "#E57373"
             },
             {
                 "name": "Bekymret",
                 "file": "emoji_u1f633.svg",
-                "color": "red"
+                "color": "#E57373"
             },
             {
                 "name": "Utålmodig",
                 "file": "emoji_u1f644.svg",
-                "color": "red"
+                "color": "#E57373"
             }
         ];
     }

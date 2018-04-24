@@ -30,17 +30,7 @@ const styles = theme => ({
         margin: '10px'
     },
     emojiButton: {},
-    stressLevel1: {
-        background: "red",
-        color: "white"
-    },
-    stressLevel2: {
-        background: "yellow"
-    },
-    stressLevel3: {
-        background: "green",
-        color: "white"
-    },
+
     subjectHeaderText: {
         fontSize: "12px",
         color: "grey",

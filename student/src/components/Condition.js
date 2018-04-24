@@ -25,17 +25,6 @@ const styles = theme => ({
     badge: {
         margin: '10px'
     },
-    conditionRelaxed: {
-        background: "green",
-        color: "white"
-    },
-    conditionOK: {
-        background: "yellow"
-    },
-    conditionStressed: {
-        background: "red",
-        color: "white"
-    },
     subjectHeaderText: {
         fontSize: "12px",
         color: "grey",
