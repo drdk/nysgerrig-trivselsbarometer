@@ -66,6 +66,7 @@ class FeelingsResults extends Component {
         }
 
         return (
+            <div className="diagramBodyFeelingsWrapper">
         <div className="diagramBodyFeelings">
             <div>
             {feelingsArray.map((feeling) => {
@@ -81,6 +82,7 @@ class FeelingsResults extends Component {
                 )
             })}
             </div>            
+        </div>
         </div>);
     }
 
