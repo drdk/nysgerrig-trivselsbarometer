@@ -113,7 +113,7 @@ class Feelings extends Component {
                     className={"alignRight " + classes.control}
                     variant="raised"
                     color="primary"
-                    onClick={this.continue.bind(this)}>Fortsæt</Button>
+                    onClick={this.continue.bind(this)}>{CommonData.getLocalized('buttonContinue')}</Button>
             </div>);
     }
 }

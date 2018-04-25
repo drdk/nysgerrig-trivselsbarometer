@@ -81,7 +81,7 @@ class Condition extends Component {
                 className={"alignRight " + classes.control}
                 variant="raised"
                 color="primary"
-                onClick={this.continue.bind(this)}>Fortsæt
+                onClick={this.continue.bind(this)}>{CommonData.getLocalized('buttonContinue')}
                 </Button>
             </div>
         );
