@@ -31,7 +31,7 @@
         "numberOfReplies": "Antal der har svaret:",
         "seeConditionResults": "Se resultat for tilstande",
         "seeFeelingResults": "Se resultat for følelser",
-
+        "feelingsValidationError" : "Du skal vælge de samme symboler som din lærer",
         "headerStudent": "DR Trivselsbarometer [Elev]",
         "loginPageExplainer": "For at deltage i trivselsmålingen, skal du blot vælge de tre symboler som udgør klassekoden:",
         "buttonStart": "Start",

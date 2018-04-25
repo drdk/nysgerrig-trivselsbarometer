@@ -31,12 +31,22 @@ const styles = theme => ({
 
 class Login extends Component {
 
+    constructor() {
+        super();
+        this.state = {
+            feelingsValidationError : false
+        }
+    }
+
     handleLogin(loginData) {
         let val = loginData.val();
-        if (val.subject) {
+        
+        if (val) {
             this.setState({subject: val.subject});
             Store.subject = val.subject;
             Store.screen = "condition";            
+        } else {
+            this.setState({feelingsValidationError: true});
         }
     }
 
@@ -85,6 +95,9 @@ class Login extends Component {
                         <EmojiSelector onChange={this.emoji2Changed.bind(this)} emojis={CommonData.getAnimalEmojis()} preload={true}/>
                         <EmojiSelector onChange={this.emoji3Changed.bind(this)} emojis={CommonData.getVehicleEmojis()} preload={true}/>
                     </div>
+                    {this.state.feelingsValidationError ? <Typography  component="h3" style={{color: 'red'}}>
+                        {CommonData.getLocalized('feelingsValidationError')}                    
+                    </Typography> : null}
                     <div>
                         <Button
                             className={"alignRight " + classes.control}
@@ -92,19 +105,6 @@ class Login extends Component {
                             color="primary"
                             onClick={() => this.handleCreateClick()}>{CommonData.getLocalized('buttonStart')}</Button>
                     </div>
-                </FormControl>
-                <FormControl fullWidth className={classes.control}>
-                    <Slide
-                        direction="up"
-                        in={Store.subject !== undefined}
-                        mountOnEnter
-                        unmountOnExit>
-                        <Paper className={classes.paper} elevation={4}>
-                            <Typography variant="headline" component="h3">
-                                {Store.subject}
-                            </Typography>
-                        </Paper>
-                    </Slide>
                 </FormControl>
             </div>
         );
