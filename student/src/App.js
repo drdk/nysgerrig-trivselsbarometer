@@ -68,6 +68,8 @@ class App extends Component {
           <Finish />
         </div>
       );
+    } else {
+      console.error(Store.screen + ' does not exsist');
     }
   }
 

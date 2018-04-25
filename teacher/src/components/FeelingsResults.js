@@ -26,9 +26,9 @@ const styles = theme => ({
 });
 
 class FeelingsResults extends Component {
-    goToFeelings() {
-        track.send("showCondition");
+    goToConditions() {
         Store.screen = "conditionResults";
+        track.send("showCondition");
     }
 
     createDiagram() {
@@ -98,7 +98,7 @@ class FeelingsResults extends Component {
                 </div>
             </FormControl>
             {diagram}
-            <Button className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.goToFeelings()}>{CommonData.getLocalized('seeConditionResults')}</Button>
+            <Button className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.goToConditions()}>{CommonData.getLocalized('seeConditionResults')}</Button>
         </div>);
     }
 }
