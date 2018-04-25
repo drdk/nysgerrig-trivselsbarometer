@@ -1,8 +1,8 @@
 .diagramBodyFeelingsWrapper { width: 100%; overflow: auto; }
 .diagramBodyFeelings { display: table; height: calc(100vh - 450px); width: 100%; margin: 120px 0 50px 0; }
 .diagramBodyFeelings > div { display: table-row; }
-.diagramBodyFeelings > div > div { display: table-cell; vertical-align: bottom; padding: 0 10px 0 10px; height: 100%;}
-.diagramBodyFeelings .bar { display: inline-block; width: 100%; position: relative; }
+.diagramBodyFeelings > div > div { display: table-cell; vertical-align: bottom; padding: 0 10px 0 10px; height: 100%; }
+.diagramBodyFeelings .bar { display: inline-block; width: 100%; position: relative; border-top-right-radius: 20px; border-top-left-radius: 20px; }
 .diagramBodyFeelings .bar > div { margin-top: -128px; color: #fff; }
 .diagramBodyFeelings .bar img { width: auto; max-height: 128px; }
 .diagramBodyFeelings .bar::after {
