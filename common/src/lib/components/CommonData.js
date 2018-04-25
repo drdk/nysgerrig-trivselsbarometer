@@ -19,24 +19,6 @@ class CommonData extends React.Component {
         return "{No such key}";
     }
 
-    static getColorPalette() {
-        var palette = {
-                primary: {
-                    light: '#b2ebf2',
-                    main: '#e5ffff',
-                    dark: '#81b9bf',
-                    contrastText: 'black',
-                },
-                secondary: {
-                    light: '#e1bee7',
-                    main: '#fff1ff',
-                    dark: '#af8eb5',
-                    contrastText: '#fff',
-                }
-            };
-        return palette;
-    }
-
     static getConditions(lang) {
 
         return [

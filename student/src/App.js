@@ -8,19 +8,25 @@ import Condition from './components/Condition';
 import Feelings from './components/Feelings';
 import Finish from './components/Finish';
 import Store from './Store';
-import { CommonData } from 'common';
+import { CommonData } from 'Common';
 import { observer } from 'mobx-react';
 
+const palette = {
+  primary: {
+    light: '#8fafc5',
+    main: '#608094',
+    dark: '#335466',
+    contrastText: 'white',
+  },
+  secondary: {
+    light: '#fff850',
+    main: '#d0c50a',
+    dark: '#9b9500',
+    contrastText: '#fff',
+  }
+}
 
 class App extends Component {
-
-  constructor() {
-    super();
-
-    this.state = {
-      colorTheme: createMuiTheme(CommonData.getColorPalette())
-    }
-  }
 
   componentWillMount() {
     let params = (new URL(document.location)).searchParams;
@@ -65,9 +71,10 @@ class App extends Component {
   }
 
   render() {
+
     return (
 
-      <MuiThemeProvider theme={this.state.colorTheme}>
+      <MuiThemeProvider theme={createMuiTheme({palette})}>
         <div className="App">
           {this.screenSelector()}
         </div>
