@@ -16,7 +16,7 @@ const styles = theme => ({
     control: {
         marginTop: '20px'
     },
-    paper: {
+    condition: {
         paddingTop: 16,
         paddingBottom: 16,
         margin: "10px 0",
@@ -35,7 +35,7 @@ const styles = theme => ({
     },
     selected: {
         fontSize: "30px",
-        outline: "10px dotted green"
+        outline: "5px dotted black"
     }
 });
 
@@ -67,7 +67,7 @@ class Condition extends Component {
                     {CommonData.getConditions().map((condition) => {
                         var selected = Store.condition === condition.name ? classes.selected : null;
                         return (
-                            <Button key={condition.name} variant="raised" className={[classes.paper, classes.conditionRelaxed,  selected ].join(' ')} 
+                            <Button key={condition.name} variant="raised" className={[classes.condition, classes.conditionRelaxed,  selected ].join(' ')} 
                             style={{ backgroundColor: condition.color }} elevation={4} onClick={this.setCondition.bind(this, condition.name)}>
                                 <Typography variant="headline" component="h3">
                                     {condition.name}

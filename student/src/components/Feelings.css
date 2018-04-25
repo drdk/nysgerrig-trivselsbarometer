@@ -1,4 +1,4 @@
 .feelings > div { width: 50%; float: left; padding-top: 20px}
 .feelings > div > div > div { display: inline-block; margin: 15px; }
-.feelings > div.positive > div > div.selected { outline: 5px dotted lightgreen; mix-blend-mode: difference; }
-.feelings > div.negative > div > div.selected { outline: 5px dotted orangered; mix-blend-mode: difference; }
+.feelings > div.positive > div > div.selected { outline: 5px dotted black; }
+.feelings > div.negative > div > div.selected { outline: 5px dotted black; }

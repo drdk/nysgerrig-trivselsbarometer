@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles'
 import './App.css';
 import Header from './components/Header';
 import CreatePage from './components/CreatePage';
@@ -7,9 +8,24 @@ import FeelingsResults from './components/FeelingsResults';
 import Store from './Store';
 import { observer } from 'mobx-react';
 import { CommonData } from 'common';
-import { Tracking }  from 'common';
+import { Tracking } from 'common';
 
 let track = new Tracking();
+
+const palette = {
+  primary: {
+    light: '#8fafc5',
+    main: '#608094',
+    dark: '#335466',
+    contrastText: 'white',
+  },
+  secondary: {
+    light: '#fff850',
+    main: '#d0c50a',
+    dark: '#9b9500',
+    contrastText: '#fff',
+  }
+}
 
 track.pageView();
 class App extends Component {
@@ -25,9 +41,9 @@ class App extends Component {
 
   injectMockData() {
     var conditions = CommonData.getConditions(),
-    feelings = CommonData.getFeelings(),
-    answerCount = 10 + Math.floor(Math.random() * 20), // Between 10 and 30
-    data = [];
+      feelings = CommonData.getFeelings(),
+      answerCount = 10 + Math.floor(Math.random() * 20), // Between 10 and 30
+      data = [];
 
     for (var i = 0; i < answerCount; i++) {
       var student = {
@@ -42,7 +58,7 @@ class App extends Component {
           }
         }
       }
-      
+
       data.push(student);
     }
 
@@ -78,9 +94,11 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-       {this.screenSelector()}
-      </div>
+      <MuiThemeProvider theme={createMuiTheme({ palette })}>
+        <div className="App">
+          {this.screenSelector()}
+        </div>
+      </MuiThemeProvider>
     );
   }
 }

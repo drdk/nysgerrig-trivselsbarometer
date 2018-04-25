@@ -4,7 +4,6 @@ import { withStyles } from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
-import logo from '../ic_child_care_white_24px.svg';
 import { CommonData } from 'common';
 
 const styles = {
@@ -20,7 +19,7 @@ function Header(props) {
       <AppBar position="static" color="primary">
         <Toolbar>
           <Typography variant="title" color="inherit">
-            <h1 className="App-title">{CommonData.getLocalized('headerStudent')}</h1>
+            {CommonData.getLocalized('headerStudent')}
           </Typography>
         </Toolbar>
       </AppBar>
