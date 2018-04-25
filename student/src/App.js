@@ -32,6 +32,7 @@ class App extends Component {
     let params = (new URL(document.location)).searchParams;
     let screen = params.get("screen");
     if (screen && screen.length > 0) {
+      Store.subject = "Demo";
       Store.screen = screen.toLowerCase();
     }
   }

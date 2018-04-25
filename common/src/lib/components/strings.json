@@ -16,7 +16,7 @@
         "feelingWorried": "Bekymret",
         "feelingImpatient": "Utålmodig",
         
-        "headerTeacher": "Trivselsbarometer [Lærer]",
+        "headerTeacher": "DR Trivselsbarometer [Lærer]",
         "createPageExplainer": "For at starte en trivselsmåling, skal du blot indtaste en emne-overskrift, og trykke opret:",
         "labelSubject": "Emne:",
         "subjectWatermarkText": "Eks: Hvordan har du det når du skal til dansk prøve?",
@@ -26,7 +26,12 @@
         "seeConditionResults": "Se resultat for tilstande",
         "seeFeelingResults": "Se resultat for følelser",
 
-        "headerStudent": "Trivselsbarometer [Elev]"
+        "headerStudent": "DR Trivselsbarometer [Elev]",
+        "loginPageExplainer": "For at deltage i trivselsmålingen, skal du blot vælge de tre symboler som udgør klassekoden:",
+        "buttonStart": "Start",
+        "buttonContinue": "Start",
+        "labelThankYou": "Tak for din deltagelse",
+        "labelYouAreFinished": "Du er nu færdig og din lærer vil vise klassens resultater."
     },
     "nl-nl": {
 

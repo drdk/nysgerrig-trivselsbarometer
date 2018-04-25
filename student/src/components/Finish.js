@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Store from '../Store';
+import { CommonData } from 'common';
 
 class Finish extends Component {
 
@@ -8,8 +9,8 @@ class Finish extends Component {
     }
 
     render() {
-        return (<div className="App-content"><h3>Tak for din deltagelse</h3> 
-        Du er nu færdig og din lærer vil vise klassens resultater.
+        return (<div className="App-content"><h3>{CommonData.getLocalized('labelThankYou')}</h3> 
+            {CommonData.getLocalized('labelYouAreFinished')}
         </div>);
     }
 }

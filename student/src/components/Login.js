@@ -78,7 +78,7 @@ class Login extends Component {
                 <FormControl fullWidth>
                     <div>
                         <Typography variant="headline" component="h3">
-                            For at deltage i trivselsmålingen, skal du blot vælge de tre symboler som udgør klassekoden:
+                            {CommonData.getLocalized('loginPageExplainer')}
                             <br /><br />
                         </Typography>
                         <EmojiSelector onChange={this.emoji1Changed.bind(this)} emojis={CommonData.getFruitEmojis()} preload={true}/>
@@ -90,7 +90,7 @@ class Login extends Component {
                             className={"alignRight " + classes.control}
                             variant="raised"
                             color="primary"
-                            onClick={() => this.handleCreateClick()}>Start</Button>
+                            onClick={() => this.handleCreateClick()}>{CommonData.getLocalized('buttonStart')}</Button>
                     </div>
                 </FormControl>
                 <FormControl fullWidth className={classes.control}>
