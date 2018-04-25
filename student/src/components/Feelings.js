@@ -68,7 +68,7 @@ class Feelings extends Component {
     };
 
     getFeelings() {
-        var feelings = CommonData.getFeelings();
+        var feelings = CommonData.getFeelings(Store.language);
 
         feelings.sort((a, b) => {
             if (a.name < b.name) {
