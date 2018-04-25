@@ -32,4 +32,4 @@ http://localhost:3000/?classcode=emoji_u1f954emoji_u1f416emoji_u1f6f4
 http://localhost:3000/?screen=condition
 http://localhost:3000/?screen=feelings
 
-http://localhost:3000/?classcode=emoji_u1f954emoji_u1f416emoji_u1f6f4&screen=feelings
+http://localhost:3000/?classcode=emoji_u1f954emoji_u1f416emoji_u1f6f4&screen=feelings0145
