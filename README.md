@@ -22,7 +22,6 @@ https://firebase.google.com/
 https://www.dr.dk/skole/trivselsbarometer/client/
 https://www.dr.dk/skole/trivselsbarometer/adminpanel/
 
-
 #Deeplinking teacher
 http://localhost:3000/?screen=conditionResults
 http://localhost:3000/?screen=feelingsResults

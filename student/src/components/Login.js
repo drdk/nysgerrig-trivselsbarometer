@@ -105,6 +105,8 @@ class Login extends Component {
                             color="primary"
                             onClick={() => this.handleCreateClick()}>{CommonData.getLocalized('buttonStart')}</Button>
                     </div>
+                    <br/><br/><br/><br/><br/>
+                    <a href="https://www.dr.dk/trivsel-opret/">{CommonData.getLocalized('linkToTeacherMode')}</a>
                 </FormControl>
             </div>
         );
