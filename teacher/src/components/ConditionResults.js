@@ -28,9 +28,9 @@ const styles = theme => ({
 
 class ConditionResults extends Component {
 
-    goToconditions() {
-        track.send("showconditions");
-        Store.screen = "conditionsResults";
+    goToFealings() {
+        track.send("showfeelings");
+        Store.screen = "feelingsResults";
     }
     calculateRender(condition){
       return {
@@ -117,7 +117,7 @@ class ConditionResults extends Component {
                 <div className={classes.root}>
                     {this.createDiagram()}
                 </div>
-                <Button className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.goToconditions()}>{CommonData.getLocalized('seeFeelingResults')}</Button>
+                <Button className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.goToFealings()}>{CommonData.getLocalized('seeFeelingResults')}</Button>
             </div>
         );
     }
