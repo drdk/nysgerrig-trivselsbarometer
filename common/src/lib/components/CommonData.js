@@ -1,9 +1,9 @@
 import React from 'react';
 import LocalizedStrings from './strings.json';
 
-class CommonData extends React.Component {   
+class CommonData extends React.Component {
 
-    static getLocalized(key, lang) {        
+    static getLocalized(key, lang) {
         lang = lang || "da-dk";
 
         for (const langName in LocalizedStrings) {
@@ -12,11 +12,29 @@ class CommonData extends React.Component {
                     if (keyName.toLowerCase() === key.toLowerCase()) {
                         return LocalizedStrings[langName][keyName];
                     }
-                }                
+                }
             }
         }
-        
+
         return "{No such key}";
+    }
+
+    static getColorPalette() {
+        var palette = {
+                primary: {
+                    light: '#b2ebf2',
+                    main: '#e5ffff',
+                    dark: '#81b9bf',
+                    contrastText: 'black',
+                },
+                secondary: {
+                    light: '#e1bee7',
+                    main: '#fff1ff',
+                    dark: '#af8eb5',
+                    contrastText: '#fff',
+                }
+            };
+        return palette;
     }
 
     static getConditions(lang) {
@@ -24,69 +42,69 @@ class CommonData extends React.Component {
         return [
             {
                 "name": this.getLocalized("conditionRelaxed"),
-                "color": "green"
+                "color": "#81C784"
             }, {
                 "name": this.getLocalized("conditionOK"),
-                "color": "yellow"
+                "color": "#FFD54F"
             }, {
                 "name": this.getLocalized("conditionStressed"),
-                "color": "red"
+                "color": "#E57373"
             }
         ];
     }
 
     static getFeelings() {
-        return [        
+        return [
             {
                 "name": this.getLocalized("feelingHappy"),
                 "file": "emoji_u1f600.svg",
-                "color": "green"
+                "color": "#81C784"
             },
             {
                 "name": this.getLocalized("feelingOptimistic"),
                 "file": "emoji_u1f60f.svg",
-                "color": "green"
+                "color": "#81C784"
             },
             {
                 "name": this.getLocalized("feelingInLove"),
                 "file": "emoji_u1f60d.svg",
-                "color": "green"
+                "color": "#81C784"
             },
             {
                 "name": this.getLocalized("feelingPriviliged"),
                 "file": "emoji_u1f60e.svg",
-                "color": "green"
+                "color": "#81C784"
             },
             {
                 "name": this.getLocalized("feelingRelaxed"),
                 "file": "emoji_u1f60c.svg",
-                "color": "green"
+                "color": "#81C784"
             },
 
             {
-                "name": this.getLocalized("feelingTired"),
+                "name": this.getLocalized("feelingTi#E57373"),
                 "file": "emoji_u1f634.svg",
-                "color": "red"
+                "color": "#E57373"
             },
             {
                 "name": this.getLocalized("feelingFrustrated"),
                 "file": "emoji_u1f635.svg",
-                "color": "red"
+                "color": "#E57373"
             },
             {
                 "name": this.getLocalized("feelingUnWell"),
                 "file": "emoji_u1f628.svg",
-                "color": "red"
+                "color": "#E57373"
             },
             {
                 "name": this.getLocalized("feelingWorried"),
                 "file": "emoji_u1f633.svg",
-                "color": "red"
+                "color": "#E57373"
             },
             {
                 "name": this.getLocalized("feelingImpatient"),
                 "file": "emoji_u1f644.svg",
-                "color": "red"
+                "color": "#E57373"
             }
         ];
     }
@@ -167,70 +185,70 @@ class CommonData extends React.Component {
         return {
             "path": "https://www.dr.dk/tjenester/nysgerrig/assets/NotoColorEmoji/",
             "collection": [
-            {
-                "name": "emoji_u1f3cd",
-                "file": "emoji_u1f3cd.png"
-            }, {
-                "name": "emoji_u1f3ce",
-                "file": "emoji_u1f3ce.png"
-            }, {
-                "name": "emoji_u1f680",
-                "file": "emoji_u1f680.png"
-            }, {
-                "name": "emoji_u1f681",
-                "file": "emoji_u1f681.png"
-            }, {
-                "name": "emoji_u1f682",
-                "file": "emoji_u1f682.png"
-            }, {
-                "name": "emoji_u1f68c",
-                "file": "emoji_u1f68c.png"
-            }, {
-                "name": "emoji_u1f691",
-                "file": "emoji_u1f691.png"
-            }, {
-                "name": "emoji_u1f692",
-                "file": "emoji_u1f692.png"
-            }, {
-                "name": "emoji_u1f693",
-                "file": "emoji_u1f693.png"
-            }, {
-                "name": "emoji_u1f695",
-                "file": "emoji_u1f695.png"
-            }, {
-                "name": "emoji_u1f697",
-                "file": "emoji_u1f697.png"
-            }, {
-                "name": "emoji_u1f699",
-                "file": "emoji_u1f699.png"
-            }, {
-                "name": "emoji_u1f69a",
-                "file": "emoji_u1f69a.png"
-            }, {
-                "name": "emoji_u1f69c",
-                "file": "emoji_u1f69c.png"
-            }, {
-                "name": "emoji_u1f6a2",
-                "file": "emoji_u1f6a2.png"
-            }, {
-                "name": "emoji_u1f6b2",
-                "file": "emoji_u1f6b2.png"
-            }, {
-                "name": "emoji_u1f6e5",
-                "file": "emoji_u1f6e5.png"
-            }, {
-                "name": "emoji_u1f6eb",
-                "file": "emoji_u1f6eb.png"
-            }, {
-                "name": "emoji_u1f6f4",
-                "file": "emoji_u1f6f4.png"
-            }, {
-                "name": "emoji_u1f6f5",
-                "file": "emoji_u1f6f5.png"
-            }, {
-                "name": "emoji_u26f5",
-                "file": "emoji_u26f5.png"
-            }
+                {
+                    "name": "emoji_u1f3cd",
+                    "file": "emoji_u1f3cd.png"
+                }, {
+                    "name": "emoji_u1f3ce",
+                    "file": "emoji_u1f3ce.png"
+                }, {
+                    "name": "emoji_u1f680",
+                    "file": "emoji_u1f680.png"
+                }, {
+                    "name": "emoji_u1f681",
+                    "file": "emoji_u1f681.png"
+                }, {
+                    "name": "emoji_u1f682",
+                    "file": "emoji_u1f682.png"
+                }, {
+                    "name": "emoji_u1f68c",
+                    "file": "emoji_u1f68c.png"
+                }, {
+                    "name": "emoji_u1f691",
+                    "file": "emoji_u1f691.png"
+                }, {
+                    "name": "emoji_u1f692",
+                    "file": "emoji_u1f692.png"
+                }, {
+                    "name": "emoji_u1f693",
+                    "file": "emoji_u1f693.png"
+                }, {
+                    "name": "emoji_u1f695",
+                    "file": "emoji_u1f695.png"
+                }, {
+                    "name": "emoji_u1f697",
+                    "file": "emoji_u1f697.png"
+                }, {
+                    "name": "emoji_u1f699",
+                    "file": "emoji_u1f699.png"
+                }, {
+                    "name": "emoji_u1f69a",
+                    "file": "emoji_u1f69a.png"
+                }, {
+                    "name": "emoji_u1f69c",
+                    "file": "emoji_u1f69c.png"
+                }, {
+                    "name": "emoji_u1f6a2",
+                    "file": "emoji_u1f6a2.png"
+                }, {
+                    "name": "emoji_u1f6b2",
+                    "file": "emoji_u1f6b2.png"
+                }, {
+                    "name": "emoji_u1f6e5",
+                    "file": "emoji_u1f6e5.png"
+                }, {
+                    "name": "emoji_u1f6eb",
+                    "file": "emoji_u1f6eb.png"
+                }, {
+                    "name": "emoji_u1f6f4",
+                    "file": "emoji_u1f6f4.png"
+                }, {
+                    "name": "emoji_u1f6f5",
+                    "file": "emoji_u1f6f5.png"
+                }, {
+                    "name": "emoji_u26f5",
+                    "file": "emoji_u26f5.png"
+                }
             ]
         }
     }

@@ -10,7 +10,8 @@
     "test": "node scripts/test.js --env=jsdom"
   },
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
     "autoprefixer": "7.1.6",
     "babel-core": "6.26.0",

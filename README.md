@@ -1,4 +1,9 @@
 
+#Colors
+  Green:  #81C784
+  Yellow: #FFD54F
+  Red:    #E57373
+
 #Setup
 
 This git project conatains 3 project made with create-react-app: student, teacher and common
