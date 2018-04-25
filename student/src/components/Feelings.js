@@ -86,7 +86,8 @@ class Feelings extends Component {
 
     continue() {
         if (Store.feelings.length > 0) {
-            Store.screen = "finish";
+            Store.classRoom.submitAnswer();
+            Store.screen = "finish";            
         }
     }
 
