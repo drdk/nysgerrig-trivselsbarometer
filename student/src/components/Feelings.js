@@ -19,6 +19,9 @@ const styles = theme => ({
     control: {
         marginTop: '20px'
     },
+    continueButton: {
+        marginBottom: '50px'
+    },
     subjectHeaderText: {
         fontSize: "12px",
         color: "grey",
@@ -64,6 +67,23 @@ class Feelings extends Component {
         this.forceUpdate();
     };
 
+    getFeelings() {
+        var feelings = CommonData.getFeelings();
+
+        feelings.sort((a, b) => {
+            if (a.name < b.name) {
+                return -1;
+            }
+            else if (a.name > b.name) {
+                return 1;
+            }
+
+            return 0;
+        });
+
+        return feelings;
+    }
+
     continue() {
         if (Store.feelings.length > 0) {
             Store.screen = "finish";
@@ -72,9 +92,9 @@ class Feelings extends Component {
 
     render() {
         const { classes } = this.props;
-        let feelings = CommonData.getFeelings().map((feeling) => {
+        let feelings = this.getFeelings().map((feeling) => {
             return (
-                <div key={feeling.name} style={{ backgroundColor: feeling.color }} >
+                <div key={feeling.name} >
                     <div className={this.getClassName(feeling)} onClick={this.selectHandler.bind(this, feeling)}>
                         <Emoji name={feeling.name} data={feeling} />
                         <br />
@@ -90,15 +110,10 @@ class Feelings extends Component {
                     <div className={classes.subjectText}>{Store.subject}</div >
                 </FormControl>
                 <div className="feelings">
-                    <div className="positive">
-                        {feelings.slice(0, 5)}
-                    </div>
-                    <div className="negative">
-                        {feelings.slice(5)}
-                    </div>
+                    {feelings}
                 </div>
                 <Button
-                    className={"alignRight " + classes.control}
+                    className={"alignRight " + classes.control + " " + classes.continueButton}
                     variant="raised"
                     color="primary"
                     onClick={this.continue.bind(this)}>{CommonData.getLocalized('buttonContinue')}</Button>

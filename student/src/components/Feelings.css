@@ -1,4 +1,8 @@
-.feelings > div { width: 50%; float: left; padding-top: 20px}
-.feelings > div > div > div { display: inline-block; margin: 15px; }
-.feelings > div.positive > div > div.selected { outline: 5px dotted black; }
-.feelings > div.negative > div > div.selected { outline: 5px dotted black; }
+.feelings { width: 520px; margin: 10px auto 10px auto; }
+.feelings > div { display: inline-block; margin: 16px; }
+.feelings > div img { width: 96px; height: 96px; }
+.feelings div.selected { outline: 5px dotted black; }
+button { margin-bottom: 20px; }
+@media screen and (max-width: 520px) {
+    .feelings { width: 260px; }
+}
