@@ -98,7 +98,7 @@ class Feelings extends Component {
         return (
             <div>
                 <FormControl fullWidth className={classes.control}>
-                    <div className={classes.subjectHeaderText}>Emne</div>
+                    <div className={classes.subjectHeaderText}>{CommonData.getLocalized('labelSubject')}</div>
                     <div className={classes.subjectText}>{Store.subject}</div >
                 </FormControl>
                 <div className="feelings">
