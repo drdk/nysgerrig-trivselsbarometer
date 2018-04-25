@@ -118,6 +118,7 @@ class Feelings extends Component {
                     variant="raised"
                     color="primary"
                     onClick={this.continue.bind(this)}>{CommonData.getLocalized('buttonContinue')}</Button>
+                <br/><br/>
             </div>);
     }
 }
