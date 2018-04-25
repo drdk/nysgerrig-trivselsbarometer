@@ -1,0 +1,10 @@
+.diagramBodyConditions { display: table; height: calc(100vh - 450px); width: 100%; margin: 120px 0 50px 0; }
+.diagramBodyConditions > div { display: table-row; }
+.diagramBodyConditions > div > div { display: table-cell; vertical-align: bottom; width: 30%; height: 100%; }
+.diagramBodyConditions .bar { display: inline-block; width: 90%; position: relative; }
+.diagramBodyConditions .bar > div { margin-top: -128px; color: #fff; }
+.diagramBodyConditions .bar img { width: auto; max-height: 128px; }
+.diagramBodyConditions .bar::after {
+    content: attr(data-count); position: absolute; bottom: -30px; left: 50%; transform: translate(-50%, -50%);
+}
+.floatBreak { clear: both; }

@@ -83,6 +83,7 @@ class Condition extends Component {
                 color="primary"
                 onClick={this.continue.bind(this)}>{CommonData.getLocalized('buttonContinue', Store.language)}
                 </Button>
+                <br/><br/>
             </div>
         );
     }

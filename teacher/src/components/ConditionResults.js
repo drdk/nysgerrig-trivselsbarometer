@@ -6,6 +6,7 @@ import {withStyles} from 'material-ui/styles';
 import Store from '../Store';
 import { observer } from 'mobx-react';
 import { CommonData, Tracking }  from 'common';
+import './ConditionResults.css';
 
 
 let track = new Tracking();
@@ -14,7 +15,7 @@ const styles = theme => ({
         display: 'flex',
         flexWrap: 'wrap',
         margin: '20px 20px 40px 20px',
-        height:'calc(100vh - 400px)'
+        height:'calc(100vh - 350px)'
     },
     control: {
         marginTop: '20px'
@@ -27,9 +28,9 @@ const styles = theme => ({
 
 class ConditionResults extends Component {
 
-    goToconditions() {
-        track.send("showconditions");
-        Store.screen = "conditionsResults";
+    goToFealings() {
+        track.send("showfeelings");
+        Store.screen = "feelingsResults";
     }
     calculateRender(condition){
       return {
@@ -87,12 +88,13 @@ class ConditionResults extends Component {
         }
 
         return (
-        <div className="diagramBody">
+        <div className="diagramBodyConditions">
             <div>
             {conditionsArray.map((condition) => {
                 return (
                     <div key={condition.name}>
                         <div data-count={condition.count} data-name={condition.name} className="bar" style={{height: condition.scale + "%", backgroundColor: condition.color }}>
+                            <p><b>{condition.name}</b></p>
                         </div>
                     </div>
                 )

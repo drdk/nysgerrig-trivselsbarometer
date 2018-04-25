@@ -48,83 +48,83 @@ class CommonData extends React.Component {
             {
                 "name": this.getLocalized("feelingEnergetic", lang),
                 "file": "emoji_u1f603.png",
-                "color": "#81C784"
+                "color": "#aba8cf"
             },
             {
                 "name": this.getLocalized("feelingHappy", lang),
                 "file": "emoji_u1f604.png",
-                "color": "#81C784"
+                "color": "#aba8cf"
             },
             {
                 "name": this.getLocalized("feelingRelieved", lang),
                 "file": "emoji_u1f605.png",
-                "color": "#81C784"
+                "color": "#aba8cf"
             },
             {
                 "name": this.getLocalized("feelingExcited", lang),
                 "file": "emoji_u1f929.png",
-                "color": "#81C784"
+                "color": "#aba8cf"
             },
             {
                 "name": this.getLocalized("feelingProud", lang),
                 "file": "emoji_u1f60f.png",
-                "color": "#81C784"
+                "color": "#aba8cf"
             },
             {
                 "name": this.getLocalized("feelingSafe", lang),
                 "file": "emoji_u1f60c.png",
-                "color": "#81C784"
+                "color": "#aba8cf"
             },
 
             {
                 "name": this.getLocalized("feelingAfraid", lang),
                 "file": "emoji_u1f627.png",
-                "color": "#E57373"
+                "color": "#aba8cf"
             },
             {
                 "name": this.getLocalized("feelingWorried", lang),
                 "file": "emoji_u1f61f.png",
-                "color": "#E57373"
+                "color": "#aba8cf"
             },
             {
                 "name": this.getLocalized("feelingLonely", lang),
                 "file": "emoji_u1f614.png",
-                "color": "#E57373"
+                "color": "#aba8cf"
             },
             {
                 "name": this.getLocalized("feelingEmbarrassed", lang),
                 "file": "emoji_u1f633.png",
-                "color": "#E57373"
+                "color": "#aba8cf"
             },
             {
                 "name": this.getLocalized("feelingConfused", lang),
                 "file": "emoji_u1f615.png",
-                "color": "#E57373"
+                "color": "#aba8cf"
             },
             {
                 "name": this.getLocalized("feelingNervous", lang),
                 "file": "emoji_u1f625.png",
-                "color": "#E57373"
+                "color": "#aba8cf"
             },
             {
                 "name": this.getLocalized("feelingPanicked", lang),
                 "file": "emoji_u1f631.png",
-                "color": "#E57373"
+                "color": "#aba8cf"
             },
             {
                 "name": this.getLocalized("feelingSad", lang),
                 "file": "emoji_u1f614.png",
-                "color": "#E57373"
+                "color": "#aba8cf"
             },
             {
                 "name": this.getLocalized("feelingUnwell", lang),
                 "file": "emoji_u1f912.png",
-                "color": "#E57373"
+                "color": "#aba8cf"
             },
             {
                 "name": this.getLocalized("feelingAngry", lang),
                 "file": "emoji_u1f621.png",
-                "color": "#E57373"
+                "color": "#aba8cf"
             }
         ];
     }

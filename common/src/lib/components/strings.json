@@ -1,9 +1,9 @@
 {
     "da-dk": {
 
-        "conditionRelaxed": "Afslappet",
+        "conditionRelaxed": "Godt",
         "conditionOK": "OK",
-        "conditionStressed": "Belastet",
+        "conditionStressed": "Dårligt",
 
         "feelingAfraid": "Bange",
         "feelingWorried": "Bekymret",
@@ -35,7 +35,7 @@
         "headerStudent": "DR Trivselsbarometer [Elev]",
         "loginPageExplainer": "For at deltage i trivselsmålingen, skal du blot vælge de tre symboler som udgør klassekoden:",
         "buttonStart": "Start",
-        "buttonContinue": "Start",
+        "buttonContinue": "Fortsæt",
         "labelThankYou": "Tak for din deltagelse",
         "labelYouAreFinished": "Du er nu færdig og din lærer vil vise klassens resultater.",
         "studentRetry" : "Hvis din lærer laver endnu en trivselsmåling kan du starte den her",

@@ -1,12 +1,11 @@
-.diagramBody { display: table; height: calc(100vh - 400px); width: 100%; margin: 20px 0 20px 0; }
-.diagramBody > div { display: table-row; }
-.diagramBody > div > div { display: table-cell; vertical-align: bottom; padding: 0 10px 0 10px; height: 100%;}
-.bar { display: inline-block; background-color: silver; width: 100%; position: relative; }
-.bar img { width: 80%; max-width: 128px; height: auto; margin-top: 10px; }
-.bar::before {
-    content: attr(data-name); position: absolute; bottom: 10px; left: 50%; text-align: center; transform: translate(-50%, -50%);
-}
-.bar::after {
-    content: attr(data-count); position: absolute; bottom: -30px; left: 50%; text-align: center;
+.diagramBodyFeelingsWrapper { width: 100%; overflow: auto; }
+.diagramBodyFeelings { display: table; height: calc(100vh - 450px); width: 100%; margin: 120px 0 50px 0; }
+.diagramBodyFeelings > div { display: table-row; }
+.diagramBodyFeelings > div > div { display: table-cell; vertical-align: bottom; padding: 0 10px 0 10px; height: 100%; }
+.diagramBodyFeelings .bar { display: inline-block; width: 100%; position: relative; border-top-right-radius: 20px; border-top-left-radius: 20px; }
+.diagramBodyFeelings .bar > div { margin-top: -128px; }
+.diagramBodyFeelings .bar img { width: auto; max-height: 128px; }
+.diagramBodyFeelings .bar::after {
+    content: attr(data-count); position: absolute; bottom: -30px; left: 50%; transform: translate(-50%, -50%);
 }
 .floatBreak { clear: both; }

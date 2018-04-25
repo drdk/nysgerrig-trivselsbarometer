@@ -91,6 +91,8 @@ class App extends Component {
           <FeelingsResults />
         </div>
       );
+    } else {
+      console.error(Store.screen + ' does not exsist');
     }
   }
 
