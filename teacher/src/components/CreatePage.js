@@ -116,16 +116,16 @@ class CreatePage extends Component {
         return (
             <div className={classes.root}>
                 <Typography variant="headline" component="h3">
-                    For at starte en trivselsmåling, skal du blot indtaste en emne-overskrift, og trykke opret:
+                    {CommonData.getLocalized('createPageExplainer')}
                     <br /><br />
                 </Typography>
                 <FormControl fullWidth className={classes.control}>
-                    <InputLabel htmlFor="subject">Emne:</InputLabel>
+                    <InputLabel htmlFor="subject">{CommonData.getLocalized('labelSubject')}</InputLabel>
                     <Input
                         id="subject"
                         type="text"
                         value={this.state.subject}
-                        placeholder="Eks: Hvordan har du det når du skal til dansk prøve ?"
+                        placeholder={CommonData.getLocalized('subjectWatermarkText')}
                         onChange={(event) => { this.setState({ subject: event.target.value }); }} />
                 </FormControl>
                 <Button className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.handleCreateClick()}>Opret</Button>
@@ -134,16 +134,16 @@ class CreatePage extends Component {
 
                         <Paper className={classes.paper} elevation={4}>
                             <Typography variant="headline" component="h3">
-                                Dit klasserum er nu klar
+                                {CommonData.getLocalized('yourClassRoomIsReady')}
                              </Typography>
                             <Typography component="p">
-                                Deltagerne kan gå til dr.dk/trivselsbarometer og bruge klassekoden :
+                                {CommonData.getLocalized('participationExplainer')}
                             </Typography>
                             <EmojiSelector timestamp={this.state.emojiTimestamp} onChange={this.emoji1Changed.bind(this)} emojis={CommonData.getFruitEmojis()} random={true} clickDisabled={true} />
                             <EmojiSelector timestamp={this.state.emojiTimestamp} onChange={this.emoji2Changed.bind(this)} emojis={CommonData.getAnimalEmojis()} random={true} clickDisabled={true} />
                             <EmojiSelector timestamp={this.state.emojiTimestamp} onChange={this.emoji3Changed.bind(this)} emojis={CommonData.getVehicleEmojis()} random={true} clickDisabled={true} />
                             <Typography component="p">
-                                Antal der har svaret:
+                                {CommonData.getLocalized('numberOfReplies')}
                             </Typography>
                             <Badge className={classes.badge} badgeContent={Store.data.length} color="primary"><b></b></Badge>
                             <br />

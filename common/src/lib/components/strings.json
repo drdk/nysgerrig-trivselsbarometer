@@ -1,0 +1,89 @@
+{
+    "da-dk": {
+
+        "conditionRelaxed": "Afslappet",
+        "conditionOK": "OK",
+        "conditionStressed": "Belastet",
+
+        "feelingHappy": "Glad",
+        "feelingOptimistic": "Optimistisk",
+        "feelingInLove": "Forelsket",
+        "feelingPriviliged": "Priviligeret",
+        "feelingRelaxed": "Afslappet",
+        "feelingTired": "Træt",
+        "feelingFrustrated": "Frustreret",
+        "feelingUnWell": "Skidt tilpas",
+        "feelingWorried": "Bekymret",
+        "feelingImpatient": "Utålmodig",
+        
+        "headerTeacher": "Trivselsbarometer [Lærer]",
+        "createPageExplainer": "For at starte en trivselsmåling, skal du blot indtaste en emne-overskrift, og trykke opret:",
+        "labelSubject": "Emne:",
+        "subjectWatermarkText": "Eks: Hvordan har du det når du skal til dansk prøve?",
+        "yourClassRoomIsReady": "Dit klasserum er nu klar",
+        "participationExplainer": "Deltagerne kan gå til dr.dk/trivselsbarometer og bruge klassekoden:",
+        "numberOfReplies": "Antal der har svaret:",
+        "seeConditionResults": "Se resultat for tilstande",
+        "seeFeelingResults": "Se resultat for følelser",
+
+        "headerStudent": "Trivselsbarometer [Elev]"
+    },
+    "nl-nl": {
+
+        "conditionRelaxed": "Ontspannen",
+        "conditionOK": "OK",
+        "conditionStressed": "Geprikkeld",
+
+        "feelingHappy": "Blij",
+        "feelingOptimistic": "Optimistisch",
+        "feelingInLove": "Verliefd",
+        "feelingPriviliged": "Gepriviligeerd",
+        "feelingRelaxed": "Ontspannen",
+        "feelingTired": "Moe",
+        "feelingFrustrated": "Gefrustreerd",
+        "feelingUnWell": "Onwel",
+        "feelingWorried": "Bezorgd",
+        "feelingImpatient": "Ongeduldig",
+        
+        "headerTeacher": "Welzijnsbarometer [Leraar]",
+        "createPageExplainer": "Om een welzijnsmeting te starten, toets dan a.u.b. een titel in, en druk op begin:",
+        "labelSubject": "Titel:",
+        "subjectWatermarkText": "Voorbeeld: Hoe voelt je , wanneer je naar de toets moet??",
+        "yourClassRoomIsReady": "Uw klaskamer is nu gereed.",
+        "participationExplainer": "Deelnemers kunnen naar dr.dk/trivselsbarometer gaan, en deze klaskode gebruiken:",
+        "numberOfReplies": "Aantal antwoorden:",
+        "seeConditionResults": "Zie resultaat voor stressniveau",
+        "seeFeelingResults": "Zie resultaat voor gevoelens",
+
+        "headerStudent": "Welzijnsbarometer [Leerling]"
+    },
+    "en-us": {
+
+        "conditionRelaxed": "Relaxed",
+        "conditionOK": "OK",
+        "conditionStressed": "Stressed",
+
+        "feelingHappy": "Happy",
+        "feelingOptimistic": "Optimistic",
+        "feelingInLove": "In love",
+        "feelingPriviliged": "Privileged",
+        "feelingRelaxed": "Relaxed",
+        "feelingTired": "Tired",
+        "feelingFrustrated": "Frustrated",
+        "feelingUnWell": "Unwell",
+        "feelingWorried": "Worried",
+        "feelingImpatient": "Impatient",
+        
+        "headerTeacher": "Well-being barometer [Teacher]",
+        "createPageExplainer": "To start a new measurement of well-being, enter a title and click create:",
+        "labelSubject": "Title:",
+        "subjectWatermarkText": "E.g.: How are you feeling about the upcoming exams?",
+        "yourClassRoomIsReady": "Your classroom is now ready",
+        "participationExplainer": "Participants can now visitdr.dk/trivselsbarometer and use the code:",
+        "numberOfReplies": "Number of completed surveys:",
+        "seeConditionResults": "See result for conditions",
+        "seeFeelingResults": "See result for feelings",
+
+        "headerStudent": "Well-being barometer [Student]"
+    }
+}

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Button from 'material-ui/Button';
-import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import {FormControl} from 'material-ui/Form';
 import {withStyles} from 'material-ui/styles';
@@ -14,7 +13,7 @@ const styles = theme => ({
     root: {
         display: 'flex',
         flexWrap: 'wrap',
-        margin: '20px',
+        margin: '20px 20px 40px 20px',
         height:'calc(100vh - 400px)'
     },
     control: {
@@ -23,23 +22,14 @@ const styles = theme => ({
     top: {
         paddingTop: 16,
         paddingBottom: 16,
-    },    
-    conditionCard: {
-        paddingTop: 16,
-        paddingBottom: 16,
-        width: "12%",
-        marginRight:"0.33%"
-    },
-    badge: {
-        margin: '10px'
     }
 });
 
 class ConditionResults extends Component {
 
-    goToFeelings() {
-        track.send("showFeelings");
-        Store.screen = "feelingsResults";
+    goToconditions() {
+        track.send("showconditions");
+        Store.screen = "conditionsResults";
     }
     calculateRender(condition){
       return {
@@ -56,28 +46,61 @@ class ConditionResults extends Component {
 
         return -1;
     }
-    componentWillMount(){
-      var answers = Store.data,
-      totalAnswers = answers.length,
-      conditions = CommonData.getConditions(),
-      numberOfConditions = conditions.length,
-      totalWidth = 99,
-      minWidth = 12,
-      proportionalWidthPart = ((totalWidth - (numberOfConditions * minWidth)) / totalAnswers),
-      i;
 
-      for (i = 0; i < answers.length; i++) {
-          var condition = conditions[this.indexOfCondition(conditions, answers[i].condition)];
-          condition.count = (condition.count || 0) + 1;
-      }
+    createDiagram() {
+        var conditionsArray = [],
+        conditions = {},
+        refConditions = CommonData.getConditions(),
+        getColor = function(name) {
+            for (let i = 0; i < refConditions.length; i++) {
+                if (name === refConditions[i].name) {
+                    return refConditions[i].color;
+                }
+            }
+        };
 
-      for (i = 0; i < conditions.length; i++) {
-          conditions[i].count = conditions[i].count || 0;
-          conditions[i].proportion = (proportionalWidthPart * conditions[i].count) + minWidth;
-      }
+        for (let i = 0; i < Store.data.length; i++) {
+            const answer = Store.data[i];
 
-      this.setState({conditions: conditions});
+            conditions[answer.condition] = conditions[answer.condition] || { name: answer.condition, color: getColor(answer.condition), count: 0 };
+            conditions[answer.condition].count++;
+        }
+
+        for (var condition in conditions) {
+            conditionsArray.push(conditions[condition]);
+        }
+        conditionsArray.sort((a, b) => {
+            if (a.count < b.count) {
+                return 1;
+            }
+            else if (a.count > b.count) {
+                return -1;
+            }
+
+            return 0;
+        });
+        var refScale = conditionsArray[0].count;
+
+        for (let i = 0; i < conditionsArray.length; i++) {
+            const condition = conditionsArray[i];            
+            condition.scale = (condition.count / refScale) * 100;
+        }
+
+        return (
+        <div className="diagramBody">
+            <div>
+            {conditionsArray.map((condition) => {
+                return (
+                    <div key={condition.name}>
+                        <div data-count={condition.count} data-name={condition.name} className="bar" style={{height: condition.scale + "%", backgroundColor: condition.color }}>
+                        </div>
+                    </div>
+                )
+            })}
+            </div>            
+        </div>);
     }
+
     render() {
         const { classes } = this.props;
         return (
@@ -90,19 +113,9 @@ class ConditionResults extends Component {
                     </div>
                 </FormControl>
                 <div className={classes.root}>
-                    {this.state.conditions.map((condition) => {
-                        var percentage = (condition.count/Store.data.length)*100;
-                        return <Paper key={condition.name} className={classes.conditionCard} style={this.calculateRender(condition)} elevation={4}>
-                            <Typography variant="headline" component="h3">
-                                {condition.name}
-                            </Typography>
-                            <Typography variant="body" component="h5">
-                                {condition.count} stemte {(percentage % 1 === 0) ? percentage : percentage.toFixed(2)}%
-                            </Typography>
-                        </Paper>               
-                    })}
+                    {this.createDiagram()}
                 </div>
-                <Button className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.goToFeelings()}>Se resultat for følelser</Button>
+                <Button className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.goToconditions()}>{CommonData.getLocalized('seeFeelingResults')}</Button>
             </div>
         );
     }

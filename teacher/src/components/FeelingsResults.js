@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import Button from 'material-ui/Button';
-import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import {FormControl} from 'material-ui/Form';
 import {withStyles} from 'material-ui/styles';
 import Store from '../Store';
 import { observer } from 'mobx-react';
-import { Tracking } from 'common';
+import { CommonData, Tracking } from 'common';
 import './FeelingsResults.css';
 
 let track = new Tracking();
@@ -23,9 +22,6 @@ const styles = theme => ({
     paper: {
         paddingTop: 16,
         paddingBottom: 16
-    },
-    badge: {
-        margin: '10px'
     }
 });
 
@@ -97,7 +93,7 @@ class FeelingsResults extends Component {
                 </div>
             </FormControl>
             {diagram}
-            <Button className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.goToFeelings()}>Se resultat for tilstande</Button>
+            <Button className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.goToFeelings()}>{CommonData.getLocalized('seeConditionResults')}</Button>
         </div>);
     }
 }

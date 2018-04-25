@@ -1,18 +1,36 @@
-import React from 'react';  
+import React from 'react';
+import LocalizedStrings from './strings.json';
 
-class CommonData extends React.Component {
+class CommonData extends React.Component {   
 
-    static getConditions() {
+    static getLocalized(key, lang) {        
+        lang = lang || "da-dk";
+
+        for (const langName in LocalizedStrings) {
+            if (langName.toLowerCase() === lang.toLowerCase()) {
+                for (const keyName in LocalizedStrings[langName]) {
+                    if (keyName.toLowerCase() === key.toLowerCase()) {
+                        return LocalizedStrings[langName][keyName];
+                    }
+                }                
+            }
+        }
+        
+        return "{No such key}";
+    }
+
+    static getConditions(lang) {
+
         return [
             {
-                "name": "Afslappet",
-                "color": "#81C784"
+                "name": this.getLocalized("conditionRelaxed"),
+                "color": "green"
             }, {
-                "name": "OK",
-                "color": "#FFD54F"
+                "name": this.getLocalized("conditionOK"),
+                "color": "yellow"
             }, {
-                "name": "Belastet",
-                "color": "#E57373"
+                "name": this.getLocalized("conditionStressed"),
+                "color": "red"
             }
         ];
     }
@@ -20,55 +38,55 @@ class CommonData extends React.Component {
     static getFeelings() {
         return [        
             {
-                "name": "Glad",
+                "name": this.getLocalized("feelingHappy"),
                 "file": "emoji_u1f600.svg",
-                "color": "#81C784"
+                "color": "green"
             },
             {
-                "name": "Optimistisk",
+                "name": this.getLocalized("feelingOptimistic"),
                 "file": "emoji_u1f60f.svg",
-                "color": "#81C784"
+                "color": "green"
             },
             {
-                "name": "Forelsket",
+                "name": this.getLocalized("feelingInLove"),
                 "file": "emoji_u1f60d.svg",
-                "color": "#81C784"
+                "color": "green"
             },
             {
-                "name": "Priviligeret",
+                "name": this.getLocalized("feelingPriviliged"),
                 "file": "emoji_u1f60e.svg",
-                "color": "#81C784"
+                "color": "green"
             },
             {
-                "name": "Afslappet",
+                "name": this.getLocalized("feelingRelaxed"),
                 "file": "emoji_u1f60c.svg",
-                "color": "#81C784"
+                "color": "green"
             },
 
             {
-                "name": "Træt",
+                "name": this.getLocalized("feelingTired"),
                 "file": "emoji_u1f634.svg",
-                "color": "#E57373"
+                "color": "red"
             },
             {
-                "name": "Frustreret",
+                "name": this.getLocalized("feelingFrustrated"),
                 "file": "emoji_u1f635.svg",
-                "color": "#E57373"
+                "color": "red"
             },
             {
-                "name": "Skidt tilpas",
+                "name": this.getLocalized("feelingUnWell"),
                 "file": "emoji_u1f628.svg",
-                "color": "#E57373"
+                "color": "red"
             },
             {
-                "name": "Bekymret",
+                "name": this.getLocalized("feelingWorried"),
                 "file": "emoji_u1f633.svg",
-                "color": "#E57373"
+                "color": "red"
             },
             {
-                "name": "Utålmodig",
+                "name": this.getLocalized("feelingImpatient"),
                 "file": "emoji_u1f644.svg",
-                "color": "#E57373"
+                "color": "red"
             }
         ];
     }
