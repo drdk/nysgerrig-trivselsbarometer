@@ -115,7 +115,7 @@ class ConditionResults extends Component {
                 <div className={classes.root}>
                     {this.createDiagram()}
                 </div>
-                <Button className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.goToconditions()}>{CommonData.getLocalized('seeFeelingResults')}</Button>
+                <Button className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.goToconditions()}>{CommonData.getLocalized('seeFeelingResults', Store.language)}</Button>
             </div>
         );
     }

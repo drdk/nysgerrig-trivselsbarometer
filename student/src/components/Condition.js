@@ -60,7 +60,7 @@ class Condition extends Component {
             <div>
             <div className={classes.root}>
                 <FormControl fullWidth className={classes.control}>
-                    <div className={classes.subjectHeaderText}>{CommonData.getLocalized('labelSubject')}</div>
+                    <div className={classes.subjectHeaderText}>{CommonData.getLocalized('labelSubject', Store.language)}</div>
                 <div className={classes.subjectText}>{Store.subject}</div >
                 </FormControl>
                 <FormControl fullWidth className={classes.control}>
@@ -81,7 +81,7 @@ class Condition extends Component {
                 className={"alignRight " + classes.control}
                 variant="raised"
                 color="primary"
-                onClick={this.continue.bind(this)}>{CommonData.getLocalized('buttonContinue')}
+                onClick={this.continue.bind(this)}>{CommonData.getLocalized('buttonContinue', Store.language)}
                 </Button>
             </div>
         );

@@ -9,10 +9,10 @@ class Finish extends Component {
     }
 
     render() {
-        return (<div className="App-content"><h3>{CommonData.getLocalized('labelThankYou')}</h3> 
-            {CommonData.getLocalized('labelYouAreFinished')}
+        return (<div className="App-content"><h3>{CommonData.getLocalized('labelThankYou', Store.language)}</h3> 
+            {CommonData.getLocalized('labelYouAreFinished', Store.language)}
             <br/><br/><br/><br/><br/>
-            <a href="" onClick={() => window.location.reload()}>{CommonData.getLocalized('studentRetry')}</a>
+            <a href="" onClick={() => window.location.reload()}>{CommonData.getLocalized('studentRetry', Store.language)}</a>
         </div>);
     }
 }

@@ -107,7 +107,7 @@ class Feelings extends Component {
         return (
             <div>
                 <FormControl fullWidth className={classes.control}>
-                    <div className={classes.subjectHeaderText}>{CommonData.getLocalized('labelSubject')}</div>
+                    <div className={classes.subjectHeaderText}>{CommonData.getLocalized('labelSubject', Store.language)}</div>
                     <div className={classes.subjectText}>{Store.subject}</div >
                 </FormControl>
                 <div className="feelings">
@@ -117,7 +117,7 @@ class Feelings extends Component {
                     className={"alignRight " + classes.control + " " + classes.continueButton}
                     variant="raised"
                     color="primary"
-                    onClick={this.continue.bind(this)}>{CommonData.getLocalized('buttonContinue')}</Button>
+                    onClick={this.continue.bind(this)}>{CommonData.getLocalized('buttonContinue', Store.language)}</Button>
             </div>);
     }
 }
