@@ -60,11 +60,11 @@ class Condition extends Component {
             <div>
             <div className={classes.root}>
                 <FormControl fullWidth className={classes.control}>
-                    <div className={classes.subjectHeaderText}>{CommonData.getLocalized('labelSubject')}</div>
+                    <div className={classes.subjectHeaderText}>{CommonData.getLocalized('labelSubject', Store.language)}</div>
                 <div className={classes.subjectText}>{Store.subject}</div >
                 </FormControl>
                 <FormControl fullWidth className={classes.control}>
-                    {CommonData.getConditions().map((condition) => {
+                    {CommonData.getConditions(Store.language).map((condition) => {
                         var selected = Store.condition === condition.name ? classes.selected : null;
                         return (
                             <Button key={condition.name} variant="raised" className={[classes.condition, classes.conditionRelaxed,  selected ].join(' ')} 
@@ -81,7 +81,7 @@ class Condition extends Component {
                 className={"alignRight " + classes.control}
                 variant="raised"
                 color="primary"
-                onClick={this.continue.bind(this)}>{CommonData.getLocalized('buttonContinue')}
+                onClick={this.continue.bind(this)}>{CommonData.getLocalized('buttonContinue', Store.language)}
                 </Button>
                 <br/><br/>
             </div>

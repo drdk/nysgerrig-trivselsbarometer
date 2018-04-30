@@ -89,7 +89,7 @@ class Login extends Component {
                 <FormControl fullWidth>
                     <div>
                         <Typography variant="headline" component="h3">
-                            {CommonData.getLocalized('loginPageExplainer')}
+                            {CommonData.getLocalized('loginPageExplainer', Store.language)}
                             <br /><br />
                         </Typography>
                         <EmojiSelector onChange={this.emoji1Changed.bind(this)} emojis={CommonData.getFruitEmojis()} preload={true}/>
@@ -97,17 +97,17 @@ class Login extends Component {
                         <EmojiSelector onChange={this.emoji3Changed.bind(this)} emojis={CommonData.getVehicleEmojis()} preload={true}/>
                     </div>
                     {this.state.feelingsValidationError ? <Typography  component="h3" style={{color: 'red'}}>
-                        {CommonData.getLocalized('feelingsValidationError')}                    
+                        {CommonData.getLocalized('feelingsValidationError', Store.language)}                    
                     </Typography> : null}
                     <div>
                         <Button
                             className={"alignRight " + classes.control}
                             variant="raised"
                             color="primary"
-                            onClick={() => this.handleCreateClick()}>{CommonData.getLocalized('buttonStart')}</Button>
+                            onClick={() => this.handleCreateClick()}>{CommonData.getLocalized('buttonStart', Store.language)}</Button>
                     </div>
                     <br/><br/><br/><br/><br/>
-                    <a href="https://www.dr.dk/trivsel-opret/">{CommonData.getLocalized('linkToTeacherMode')}</a>
+                    <a href="https://www.dr.dk/trivsel-opret/">{CommonData.getLocalized('linkToTeacherMode', Store.language)}</a>
                 </FormControl>
             </div>
         );

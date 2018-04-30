@@ -118,16 +118,16 @@ class CreatePage extends Component {
         return (
             <div className={classes.root}>
                 <Typography variant="headline" component="h3">
-                    {CommonData.getLocalized('createPageExplainer')}
+                    {CommonData.getLocalized('createPageExplainer', Store.language)}
                     <br /><br />
                 </Typography>
                 <FormControl fullWidth className={classes.control}>
-                    <InputLabel htmlFor="subject">{CommonData.getLocalized('labelSubject')}</InputLabel>
+                    <InputLabel htmlFor="subject">{CommonData.getLocalized('labelSubject', Store.language)}</InputLabel>
                     <Input
                         id="subject"
                         type="text"
                         value={this.state.subject}
-                        placeholder={CommonData.getLocalized('subjectWatermarkText')}
+                        placeholder={CommonData.getLocalized('subjectWatermarkText', Store.language)}
                         onChange={(event) => { this.setState({ subject: event.target.value }); }} />
                 </FormControl>
                 <Button className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.handleCreateClick()}>Opret</Button>
@@ -136,16 +136,16 @@ class CreatePage extends Component {
 
                         <Paper className={classes.paper} elevation={4}>
                             <Typography variant="headline" component="h3">
-                                {CommonData.getLocalized('yourClassRoomIsReady')}
+                                {CommonData.getLocalized('yourClassRoomIsReady', Store.language)}
                              </Typography>
                             <Typography component="p">
-                                {CommonData.getLocalized('participationExplainer')}
+                                {CommonData.getLocalized('participationExplainer', Store.language)}
                             </Typography>
                             <EmojiSelector timestamp={this.state.emojiTimestamp} onChange={this.emoji1Changed.bind(this)} emojis={CommonData.getFruitEmojis()} random={true} clickDisabled={true} />
                             <EmojiSelector timestamp={this.state.emojiTimestamp} onChange={this.emoji2Changed.bind(this)} emojis={CommonData.getAnimalEmojis()} random={true} clickDisabled={true} />
                             <EmojiSelector timestamp={this.state.emojiTimestamp} onChange={this.emoji3Changed.bind(this)} emojis={CommonData.getVehicleEmojis()} random={true} clickDisabled={true} />
                             <Typography component="p">
-                                {CommonData.getLocalized('numberOfReplies')}
+                                {CommonData.getLocalized('numberOfReplies', Store.language)}
                             </Typography>
                             <Badge className={classes.badge} badgeContent={Store.data.length} color="primary"><b></b></Badge>
                             <br />

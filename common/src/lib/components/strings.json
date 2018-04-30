@@ -69,12 +69,19 @@
         "labelSubject": "Titel:",
         "subjectWatermarkText": "Voorbeeld: Hoe voelt je je, wanneer je naar de toets moet??",
         "yourClassRoomIsReady": "Uw klaskamer is nu gereed.",
-        "participationExplainer": "Deelnemers kunnen naar dr.dk/trivselsbarometer gaan, en deze klaskode gebruiken:",
+        "participationExplainer": "Deelnemers kunnen naar dr.dk/trivselsbarometer gaan, en deze klascode gebruiken:",
         "numberOfReplies": "Aantal antwoorden:",
         "seeConditionResults": "Zie resultaat voor stressniveau",
         "seeFeelingResults": "Zie resultaat voor gevoelens",
-
-        "headerStudent": "Welzijnsbarometer [Leerling]"
+        "feelingsValidationError" : "Je moet dezelfde symbolen als je leraar kiezen",
+        "headerStudent": "Welzijnsbarometer [Leerling]",
+        "loginPageExplainer": "Om deel te nemen in een welzijnsmeting, kies de drie symbolen van de klascode:",
+        "buttonStart": "Begin",
+        "buttonContinue": "Begin",
+        "labelThankYou": "Bedankt voor de deelname",
+        "labelYouAreFinished": "Je bent nu klaar, en de leraar zal je de resultaten op het scherm laten zien.",
+        "studentRetry" : "Als je leraar nog een welzijnsmeting begint, kun je deze hier beginnen.",
+        "linkToTeacherMode" : "Als je leraar bent, kun je hier een nieuwe welzijnsmeting beginnnen."
     },
     "en-us": {
 
@@ -108,7 +115,14 @@
         "numberOfReplies": "Number of completed surveys:",
         "seeConditionResults": "See result for conditions",
         "seeFeelingResults": "See result for feelings",
-
-        "headerStudent": "Well-being barometer [Student]"
+        "feelingsValidationError" : "You have to chose the same symbols as your teacher",
+        "headerStudent": "Well-being barometer [Student]",
+        "loginPageExplainer": "To participate in the well-being barometer, pick the three symbols of the classcode:",
+        "buttonStart": "Start",
+        "buttonContinue": "Start",
+        "labelThankYou": "Thank you for your participation",
+        "labelYouAreFinished": "You are now finished, and your teacher will show you the result shortly.",
+        "studentRetry" : "If your teacher makes another well-being barometer, you can open it here.",
+        "linkToTeacherMode" : "If you are a teacher wanting to start a new session, click here."
     }
 }
