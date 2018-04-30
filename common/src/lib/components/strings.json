@@ -23,23 +23,23 @@
         "feelingAngry": "Vred",
         
         "headerTeacher": "DR Trivselsbarometer [Lærer]",
-        "createPageExplainer": "For at starte en trivselsmåling, skal du blot indtaste en emne-overskrift, og trykke opret:",
+        "createPageExplainer": "Start en trivselsmåling, ved at indtaste et spørgsmål i emnefeltet, og tryk på opret:",
         "labelSubject": "Emne:",
-        "subjectWatermarkText": "Eks: Hvordan har du det når du skal til dansk prøve?",
+        "subjectWatermarkText": "Eks: Hvordan har du det, når du skal til dansk prøve?",
         "yourClassRoomIsReady": "Dit klasserum er nu klar",
-        "participationExplainer": "Deltagerne kan gå til dr.dk/trivselsbarometer og bruge klassekoden:",
+        "participationExplainer": "Deltagerne skal gå ind på dr.dk/trivsel og vælge de tre ikoner, som vises her:",
         "numberOfReplies": "Antal der har svaret:",
-        "seeConditionResults": "Se resultat for tilstande",
-        "seeFeelingResults": "Se resultat for følelser",
+        "seeConditionResults": "Se resultat for godt, okay, og/eller dårligt",
+        "seeFeelingResults": "Se emojiresultat",
         "feelingsValidationError" : "Du skal vælge de samme symboler som din lærer",
         "headerStudent": "DR Trivselsbarometer [Elev]",
-        "loginPageExplainer": "For at deltage i trivselsmålingen, skal du blot vælge de tre symboler som udgør klassekoden:",
+        "loginPageExplainer": "Deltag i trivselsmålingen ved at vælge de tre ikoner, der vises på lærerens skærm.",
         "buttonStart": "Start",
         "buttonContinue": "Fortsæt",
         "labelThankYou": "Tak for din deltagelse",
-        "labelYouAreFinished": "Du er nu færdig og din lærer vil vise klassens resultater.",
-        "studentRetry" : "Hvis din lærer laver endnu en trivselsmåling kan du starte den her",
-        "linkToTeacherMode" : "Hvis du er lærer og ønsker at oprette en trivselsmåling kan du gøre det her"
+        "labelYouAreFinished": "Du er nu færdig, og din lærer vil vise klassens resultater.",
+        "studentRetry" : "Hvis din lærer laver endnu en trivselsmåling, kan du starte den her",
+        "linkToTeacherMode" : "Hvis du er lærer og ønsker at oprette en trivselsmåling, kan du gøre det her."
     },
     "nl-nl": {
 
