@@ -38,6 +38,8 @@ class CreatePage extends Component {
     constructor() {
         super();
 
+        console.log('Build 0.1.0');
+
         this.state = {
             emojiTimestamp: Date.now(),
             subject: ""

@@ -36,6 +36,7 @@ class Login extends Component {
         this.state = {
             feelingsValidationError : false
         }
+        console.log('Build 0.1.0');
     }
 
     handleLogin(loginData) {

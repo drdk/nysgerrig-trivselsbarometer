@@ -19,7 +19,7 @@ function Header(props) {
       <AppBar position="static" color="primary">
         <Toolbar>
           <Typography variant="title" color="inherit">
-            {CommonData.getLocalized('headerTeacher')}
+            {CommonData.getLocalized('headerTeacher')}            
           </Typography>
         </Toolbar>
       </AppBar>
