@@ -5,7 +5,6 @@ import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import { CommonData } from 'common';
-import Store from '../Store';
 
 const styles = {
   root: {
@@ -20,7 +19,7 @@ function Header(props) {
       <AppBar position="static" color="primary">
         <Toolbar>
           <Typography variant="title" color="inherit">
-            {CommonData.getLocalized('headerTeacher', Store.language)}
+            {CommonData.getLocalized('headerTeacher')}            
           </Typography>
         </Toolbar>
       </AppBar>
