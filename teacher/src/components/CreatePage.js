@@ -30,6 +30,12 @@ const styles = theme => ({
     },
     badge: {
         margin: '10px'
+    },
+    version: {
+        display: 'inline-block',
+        width: '100px',
+        margin: '0 auto',
+        color: '#999'        
     }
 });
 
@@ -154,6 +160,7 @@ class CreatePage extends Component {
                         </Paper>
                     </Slide>
                 </FormControl>
+                <label className={classes.version} >Version 0.2.0</label>
             </div>
         );
     }
