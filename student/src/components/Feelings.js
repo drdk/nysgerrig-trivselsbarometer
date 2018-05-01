@@ -68,7 +68,8 @@ class Feelings extends Component {
     };
 
     getFeelings() {
-        var feelings = CommonData.getFeelings(Store.language);
+        var feelings = CommonData.getFeelings(Store.language),
+        dontKnow = feelings.pop();
 
         feelings.sort((a, b) => {
             if (a.name < b.name) {
@@ -80,6 +81,8 @@ class Feelings extends Component {
 
             return 0;
         });
+
+        feelings.push(dontKnow);
 
         return feelings;
     }
@@ -113,6 +116,7 @@ class Feelings extends Component {
                 <div className="feelings">
                     {feelings}
                 </div>
+                <p>{CommonData.getLocalized('chooseFeelings', Store.language)}</p>
                 <Button
                     className={"alignRight " + classes.control + " " + classes.continueButton}
                     variant="raised"

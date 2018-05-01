@@ -100,6 +100,7 @@ class Login extends Component {
                     {this.state.feelingsValidationError ? <Typography  component="h3" style={{color: 'red'}}>
                         {CommonData.getLocalized('feelingsValidationError', Store.language)}                    
                     </Typography> : null}
+                    <p>{CommonData.getLocalized('participationIsAnonymous', Store.language)}</p>
                     <div>
                         <Button
                             className={"alignRight " + classes.control}

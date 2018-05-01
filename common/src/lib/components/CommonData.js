@@ -125,6 +125,11 @@ class CommonData extends React.Component {
                 "name": this.getLocalized("feelingAngry", lang),
                 "file": "emoji_u1f621.png",
                 "color": "#aba8cf"
+            },
+            {
+                "name": this.getLocalized("feelingNothing", lang),
+                "file": "emoji_u1f610.png",
+                "color": "#aba8cf"
             }
         ];
     }

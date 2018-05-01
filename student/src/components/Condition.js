@@ -74,8 +74,8 @@ class Condition extends Component {
                                 </Typography>
                             </Button>)
                     })}
-                </FormControl>
-                
+                    <p>{CommonData.getLocalized('chooseCondition', Store.language)}</p>
+                </FormControl>       
             </div>
             <Button
                 className={"alignRight " + classes.control}
