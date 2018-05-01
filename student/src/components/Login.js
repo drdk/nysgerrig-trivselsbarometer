@@ -26,12 +26,6 @@ const styles = theme => ({
     },
     badge: {
         margin: '10px'
-    },
-    version: {
-        display: 'inline-block',
-        width: '100px',
-        margin: '0 auto',
-        color: '#999'        
     }
 });
 
@@ -116,7 +110,6 @@ class Login extends Component {
                     <p>
                         <a href="https://www.dr.dk/trivsel-opret/">{CommonData.getLocalized('linkToTeacherMode', Store.language)}</a>
                     </p>
-                    <label className={classes.version} >Version 0.2.0</label>
                 </FormControl>
             </div>
         );

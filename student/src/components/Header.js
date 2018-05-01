@@ -11,6 +11,11 @@ const styles = {
   root: {
     flexGrow: 1,
   },
+  version: {
+      color: '#ccc',
+      right: 10,
+      position: 'absolute'
+  }
 };
 
 function Header(props) {
@@ -22,6 +27,7 @@ function Header(props) {
           <Typography variant="title" color="inherit">
             {CommonData.getLocalized('headerStudent', Store.language)}
           </Typography>
+          <label className={classes.version} >0.3.0</label>
         </Toolbar>
       </AppBar>
     </div>

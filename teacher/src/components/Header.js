@@ -10,6 +10,11 @@ const styles = {
   root: {
     flexGrow: 1,
   },
+  version: {
+      color: '#ccc',
+      right: 10,
+      position: 'absolute'
+  }
 };
 
 function Header(props) {
@@ -19,8 +24,9 @@ function Header(props) {
       <AppBar position="static" color="primary">
         <Toolbar>
           <Typography variant="title" color="inherit">
-            {CommonData.getLocalized('headerTeacher')}            
+            {CommonData.getLocalized('headerTeacher')}
           </Typography>
+          <label className={classes.version} >0.3.0</label>
         </Toolbar>
       </AppBar>
     </div>
