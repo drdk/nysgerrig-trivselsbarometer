@@ -6,6 +6,7 @@ import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import { CommonData } from 'common';
 import Store from '../Store';
+import {AppVersion} from '../AppVersion';
 
 const styles = {
   root: {
@@ -27,7 +28,7 @@ function Header(props) {
           <Typography variant="title" color="inherit">
             {CommonData.getLocalized('headerStudent', Store.language)}
           </Typography>
-          <label className={classes.version} >0.3.0</label>
+          <label className={classes.version} >{AppVersion}</label>
         </Toolbar>
       </AppBar>
     </div>

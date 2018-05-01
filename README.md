@@ -1,4 +1,7 @@
 
+#Release
+use npm run release
+
 #Colors
   Green:  #81C784
   Yellow: #FFD54F

@@ -2,3 +2,5 @@
 /common/build/
 common/package-lock.json
 .DS_Store
+/student/package-lock.json
+/teacher/package-lock.json
