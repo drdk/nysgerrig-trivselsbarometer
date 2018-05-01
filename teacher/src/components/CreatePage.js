@@ -118,8 +118,9 @@ class CreatePage extends Component {
         return (
             <div className={classes.root}>
                 <Typography variant="headline" component="h3">
-                    {CommonData.getLocalized('createPageExplainer', Store.language)}
-                    <br /><br />
+                <p>
+                {CommonData.getLocalized('createPageExplainer', Store.language)}
+                </p>
                 </Typography>
                 <FormControl fullWidth className={classes.control}>
                     <InputLabel htmlFor="subject">{CommonData.getLocalized('labelSubject', Store.language)}</InputLabel>

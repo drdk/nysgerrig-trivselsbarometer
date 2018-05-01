@@ -32,7 +32,7 @@ class App extends Component {
     let params = (new URL(document.location)).searchParams;
     let screen = params.get("screen");
     var lang = navigator.language || navigator.userLanguage;
-    Store.language = lang;
+    //Store.language = lang;
     if (screen && screen.length > 0) {
       Store.subject = "Demo";
       Store.screen = screen.toLowerCase();

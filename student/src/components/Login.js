@@ -89,8 +89,9 @@ class Login extends Component {
                 <FormControl fullWidth>
                     <div>
                         <Typography variant="headline" component="h3">
+                            <p>
                             {CommonData.getLocalized('loginPageExplainer', Store.language)}
-                            <br /><br />
+                            </p>
                         </Typography>
                         <EmojiSelector onChange={this.emoji1Changed.bind(this)} emojis={CommonData.getFruitEmojis()} preload={true}/>
                         <EmojiSelector onChange={this.emoji2Changed.bind(this)} emojis={CommonData.getAnimalEmojis()} preload={true}/>
@@ -106,8 +107,9 @@ class Login extends Component {
                             color="primary"
                             onClick={() => this.handleCreateClick()}>{CommonData.getLocalized('buttonStart', Store.language)}</Button>
                     </div>
-                    <br/><br/><br/><br/><br/>
-                    <a href="https://www.dr.dk/trivsel-opret/">{CommonData.getLocalized('linkToTeacherMode', Store.language)}</a>
+                    <p>
+                        <a href="https://www.dr.dk/trivsel-opret/">{CommonData.getLocalized('linkToTeacherMode', Store.language)}</a>
+                    </p>
                 </FormControl>
             </div>
         );

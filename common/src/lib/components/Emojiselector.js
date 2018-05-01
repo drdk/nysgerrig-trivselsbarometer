@@ -22,7 +22,7 @@ class EmojiSelector extends Component {
     #{id}.clickAble { box-shadow: 1px 1px 6px 1px rgba(0,0,0,0.4); position: relative; margin-bottom: 25px; } \
     #{id}.clickAble:hover { box-shadow: 1px 1px 6px 1px rgba(0,0,0,1); } \
     #{id}.clickAble:hover:active { box-shadow: 1px 1px 6px 1px #3342a3; } \
-    #{id}.clickAble::after { content:\"\"; position: absolute; left: 25px; bottom: 0px; border-top: solid 20px rgba(0, 0, 0, .5); border-right: solid 44px transparent; border-left: solid 44px transparent; pointer-events: none; } \
+    #{id}.clickAble::after { content:\"\"; position: absolute; left: 0px; bottom: 0px; border-top: solid 20px rgba(0, 0, 0, .5); border-right: solid 69px transparent; border-left: solid 69px transparent; pointer-events: none; } \
     #{id}.clickAble:hover::after { border-top: solid 20px rgba(0, 0, 0, 1); } \
     #{id}.clickAble:hover:active::after { border-top: solid 20px #3342A3; } \
     #{id} .preload { position: fixed; z-index: 0; top: -1px; right: -1px; width: 1px; height: 1px; overflow: hidden; } \
