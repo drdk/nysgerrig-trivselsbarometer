@@ -1,4 +1,7 @@
 html body .App * {
-  text-align: center;
   font-family: 'gibson', sans-serif;
+}
+
+.App {
+  text-align: center;
 }
