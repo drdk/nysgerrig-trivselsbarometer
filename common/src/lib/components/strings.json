@@ -2,7 +2,7 @@
     "da-dk": {
 
         "conditionRelaxed": "Godt",
-        "conditionOK": "OK",
+        "conditionOK": "Neutralt",
         "conditionStressed": "Dårligt",
 
         "feelingAfraid": "Bange",
@@ -21,7 +21,7 @@
         "feelingSafe": "Tryg",
         "feelingUnwell": "Utilpas",
         "feelingAngry": "Vred",
-        "feelingNothing": "Ingen / ved ikke",
+        "feelingNothing": "Neutral",
         
         "headerTeacher": "DR Trivselsbarometer [Lærer]",
         "createPageExplainer": "Start en trivselsmåling, ved at indtaste et spørgsmål i emnefeltet, og tryk på opret:",
@@ -32,7 +32,7 @@
         "numberOfReplies": "Antal der har svaret:",
         "seeConditionResults": "Se resultat for godt, okay, og/eller dårligt",
         "seeFeelingResults": "Se emojiresultat",
-        "feelingsValidationError" : "Du skal vælge de samme symboler som din lærer",
+        "feelingsValidationError" : "Alle tre synboler skal matche",
         "headerStudent": "DR Trivselsbarometer [Elev]",
         "loginPageExplainer": "Tryk på symbolerne, og vælg dem som læreren viser",
         "participationIsAnonymous": "Bemærk din deltagelse vil være 100% anonym",

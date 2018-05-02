@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles'
 import './App.css';
+import "./Font.css";
 import Header from './components/Header';
 import CreatePage from './components/CreatePage';
 import ConditionResults from './components/ConditionResults';

@@ -22,13 +22,14 @@ const styles = theme => ({
     continueButton: {
         marginBottom: '50px'
     },
-    subjectHeaderText: {
-        fontSize: "12px",
+    helperText: {
+        fontSize: "18px",
         color: "grey",
-        paddingBottom: "7px"
+        paddingBottom: "7px",
+        padding: '20px'
     },
     subjectText: {
-        fontSize: "20px"
+        fontSize: "24px"
     }
 });
 
@@ -110,14 +111,14 @@ class Feelings extends Component {
         return (
             <div>
                 <FormControl fullWidth className={classes.control}>
-                    <div className={classes.subjectHeaderText}>{CommonData.getLocalized('labelSubject', Store.language)}</div>
                     <div className={classes.subjectText}>{Store.subject}</div >
+                    <div className={classes.helperText}>{CommonData.getLocalized('chooseFeelings', Store.language)}</div>                    
                 </FormControl>
                 <div className="feelings">
                     {feelings}
                 </div>
-                <p>{CommonData.getLocalized('chooseFeelings', Store.language)}</p>
                 <Button
+                    size="large"
                     className={"alignRight " + classes.control + " " + classes.continueButton}
                     variant="raised"
                     color="primary"

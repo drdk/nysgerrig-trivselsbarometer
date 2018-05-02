@@ -131,7 +131,7 @@ class CreatePage extends Component {
                         placeholder={CommonData.getLocalized('subjectWatermarkText', Store.language)}
                         onChange={(event) => { this.setState({ subject: event.target.value }); }} />
                 </FormControl>
-                <Button className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.handleCreateClick()}>Opret</Button>
+                <Button size="large" className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.handleCreateClick()}>Opret</Button>
                 <FormControl fullWidth className={classes.control}>
                     <Slide direction="up" in={Store.classCode !== undefined} mountOnEnter unmountOnExit>
 

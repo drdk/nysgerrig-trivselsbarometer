@@ -98,7 +98,7 @@ class FeelingsResults extends Component {
                 </div>
             </FormControl>
             {diagram}
-            <Button className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.goToConditions()}>{CommonData.getLocalized('seeConditionResults', Store.language)}</Button>
+            <Button size="large" className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.goToConditions()}>{CommonData.getLocalized('seeConditionResults', Store.language)}</Button>
         </div>);
     }
 }

@@ -103,6 +103,7 @@ class Login extends Component {
                     <p>{CommonData.getLocalized('participationIsAnonymous', Store.language)}</p>
                     <div>
                         <Button
+                            size="large"
                             className={"alignRight " + classes.control}
                             variant="raised"
                             color="primary"

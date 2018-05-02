@@ -1,7 +1,7 @@
 .feelings { width: 520px; margin: 10px auto 10px auto; }
 .feelings > div { display: inline-block; margin: 16px; }
 .feelings > div img { width: 96px; height: 96px; }
-.feelings div.selected { outline: 5px dotted black; }
+.feelings div.selected { outline: 2px dotted black; }
 button { margin-bottom: 20px; }
 @media screen and (max-width: 520px) {
     .feelings { width: 260px; }

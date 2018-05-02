@@ -19,23 +19,25 @@ const styles = theme => ({
     condition: {
         paddingTop: 16,
         paddingBottom: 16,
-        margin: "10px 0",
-        cursor: "pointer"
+        margin: "10px auto",
+        cursor: "pointer",
+        width: "300px"
     },
     badge: {
         margin: '10px'
     },
-    subjectHeaderText: {
-        fontSize: "12px",
+    helperText: {
+        fontSize: "18px",
         color: "grey",
-        paddingBottom: "7px"
+        paddingBottom: "7px",
+        padding: '20px'
     },
     subjectText: {
-        fontSize: "20px"
+        fontSize: "24px"
     },
     selected: {
         fontSize: "30px",
-        outline: "5px dotted black"
+        outline: "2px dotted black"
     }
 });
 
@@ -60,8 +62,8 @@ class Condition extends Component {
             <div>
             <div className={classes.root}>
                 <FormControl fullWidth className={classes.control}>
-                    <div className={classes.subjectHeaderText}>{CommonData.getLocalized('labelSubject', Store.language)}</div>
-                <div className={classes.subjectText}>{Store.subject}</div >
+                    <div className={classes.subjectText}>{Store.subject}</div >
+                    <div className={classes.helperText}>{CommonData.getLocalized('chooseCondition', Store.language)}</div>                    
                 </FormControl>
                 <FormControl fullWidth className={classes.control}>
                     {CommonData.getConditions(Store.language).map((condition) => {
@@ -73,11 +75,11 @@ class Condition extends Component {
                                     {condition.name}
                                 </Typography>
                             </Button>)
-                    })}
-                    <p>{CommonData.getLocalized('chooseCondition', Store.language)}</p>
+                    })}                    
                 </FormControl>       
             </div>
             <Button
+                size="large"
                 className={"alignRight " + classes.control}
                 variant="raised"
                 color="primary"
