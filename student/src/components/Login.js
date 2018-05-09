@@ -62,15 +62,21 @@ class Login extends Component {
     }
 
     emoji1Changed(data) {
-        this.emoji1Name = data.name;
+        if (data) {
+            this.emoji1Name = data.name;
+        }
     }
 
     emoji2Changed(data) {
-        this.emoji2Name = data.name;
+        if (data) {
+            this.emoji2Name = data.name;
+        }
     }
 
     emoji3Changed(data) {
-        this.emoji3Name = data.name;
+        if (data) {
+            this.emoji3Name = data.name;
+        }
     }
 
     componentWillMount() {
