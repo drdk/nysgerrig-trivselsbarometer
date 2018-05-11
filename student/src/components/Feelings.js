@@ -8,7 +8,7 @@ import { Emoji } from 'common';
 import './Feelings.css';
 import { observer } from 'mobx-react';
 import Store from '../Store';
-import { CommonData } from 'common';
+import { CommonData, EmojiSelector } from 'common';
 
 const styles = theme => ({
     root: {
@@ -39,38 +39,27 @@ class Feelings extends Component {
         super();
 
         Store.feelings = Store.feelings || [];
-    }
 
-    getFeelingIndex(feeling) {
-        for (let i = 0; i < Store.feelings.length; i++) {
-            if (Store.feelings[i].name === feeling.name) {
-                return i;
-            }
-        }
-
-        return -1;
+        this.emoji1 = null;
+        this.emoji2 = null;
+        this.emoji3 = null;
     }
 
     getClassName(feeling) {
         return this.getFeelingIndex(feeling) > -1 ? "selected" : null;
     }
 
-    selectHandler(feeling) {
-        var index = this.getFeelingIndex(feeling);
-
-        if (index > -1) {
-            Store.feelings.splice(index, 1);
-        }
-        else {
-            Store.feelings.push(feeling);
-        }
-
-        this.forceUpdate();
-    };
-
     getFeelings() {
-        var feelings = CommonData.getFeelings(Store.language),
-        dontKnow = feelings.pop();
+        var that = this,
+        feelings = CommonData.getFeelingEmojis(Store.language),
+        dontKnow = feelings.pop(),
+        checkExistance = function(name) {
+            var exists = that.emoji1 && that.emoji1.name === name ||
+            that.emoji2 && that.emoji2.name === name ||
+            that.emoji3 && that.emoji3.name === name;
+            
+            return exists;
+        };
 
         feelings.sort((a, b) => {
             if (a.name < b.name) {
@@ -85,7 +74,59 @@ class Feelings extends Component {
 
         feelings.push(dontKnow);
 
+        for (var i = 0; i < feelings.length; i++) {
+            var name = feelings[i].name;
+
+            if (checkExistance(name)) {
+                feelings.splice(i, 1);
+                i--;
+            }
+        }
+
         return feelings;
+    }
+
+    getFeelingIndex(feeling) {
+        for (let i = 0; i < Store.feelings.length; i++) {
+            if (Store.feelings[i].name === feeling.name) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    updateStore() {        
+        Store.feelings = [];
+
+        if (this.emoji1) {
+            Store.feelings.push(this.emoji1);
+        }
+
+        if (this.emoji2) {
+            Store.feelings.push(this.emoji2);
+        }
+
+        if (this.emoji3) {
+            Store.feelings.push(this.emoji3);
+        }
+
+        this.forceUpdate();
+    };
+
+    emoji1Changed(feeling) {
+        this.emoji1 = feeling;
+        this.updateStore();
+    }
+
+    emoji2Changed(feeling) {
+        this.emoji2 = feeling;
+        this.updateStore();
+    }
+
+    emoji3Changed(feeling) {
+        this.emoji3 = feeling;
+        this.updateStore();
     }
 
     continue() {
@@ -97,32 +138,28 @@ class Feelings extends Component {
 
     render() {
         const { classes } = this.props;
-        let feelings = this.getFeelings().map((feeling) => {
-            return (
-                <div key={feeling.name} >
-                    <div className={this.getClassName(feeling)} onClick={this.selectHandler.bind(this, feeling)}>
-                        <Emoji name={feeling.name} data={feeling} />
-                        <br />
-                        <label htmlFor={feeling.name}>{feeling.name}</label>
-                    </div>
-                </div>
-            )
-        });
+
+        var selector1 = <EmojiSelector onChange={this.emoji1Changed.bind(this)} emojis={this.getFeelings()} preload={true} renderName />,
+        selector2 = Store.feelings.length > 0 ? <EmojiSelector onChange={this.emoji2Changed.bind(this)} emojis={this.getFeelings()} preload={true} renderName /> : null,
+        selector3 = Store.feelings.length > 1 ? <EmojiSelector onChange={this.emoji3Changed.bind(this)} emojis={this.getFeelings()} preload={true} renderName /> : null;
+
         return (
             <div>
                 <FormControl fullWidth className={classes.control}>
                     <div className={classes.subjectText}>{Store.subject}</div >
                     <div className={classes.helperText}>{CommonData.getLocalized('chooseFeelings', Store.language)}</div>                    
                 </FormControl>
+                {selector1}{selector2}{selector3}
                 <div className="feelings">
-                    {feelings}
                 </div>
                 <Button
                     size="large"
                     className={"alignRight " + classes.control + " " + classes.continueButton}
                     variant="raised"
                     color="primary"
-                    onClick={this.continue.bind(this)}>{CommonData.getLocalized('buttonContinue', Store.language)}</Button>
+                    onClick={this.continue.bind(this)}
+                    disabled={Store.feelings.length === 0}
+                    >{CommonData.getLocalized('buttonContinue', Store.language)}</Button>
                     <br/><br/>
             </div>);
     }
