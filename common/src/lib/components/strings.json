@@ -24,7 +24,7 @@
         "feelingAngry": "Vred",
         "feelingNothing": "Neutral",
         
-        "headerTeacher": "DR Trivselsbarometer [Lærer]",
+        "headerTeacher": "DR Trivselsbarometer",
         "createPageExplainer": "Start en trivselsmåling, ved at indtaste et spørgsmål i emnefeltet, og tryk på opret:",
         "labelSubject": "Emne:",
         "subjectWatermarkText": "Eks: Hvordan har du det, når du skal til dansk prøve?",
@@ -34,7 +34,7 @@
         "seeConditionResults": "Se resultat for godt, okay, og/eller dårligt",
         "seeFeelingResults": "Se emojiresultat",
         "feelingsValidationError" : "Alle tre synboler skal matche",
-        "headerStudent": "DR Trivselsbarometer [Elev]",
+        "headerStudent": "DR Trivselsbarometer",
         "loginPageExplainer": "Tryk på symbolerne, og vælg dem som læreren viser",
         "participationIsAnonymous": "Bemærk din deltagelse vil være 100% anonym",
         "buttonStart": "Start",
