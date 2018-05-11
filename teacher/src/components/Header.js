@@ -6,16 +6,17 @@ import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import { CommonData } from 'common';
 import Store from '../Store';
-import {AppVersion} from '../AppVersion';
+import { AppVersion } from '../AppVersion';
+import './Header.css';
 
 const styles = {
   root: {
     flexGrow: 1,
   },
   version: {
-      color: '#ccc',
-      right: 10,
-      position: 'absolute'
+    color: '#ccc',
+    right: 10,
+    position: 'absolute'
   }
 };
 
@@ -26,7 +27,10 @@ function Header(props) {
       <AppBar position="static" color="primary">
         <Toolbar>
           <Typography variant="title" color="inherit">
-          {CommonData.getLocalized('headerTeacher', Store.language)}
+            <div className="title">
+              {CommonData.getLocalized('headerTeacher', Store.language)}
+            </div>
+            <div className="logo"></div>
           </Typography>
           <label className={classes.version} >{AppVersion}</label>
         </Toolbar>
