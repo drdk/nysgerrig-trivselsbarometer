@@ -74,7 +74,7 @@ class FeelingsResults extends Component {
                     <div key={feeling.name}>
                         <div data-count={feeling.count} data-name={feeling.name} className="bar" style={{height: feeling.scale + "%", backgroundColor: feeling.color }}>
                             <div>
-                                <img alt={feeling.name} src={"https://www.dr.dk/tjenester/nysgerrig/assets/NotoColorEmoji/" + feeling.file} />
+                                <img alt={feeling.name} src={feeling.file} />
                                 <div>{feeling.name}</div>
                             </div>                            
                         </div>
