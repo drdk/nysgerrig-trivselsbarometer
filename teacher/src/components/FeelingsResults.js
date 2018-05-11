@@ -72,7 +72,7 @@ class FeelingsResults extends Component {
             {feelingsArray.map((feeling) => {
                 return (
                     <div key={feeling.name}>
-                        <div data-count={feeling.count} data-name={feeling.name} className="bar" style={{height: feeling.scale + "%", backgroundColor: feeling.color }}>
+                        <div data-count={feeling.count} data-name={feeling.name} className="bar" style={{height: "calc(" + feeling.scale + "% - 64px)", backgroundColor: feeling.color }}>
                             <div>
                                 <img alt={feeling.name} src={feeling.file} />
                                 <div>{feeling.name}</div>
