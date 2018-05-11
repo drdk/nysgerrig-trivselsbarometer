@@ -26,6 +26,16 @@ const styles = theme => ({
     },
     badge: {
         margin: '10px'
+    },
+    linkToTeacher : {
+        position: 'fixed',
+        bottom: '0',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        paddingTop: '10px',
+        width: '98%',
+        textAlign: 'center',
+        borderTop: '1px solid #ccc'
     }
 });
 
@@ -115,7 +125,7 @@ class Login extends Component {
                             color="primary"
                             onClick={() => this.handleCreateClick()}>{CommonData.getLocalized('buttonStart', Store.language)}</Button>
                     </div>
-                    <p>
+                    <p className={classes.linkToTeacher}>
                         <a href="https://www.dr.dk/trivsel-opret/">{CommonData.getLocalized('linkToTeacherMode', Store.language)}</a>
                     </p>
                 </FormControl>
