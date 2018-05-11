@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Button from 'material-ui/Button';
 import Paper from 'material-ui/Paper';
+import Card from 'material-ui/Card';
 import Typography from 'material-ui/Typography';
 import Badge from 'material-ui/Badge';
 import { FormControl } from 'material-ui/Form';
@@ -17,19 +18,25 @@ let track = new Tracking();
 window.theStore = Store;
 const styles = theme => ({
     root: {
-        display: 'flex',
-        flexWrap: 'wrap',
-        margin: '20px'
+        margin: '20px',
+        textAlign: 'left'
     },
     control: {
         marginTop: '20px'
     },
     paper: {
         paddingTop: 16,
-        paddingBottom: 16
+        paddingBottom: 16,
+        textAlign: 'center'
     },
     badge: {
+        fontSize: '20px',
         margin: '10px'
+    },
+    hr: {
+        margin: '20px 20px 0 20px',
+        paddingTop: '20px',
+        borderTop: '1px solid #ccc'
     }
 });
 
@@ -115,26 +122,29 @@ class CreatePage extends Component {
         const { classes } = this.props;
         let continueButton = (Store.data.length > 0) ? (<Button className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.continue()}>Fortsæt</Button>) : null;
 
-        return (
-            <div className={classes.root}>
-                <Typography variant="headline" component="h3">
+        var createRoom = Store.classCode === undefined ? (<div fullWidth>
+            <Typography variant="headline" component="h3">
                 <p>
                 {CommonData.getLocalized('createPageExplainer', Store.language)}
                 </p>
-                </Typography>
-                <FormControl fullWidth className={classes.control}>
-                    <InputLabel htmlFor="subject">{CommonData.getLocalized('labelSubject', Store.language)}</InputLabel>
-                    <Input
-                        id="subject"
-                        type="text"
-                        value={this.state.subject}
-                        placeholder={CommonData.getLocalized('subjectWatermarkText', Store.language)}
-                        onChange={(event) => { this.setState({ subject: event.target.value }); }} />
-                </FormControl>
-                <Button size="large" className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.handleCreateClick()}>Opret</Button>
+            </Typography>
+            <FormControl fullWidth className={classes.control}>
+                <InputLabel htmlFor="subject">{CommonData.getLocalized('labelSubject', Store.language)}</InputLabel>
+                <Input
+                    id="subject"
+                    type="text"
+                    value={this.state.subject}
+                    placeholder={CommonData.getLocalized('subjectWatermarkText', Store.language)}
+                    onChange={(event) => { this.setState({ subject: event.target.value }); }} />
+            </FormControl>
+            <Button size="large" className={classes.control} variant="raised" color="primary" onClick={() => this.handleCreateClick()}>Opret</Button>
+        </div>) : null;
+
+        return (
+            <div className={classes.root}>
+                {createRoom}
                 <FormControl fullWidth className={classes.control}>
                     <Slide direction="up" in={Store.classCode !== undefined} mountOnEnter unmountOnExit>
-
                         <Paper className={classes.paper} elevation={4}>
                             <Typography variant="headline" component="h3">
                                 {CommonData.getLocalized('yourClassRoomIsReady', Store.language)}
@@ -145,10 +155,15 @@ class CreatePage extends Component {
                             <EmojiSelector timestamp={this.state.emojiTimestamp} onChange={this.emoji1Changed.bind(this)} emojis={CommonData.getFruitEmojis()} random={true} clickDisabled={true} />
                             <EmojiSelector timestamp={this.state.emojiTimestamp} onChange={this.emoji2Changed.bind(this)} emojis={CommonData.getAnimalEmojis()} random={true} clickDisabled={true} />
                             <EmojiSelector timestamp={this.state.emojiTimestamp} onChange={this.emoji3Changed.bind(this)} emojis={CommonData.getVehicleEmojis()} random={true} clickDisabled={true} />
-                            <Typography component="p">
+                            
+                            <Typography variant="headline" component="h3" className={classes.hr}>
+                                {Store.subject}
+                            </Typography>
+                            <br />
+                            <Typography component="h1" size="large">
                                 {CommonData.getLocalized('numberOfReplies', Store.language)}
                             </Typography>
-                            <Badge className={classes.badge} badgeContent={Store.data.length} color="primary"><b></b></Badge>
+                            <div className={classes.badge}>{Store.data.length}</div>
                             <br />
                             {continueButton}
                         </Paper>
