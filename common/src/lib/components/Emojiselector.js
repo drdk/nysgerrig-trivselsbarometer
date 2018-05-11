@@ -32,8 +32,8 @@ class EmojiSelector extends Component {
     #{id}.clickAble .arrow > div { width: 1px; height: 4px; margin-left: 46px; margin-right: 46px; border-top: 10px solid #fff; border-right: 10px solid transparent; border-left: 10px solid transparent; } \
     #{id}.clickAble div.notSelected { width: 112px; height: 112px; position: absolute; top: 0; left: 0; line-height: 112px; font-family: 'gibson', sans-serif; font-size: 0.9375rem; color: white; text-transform: uppercase; text-align: center; } \
     #{id} .preload { position: fixed; z-index: 0; top: -1px; right: -1px; width: 1px; height: 1px; overflow: hidden; } \
-    #{id} .overlay { position: fixed; z-index: 1; top: 0; right: 0; bottom: 0; left: 0; background-color: rgba(0, 0, 0, .8); } \
-    #{id} .childContainer { display: inline-block; position: fixed; z-index: 2; width:360px; max-height: 90vh; top: 50%; left: 50%; transform: translate(-50%, -50%); overflow-y: scroll; -webkit-overflow-scrolling: touch; background-color: #fff; border: 1px solid silver; display: flex; justify-content: space-evenly; flex-wrap: wrap; } \
+    #{id} .overlay { position: fixed; z-index: 1000; top: 0; right: 0; bottom: 0; left: 0; background-color: rgba(0, 0, 0, .8); } \
+    #{id} .childContainer { display: inline-block; position: fixed; z-index: 1001; width:360px; max-height: 90vh; top: 50%; left: 50%; transform: translate(-50%, -50%); overflow-y: scroll; -webkit-overflow-scrolling: touch; background-color: #fff; border: 1px solid silver; display: flex; justify-content: space-evenly; flex-wrap: wrap; } \
     #{id} .childContainer div { display: inline-block; width: 128px; height: 128px; margin: 5px; } \
     #{id} .childContainer img { padding: 0px; margin-bottom: 0px; } \
     @media screen and (max-width: 450px) { #{id} .childContainer { width:222px; } #{id} .childContainer div { display: inline-block; width: 64px; height: 64px; margin: 5px; } #{id} img { width: 64px; height: 64px; } #{id}.clickAble::after { border-right: solid 37px transparent; border-left: solid 37px transparent; } }\
