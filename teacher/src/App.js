@@ -44,7 +44,7 @@ class App extends Component {
 
   injectMockData() {
     var conditions = CommonData.getConditions(),
-      feelings = CommonData.getFeelings(),
+      feelings = CommonData.getFeelingEmojis(),
       answerCount = 10 + Math.floor(Math.random() * 20), // Between 10 and 30
       data = [];
 

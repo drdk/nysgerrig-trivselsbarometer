@@ -3,8 +3,9 @@
 .diagramBodyFeelings > div { display: table-row; }
 .diagramBodyFeelings > div > div { display: table-cell; vertical-align: bottom; padding: 0 10px 0 10px; height: 100%; }
 .diagramBodyFeelings .bar { display: inline-block; width: 100%; position: relative; border-top-right-radius: 20px; border-top-left-radius: 20px; }
-.diagramBodyFeelings .bar > div { margin-top: -128px; }
-.diagramBodyFeelings .bar img { width: auto; max-height: 128px; }
+.diagramBodyFeelings .bar > div { margin-top: -130px; }
+.diagramBodyFeelings .bar img { width: auto; max-height: 128px; transform: scale(.9); }
+.diagramBodyFeelings .bar img + div { margin-top: 15px; font-weight: bold; }
 .diagramBodyFeelings .bar::after {
     content: attr(data-count); position: absolute; bottom: -30px; left: 50%; transform: translate(-50%, -50%);
 }
