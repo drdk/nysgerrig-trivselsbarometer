@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CommonData  from './CommonData';
 import Emoji from './Emoji';
 
 var idSeed = 1;
@@ -24,6 +25,9 @@ class EmojiSelector extends Component {
     #{id}.clickAble:hover { background-color: #335466; } \
     #{id}.clickAble:hover:active { background-color: #708794; } \
     #{id}.clickAble > img { position: absolute; top: 4px; left: 8px; margin: 0; padding: 0; } \
+    #{id}.renderName { height: 142px; } \
+    #{id}.renderName > div > img { position: absolute; top: 4px; left: 8px; margin: 0; padding: 0; } \
+    #{id}.renderName > div > label { position: absolute; bottom: 20px; left: 0px; width: 112px; text-align: center; color: #fff; cursor: pointer; } \
     #{id}.clickAble .arrow { position: absolute; bottom: 0px; } \
     #{id}.clickAble .arrow > div { width: 1px; height: 4px; margin-left: 46px; margin-right: 46px; border-top: 10px solid #fff; border-right: 10px solid transparent; border-left: 10px solid transparent; } \
     #{id}.clickAble div.notSelected { width: 112px; height: 112px; position: absolute; top: 0; left: 0; line-height: 112px; font-family: 'gibson', sans-serif; font-size: 0.9375rem; color: white; text-transform: uppercase; text-align: center; } \
@@ -65,11 +69,11 @@ class EmojiSelector extends Component {
   select(index) {
     if (typeof(index) !== "number") {
       if (this.props.random) {
-        index = Math.floor(Math.random() *  this.props.emojis.collection.length);
+        index = Math.floor(Math.random() *  this.props.emojis.length);
       }
     }
 
-    this.childSelected(this.props.emojis.collection[index]);
+    this.childSelected(this.props.emojis[index]);
   }
 
   componentWillUnmount() {
@@ -95,8 +99,8 @@ class EmojiSelector extends Component {
   render() {
     let childContainer = null,
     preLoader = null,
-    children = this.props.emojis.collection.map((emoji) => {
-      return <Emoji key={emoji.name} selected={this.state.selected === emoji} data={emoji} clickHandler={this.childSelectedHandler} />
+    children = this.props.emojis.map((emoji) => {
+      return <Emoji key={emoji.name} selected={this.state.selected === emoji} data={emoji} clickHandler={this.childSelectedHandler} renderName={this.props.renderName} />
     });
 
     if (this.state.open) {
@@ -110,16 +114,16 @@ class EmojiSelector extends Component {
     var control;
 
     if (this.state.selected) {
-      control = <Emoji data={this.state.selected} clickHandler={this.open.bind(this)} />;
+      control = <Emoji data={this.state.selected} clickHandler={this.open.bind(this)} renderName={this.props.renderName} />;
     }
     else {
-      control = <div className="notSelected" onClick={this.open.bind(this)}>Vælg</div>;
+      control = <div className="notSelected" onClick={this.open.bind(this)}>{CommonData.getLocalized('choose')}</div>;
     }
 
     var arrow = (this.props.clickDisabled !== true) ? (<div className="arrow" onClick={this.open.bind(this)}><div></div></div>) : null;
     
     return (
-      <div id={this.id} className={this.props.clickDisabled ? null : "clickAble " + (this.props.hasOwnProperty("className") ? this.props.className : "")}>
+      <div id={this.id} className={(this.props.clickDisabled ? "" : "clickAble ") + (this.props.renderName ? "renderName " : "") + (this.props.hasOwnProperty("className") ? this.props.className : "")}>
         {control}
         {arrow}
         {childContainer}
