@@ -29,8 +29,11 @@ const styles = theme => ({
         paddingBottom: 16,
         textAlign: 'center'
     },
+    h3: {
+        fontSize: '30px'
+    },
     badge: {
-        fontSize: '20px',
+        fontSize: '100px',
         margin: '10px'
     },
     hr: {

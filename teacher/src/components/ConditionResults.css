@@ -1,7 +1,7 @@
 .diagramBodyConditions { display: table; height: calc(100vh - 450px); width: 100%; margin: 120px 0 50px 0; }
 .diagramBodyConditions > div { display: table-row; }
 .diagramBodyConditions > div > div { display: table-cell; vertical-align: bottom; width: 30%; height: 100%; }
-.diagramBodyConditions .bar { display: inline-block; width: 90%; position: relative; }
+.diagramBodyConditions .bar { display: inline-block; width: 90%; position: relative; border-top-right-radius: 20px; border-top-left-radius: 20px; }
 .diagramBodyConditions .bar > div { margin-top: -128px; color: #fff; }
 .diagramBodyConditions .bar img { width: auto; max-height: 128px; }
 .diagramBodyConditions .bar::after {

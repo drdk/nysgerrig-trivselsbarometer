@@ -41,10 +41,13 @@ class EmojiSelector extends Component {
       #{id} img { width: 64px; height: 64px; margin: 6px; } \
       #{id}.clickAble > img { top: 4px; left: 6px; } \
       #{id}.clickAble .arrow > div { margin-left: 28px; margin-right: 28px; } \
+      #{id}.renderName > div > img { left: 6px; } \
       #{id}.renderName > div > label { width: 76px; } \
+      #{id}.renderName { height: 108px; } \
       #{id}.clickAble div.notSelected { width: 76px; height: 76px; line-height: 76px; } \
       #{id} .childContainer { width:300px; } \
-      #{id} .childContainer div { display: inline-block; width: 76px; height: 76px; margin: 3px; } \
+      #{id} .childContainer div { display: inline-block; width: 76px; height: 76px; margin: 5px; } \
+      #{id} .childContainer div label { display: block; margin-top: -6px; } \
     }\
     ".replace(/{id}/mg, this.id)));
   }

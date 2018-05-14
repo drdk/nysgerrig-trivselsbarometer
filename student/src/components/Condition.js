@@ -14,30 +14,29 @@ const styles = theme => ({
         margin: '20px'
     },
     control: {
-        marginTop: '20px'
+        marginTop: '8px'
     },
     condition: {
-        paddingTop: 16,
-        paddingBottom: 16,
-        margin: "10px auto",
+        paddingTop: 12,
+        paddingBottom: 12,
+        margin: "6px auto",
         cursor: "pointer",
-        width: "300px"
-    },
-    badge: {
-        margin: '10px'
+        width: "260px",
+        border: "1px solid transparent"
     },
     helperText: {
         fontSize: "18px",
         color: "grey",
-        paddingBottom: "7px",
-        padding: '20px'
+        paddingBottom: "5px",
+        padding: '18px'
     },
     subjectText: {
         fontSize: "24px"
     },
     selected: {
         fontSize: "30px",
-        outline: "2px dotted black"
+        boxShadow: "none !important",
+        transform: "translate(1px, 2px)"
     }
 });
 
@@ -83,6 +82,7 @@ class Condition extends Component {
                 className={"alignRight " + classes.control}
                 variant="raised"
                 color="primary"
+                disabled={!Store.condition}
                 onClick={this.continue.bind(this)}>{CommonData.getLocalized('buttonContinue', Store.language)}
                 </Button>
                 <br/><br/>
