@@ -14,8 +14,7 @@ import { CommonData }  from 'common';
 const styles = theme => ({
     root: {
         display: 'flex',
-        flexWrap: 'wrap',
-        margin: '20px'
+        flexWrap: 'wrap'
     },
     control: {
         marginTop: '20px'
@@ -28,12 +27,9 @@ const styles = theme => ({
         margin: '10px'
     },
     linkToTeacher : {
-        position: 'fixed',
-        bottom: '0',
-        left: '50%',
-        transform: 'translateX(-50%)',
         paddingTop: '10px',
         width: '98%',
+        margin: '50px auto',
         textAlign: 'center',
         borderTop: '1px solid #ccc'
     }

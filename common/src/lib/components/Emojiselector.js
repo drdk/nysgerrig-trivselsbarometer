@@ -34,9 +34,18 @@ class EmojiSelector extends Component {
     #{id} .preload { position: fixed; z-index: 0; top: -1px; right: -1px; width: 1px; height: 1px; overflow: hidden; } \
     #{id} .overlay { position: fixed; z-index: 1000; top: 0; right: 0; bottom: 0; left: 0; background-color: rgba(0, 0, 0, .8); } \
     #{id} .childContainer { display: inline-block; position: fixed; z-index: 1001; width:360px; max-height: 90vh; top: 50%; left: 50%; transform: translate(-50%, -50%); overflow-y: scroll; -webkit-overflow-scrolling: touch; background-color: #fff; border: 1px solid silver; display: flex; justify-content: space-evenly; flex-wrap: wrap; } \
-    #{id} .childContainer div { display: inline-block; width: 128px; height: 128px; margin: 5px; } \
+    #{id} .childContainer div { display: inline-block; width: 112px; height: 112px; margin: 5px; } \
     #{id} .childContainer img { padding: 0px; margin-bottom: 0px; } \
-    @media screen and (max-width: 450px) { #{id} .childContainer { width:222px; } #{id} .childContainer div { display: inline-block; width: 64px; height: 64px; margin: 5px; } #{id} img { width: 64px; height: 64px; } #{id}.clickAble::after { border-right: solid 37px transparent; border-left: solid 37px transparent; } }\
+    @media screen and (max-width: 374px) { \
+      #{id} { width: 76px; height: 76px; } \
+      #{id} img { width: 64px; height: 64px; margin: 6px; } \
+      #{id}.clickAble > img { top: 4px; left: 6px; } \
+      #{id}.clickAble .arrow > div { margin-left: 28px; margin-right: 28px; } \
+      #{id}.renderName > div > label { width: 76px; } \
+      #{id}.clickAble div.notSelected { width: 76px; height: 76px; line-height: 76px; } \
+      #{id} .childContainer { width:300px; } \
+      #{id} .childContainer div { display: inline-block; width: 76px; height: 76px; margin: 3px; } \
+    }\
     ".replace(/{id}/mg, this.id)));
   }
 
