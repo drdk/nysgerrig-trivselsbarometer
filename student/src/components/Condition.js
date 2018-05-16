@@ -11,14 +11,14 @@ const styles = theme => ({
     root: {
         display: 'flex',
         flexWrap: 'wrap',
-        margin: '20px'
+        margin: '30px 20px 20px 20px'
     },
     control: {
-        marginTop: '8px'
+        marginTop: '-10px'
     },
     condition: {
-        paddingTop: 12,
-        paddingBottom: 12,
+        paddingTop: "11px",
+        paddingBottom: "6px",
         margin: "6px auto",
         cursor: "pointer",
         width: "260px",
@@ -27,8 +27,7 @@ const styles = theme => ({
     helperText: {
         fontSize: "18px",
         color: "grey",
-        paddingBottom: "5px",
-        padding: '18px'
+        padding: '8px 13px 18px 13px'
     },
     subjectText: {
         fontSize: "24px"
@@ -70,7 +69,7 @@ class Condition extends Component {
                         return (
                             <Button key={condition.name} variant="raised" className={[classes.condition, classes.conditionRelaxed,  selected ].join(' ')} 
                             style={{ backgroundColor: condition.color }} elevation={4} onClick={this.setCondition.bind(this, condition.name)}>
-                                <Typography variant="headline" component="h3">
+                                <Typography variant="headline" component="div">
                                     {condition.name}
                                 </Typography>
                             </Button>)
