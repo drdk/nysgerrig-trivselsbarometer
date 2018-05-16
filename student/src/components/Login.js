@@ -85,14 +85,6 @@ class Login extends Component {
         }
     }
 
-    componentWillMount() {
-        let params = (new URL(document.location)).searchParams;
-        let classCode = params.get("classcode");
-        if (classCode && classCode.length > 0) {
-            this.tryLogin(classCode);
-        }
-    }
-
     render() {
         const {classes} = this.props;
         return (

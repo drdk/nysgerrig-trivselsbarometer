@@ -31,9 +31,20 @@ const palette = {
 
 class App extends Component {
 
+  getQueryParam(name) {
+    var href = document.location.href;
+    var myregexp = /[?,&]([^=]+)=([^&]+)/img;
+    var match = myregexp.exec(href);
+    while (match != null) {
+      if (match[1].toLowerCase() === name.toLowerCase()) {
+        return match[2];
+      }
+      match = myregexp.exec(href);
+    }
+  }
+
   componentWillMount() {
-    let params = (new URL(document.location)).searchParams;
-    let screen = params.get("screen");
+    let screen = this.getQueryParam("screen");
     var lang = navigator.language || navigator.userLanguage;
     //Store.language = lang;
     if (screen && screen.length > 0) {
