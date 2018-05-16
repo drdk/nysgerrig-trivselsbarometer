@@ -28,7 +28,7 @@ class EmojiSelector extends Component {
     #{id}.renderName { height: 142px; } \
     #{id}.renderName > div > img { position: absolute; top: 4px; left: 8px; margin: 0; padding: 0; } \
     #{id}.renderName > div > label { position: absolute; bottom: 20px; left: 0px; width: 112px; text-align: center; color: #fff; cursor: pointer; } \
-    #{id}.clickAble .arrow { position: absolute; bottom: 0px; } \
+    #{id}.clickAble .arrow { position: absolute; bottom: 3px; } \
     #{id}.clickAble .arrow > div { width: 1px; height: 4px; margin-left: 46px; margin-right: 46px; border-top: 10px solid #fff; border-right: 10px solid transparent; border-left: 10px solid transparent; } \
     #{id}.clickAble div.notSelected { width: 112px; height: 112px; position: absolute; top: 0; left: 0; line-height: 112px; font-family: 'gibson', sans-serif; font-size: 0.9375rem; color: white; text-transform: uppercase; text-align: center; } \
     #{id} .preload { position: fixed; z-index: 0; top: -1px; right: -1px; width: 1px; height: 1px; overflow: hidden; } \
