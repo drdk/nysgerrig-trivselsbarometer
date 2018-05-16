@@ -22,7 +22,8 @@ const styles = theme => ({
         margin: "6px auto",
         cursor: "pointer",
         width: "260px",
-        border: "1px solid transparent"
+        border: "1px solid transparent",
+        boxShadow: "3px 3px 10px grey"
     },
     helperText: {
         fontSize: "18px",
@@ -68,7 +69,7 @@ class Condition extends Component {
                         var selected = Store.condition === condition.name ? classes.selected : null;
                         return (
                             <Button key={condition.name} variant="raised" className={[classes.condition, classes.conditionRelaxed,  selected ].join(' ')} 
-                            style={{ backgroundColor: condition.color }} elevation={4} onClick={this.setCondition.bind(this, condition.name)}>
+                            style={{ backgroundColor: condition.color }}  onClick={this.setCondition.bind(this, condition.name)}>
                                 <Typography variant="headline" component="div">
                                     {condition.name}
                                 </Typography>
