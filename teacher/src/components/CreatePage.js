@@ -125,7 +125,7 @@ class CreatePage extends Component {
         const { classes } = this.props;
         let continueButton = (Store.data.length > 0) ? (<Button className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.continue()}>Fortsæt</Button>) : null;
 
-        var createRoom = Store.classCode === undefined ? (<div fullWidth>
+        var createRoom = Store.classCode === undefined ? (<div>
             <Typography variant="headline" component="h3">
                 <p>
                 {CommonData.getLocalized('createPageExplainer', Store.language)}

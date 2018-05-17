@@ -32,6 +32,6 @@ export default class Track {
     }
 
     isTrackingEnabled() {
-        return window.location.host.includes('dr.dk')
+        return window.location.host.indexOf('dr.dk') > -1;
     }
 }

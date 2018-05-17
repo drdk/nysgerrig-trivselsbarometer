@@ -8,6 +8,7 @@ import Feelings from './components/Feelings';
 import Finish from './components/Finish';
 import Store from './Store';
 import { observer } from 'mobx-react';
+import { Url } from 'common';
 import "./App.css";
 import "./Font.css";
 
@@ -31,20 +32,8 @@ const palette = {
 
 class App extends Component {
 
-  getQueryParam(name) {
-    var href = document.location.href;
-    var myregexp = /[?,&]([^=]+)=([^&]+)/img;
-    var match = myregexp.exec(href);
-    while (match != null) {
-      if (match[1].toLowerCase() === name.toLowerCase()) {
-        return match[2];
-      }
-      match = myregexp.exec(href);
-    }
-  }
-
   componentWillMount() {
-    let screen = this.getQueryParam("screen");
+    let screen = Url.getQueryParam("screen");
     var lang = navigator.language || navigator.userLanguage;
     //Store.language = lang;
     if (screen && screen.length > 0) {

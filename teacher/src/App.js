@@ -8,7 +8,7 @@ import ConditionResults from './components/ConditionResults';
 import FeelingsResults from './components/FeelingsResults';
 import Store from './Store';
 import { observer } from 'mobx-react';
-import { CommonData } from 'common';
+import { CommonData, Url } from 'common';
 import { Tracking } from 'common';
 
 let track = new Tracking();
@@ -32,8 +32,7 @@ track.pageView();
 class App extends Component {
 
   componentWillMount() {
-    let params = (new URL(document.location)).searchParams;
-    let screen = params.get("screen");
+    let screen = Url.getQueryParam("screen");
     var lang = navigator.language || navigator.userLanguage;
     //Store.language = lang;
     if (screen && screen.length > 0) {
