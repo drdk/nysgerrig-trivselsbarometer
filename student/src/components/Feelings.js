@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import Button from 'material-ui/Button';
-import Typography from 'material-ui/Typography';
 import { FormControl } from 'material-ui/Form';
 import { withStyles } from 'material-ui/styles';
-import Slide from 'material-ui/transitions/Slide';
-import { Emoji } from 'common';
 import './Feelings.css';
 import { observer } from 'mobx-react';
 import Store from '../Store';
@@ -54,9 +51,9 @@ class Feelings extends Component {
         feelings = CommonData.getFeelingEmojis(Store.language),
         dontKnow = feelings.pop(),
         checkExistance = function(name) {
-            var exists = that.emoji1 && that.emoji1.name === name ||
-            that.emoji2 && that.emoji2.name === name ||
-            that.emoji3 && that.emoji3.name === name;
+            var exists = (that.emoji1 && that.emoji1.name === name) ||
+            (that.emoji2 && that.emoji2.name === name) ||
+            (that.emoji3 && that.emoji3.name === name);
             
             return exists;
         };

@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import Button from 'material-ui/Button';
 import Paper from 'material-ui/Paper';
-import Card from 'material-ui/Card';
 import Typography from 'material-ui/Typography';
-import Badge from 'material-ui/Badge';
 import { FormControl } from 'material-ui/Form';
 import Input, { InputLabel } from 'material-ui/Input';
 import { withStyles } from 'material-ui/styles';
@@ -48,8 +46,6 @@ class CreatePage extends Component {
     constructor() {
         super();
 
-        console.log('Build 0.1.0');
-
         this.state = {
             emojiTimestamp: Date.now(),
             subject: ""
@@ -57,6 +53,14 @@ class CreatePage extends Component {
 
         Store.data = Store.data || [];
         Store.classCode = undefined;
+    }
+
+    componentDidMount() {
+        var input = document.querySelector('#subject');        
+
+        if (input) {
+            input.focus();
+        }
     }
 
     handleChildAdded(childData) {
@@ -75,7 +79,6 @@ class CreatePage extends Component {
         Store.subject = this.state.subject;
         Store.classCode = "";
         this.resetEmojis();
-
     }
 
     resetEmojis() {

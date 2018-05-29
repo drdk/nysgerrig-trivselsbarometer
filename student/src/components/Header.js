@@ -14,9 +14,7 @@ const styles = {
     flexGrow: 1,
   },
   version: {
-      color: '#ccc',
-      right: 10,
-      position: 'absolute'
+      color: '#ccc'
   }
 };
 
@@ -34,7 +32,7 @@ function Header(props) {
             */}
             </div>
           </Typography>
-          <label className={classes.version} >{AppVersion}</label>
+          <label className={classes.version} >v.{AppVersion}</label>
         </Toolbar>
       </AppBar>
     </div>

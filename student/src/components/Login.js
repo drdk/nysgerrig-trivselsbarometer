@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import Button from 'material-ui/Button';
-import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import { FormControl } from 'material-ui/Form';
 import { withStyles } from 'material-ui/styles';
-import Slide from 'material-ui/transitions/Slide';
 import ClassRoomModel from '../ClassRoomModel.js';
 import { EmojiSelector }  from 'common';
 import Store from '../Store';
@@ -42,7 +40,6 @@ class Login extends Component {
         this.state = {
             feelingsValidationError : false
         }
-        console.log('Build 0.1.0');
     }
 
     handleLogin(loginData) {

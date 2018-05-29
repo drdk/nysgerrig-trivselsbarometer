@@ -34,7 +34,7 @@ class App extends Component {
 
   componentWillMount() {
     let screen = Url.getQueryParam("screen");
-    var lang = navigator.language || navigator.userLanguage;
+    //var lang = navigator.language || navigator.userLanguage;
     //Store.language = lang;
     if (screen && screen.length > 0) {
       Store.subject = "Demo";

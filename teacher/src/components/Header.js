@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from 'material-ui/Button';
 import { withStyles } from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
@@ -14,9 +15,11 @@ const styles = {
     flexGrow: 1,
   },
   version: {
-    color: '#ccc',
-    right: 10,
-    position: 'absolute'
+    color: '#ccc'
+  },
+  reload: {
+    position: 'absolute',
+    right: '10px'
   }
 };
 
@@ -32,7 +35,8 @@ function Header(props) {
             </div>
             <div className="logo"></div>
           </Typography>
-          <label className={classes.version} >{AppVersion}</label>
+          <label className={classes.version} >v.{AppVersion}</label>
+          <Button size="large" className={classes.reload} variant="raised" color="primary" onClick={() => window.location.href = '/' }>Opret nyt spørgsmål</Button>
         </Toolbar>
       </AppBar>
     </div>
