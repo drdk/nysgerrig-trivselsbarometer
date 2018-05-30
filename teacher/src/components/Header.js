@@ -36,7 +36,7 @@ function Header(props) {
             <div className="logo"></div>
           </Typography>
           <label className={classes.version} >v.{AppVersion}</label>
-          <Button size="large" className={classes.reload} variant="raised" color="primary" onClick={() => window.location.href = '/' }>Opret nyt spørgsmål</Button>
+          <Button size="large" className={classes.reload} variant="raised" color="primary" onClick={() => window.location.href = '/trivsel-opret/' }>Opret nyt spørgsmål</Button>
         </Toolbar>
       </AppBar>
     </div>
