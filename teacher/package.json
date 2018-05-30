@@ -1,18 +1,20 @@
 {
   "name": "nysgerrig-trivselsbarometer",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "private": true,
   "homepage": ".",
   "dependencies": {
+    "common": "../common",
     "firebase": "^4.12.1",
+    "html2canvas": "^1.0.0-alpha.12",
+    "jspdf": "^1.4.0",
     "material-ui": "^1.0.0-beta.41",
     "material-ui-icons": "^1.0.0-beta.36",
     "mobx": "^4.1.1",
     "mobx-react": "^5.0.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
-    "react-scripts": "1.1.4",
-    "common": "../common"
+    "react-scripts": "1.1.4"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -44,7 +44,8 @@
         "labelThankYou": "Tak for din deltagelse",
         "labelYouAreFinished": "Du er nu færdig, og din lærer vil vise klassens resultater.",
         "studentRetry" : "Hvis din lærer laver endnu en trivselsmåling, kan du starte den her",
-        "linkToTeacherMode" : "Hvis du er lærer og ønsker at oprette en trivselsmåling, kan du gøre det her."
+        "linkToTeacherMode" : "Hvis du er lærer og ønsker at oprette en trivselsmåling, kan du gøre det her.",
+        "exportToPDF": "Eksporter til PDF"
     },
     "nl-nl": {
 

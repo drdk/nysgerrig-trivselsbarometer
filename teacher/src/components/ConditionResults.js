@@ -32,6 +32,11 @@ class ConditionResults extends Component {
         track.send("showfeelings");
         Store.screen = "feelingsResults";
     }
+
+    goToExport() {
+        Store.screen = "export";
+    }
+
     calculateRender(condition){
       return {
           width: condition.proportion + "%",
@@ -118,6 +123,8 @@ class ConditionResults extends Component {
                     {this.createDiagram()}
                 </div>
                 <Button size="large" className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.goToFeelings()}>{CommonData.getLocalized('seeFeelingResults', Store.language)}</Button>
+                &nbsp;
+                <Button size="large" className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.goToExport()}>{CommonData.getLocalized('exportToPDF', Store.language)}</Button>
             </div>
         );
     }

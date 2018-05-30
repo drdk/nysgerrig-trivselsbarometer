@@ -6,6 +6,7 @@ import Header from './components/Header';
 import CreatePage from './components/CreatePage';
 import ConditionResults from './components/ConditionResults';
 import FeelingsResults from './components/FeelingsResults';
+import ExportFunctionality from './components/ExportFunctionality';
 import Store from './Store';
 import { observer } from 'mobx-react';
 import { CommonData, Url } from 'common';
@@ -91,8 +92,21 @@ class App extends Component {
           <FeelingsResults />
         </div>
       );
+    }
+    else if (Store.screen === "export") {
+      return (
+        <div id="exportWrapper">
+          <div id="exportCondition">
+            <ConditionResults />
+          </div>
+          <div id="exportFeelings">
+            <FeelingsResults />
+          </div>
+          <ExportFunctionality />
+        </div>
+      );
     } else {
-      console.error(Store.screen + ' does not exsist');
+      console.error(Store.screen + ' does not exist');
     }
   }
 

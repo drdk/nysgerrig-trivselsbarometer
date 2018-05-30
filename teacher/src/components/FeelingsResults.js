@@ -31,6 +31,10 @@ class FeelingsResults extends Component {
         track.send("showCondition");
     }
 
+    goToExport() {
+        Store.screen = "export";
+    }
+
     createDiagram() {
         var feelings = {},
         feelingsArray = [];
@@ -99,6 +103,8 @@ class FeelingsResults extends Component {
             </FormControl>
             {diagram}
             <Button size="large" className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.goToConditions()}>{CommonData.getLocalized('seeConditionResults', Store.language)}</Button>
+            &nbsp;
+            <Button size="large" className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.goToExport()}>{CommonData.getLocalized('exportToPDF', Store.language)}</Button>
         </div>);
     }
 }
