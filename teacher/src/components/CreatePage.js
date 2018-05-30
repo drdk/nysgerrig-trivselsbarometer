@@ -124,6 +124,12 @@ class CreatePage extends Component {
         Store.screen = "conditionResults";
     }
 
+    keyPressHandler(evt) {
+        if (evt.key === "Enter") {
+            this.handleCreateClick();
+        }
+    }
+
     render() {
         const { classes } = this.props;
         let continueButton = (Store.data.length > 0) ? (<Button className={"alignRight " + classes.control} variant="raised" color="primary" onClick={() => this.continue()}>Fortsæt</Button>) : null;
@@ -141,7 +147,8 @@ class CreatePage extends Component {
                     type="text"
                     value={this.state.subject}
                     placeholder={CommonData.getLocalized('subjectWatermarkText', Store.language)}
-                    onChange={(event) => { this.setState({ subject: event.target.value }); }} />
+                    onChange={(event) => { this.setState({ subject: event.target.value }); }}
+                    onKeyPress={this.keyPressHandler.bind(this)} />
             </FormControl>
             <Button size="large" className={classes.control} variant="raised" color="primary" onClick={() => this.handleCreateClick()}>Opret</Button>
         </div>) : null;
